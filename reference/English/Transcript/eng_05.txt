@@ -1,0 +1,76 @@
+[0.0s -> 6.1s]  is approximately 90% of the formula. At the plant, water is sourced from on-site wells,
+[6.1s -> 11.7s]  thoroughly sanitized, and put through a nanofiltration process to ensure absolute purity,
+[11.7s -> 16.8s]  providing the perfect base for the beverage. This meticulous water treatment guarantees
+[16.8s -> 20.9s]  that every bottle of Coke delivers the same crisp, refreshing taste.
+[22.2s -> 27.0s]  Now, with the secret formula in hand, let's journey inside the factory to see how every
+[27.0s -> 37.4s]  bottle of Coca-Cola is brought to life. It all starts with Coca-Cola's secret syrup.
+[37.4s -> 42.6s]  Surprisingly, it's not guarded by security, but arrived simply on a forklift in plastic jugs.
+[43.1s -> 47.8s]  This syrup is the essence of Coke, and when diluted with water in a mixing unit,
+[47.8s -> 54.2s]  it creates the base we all love. But it's not only mixed with water, after the syrup is diluted,
+[54.2s -> 59.4s]  precise amounts of natural or artificial sweeteners are added depending on the product.
+[59.4s -> 63.8s]  For instance, high-fructose corn syrup is used for the classic Coca-Cola,
+[63.8s -> 70.3s]  while a spartame is chosen for Diet Coke and Coke Zero. This mixture of syrup, water, and sweetener
+[70.3s -> 74.8s]  is then blended and pumped through an intricate system of pipes into a succession of batch
+[74.8s -> 80.4s]  tanks in an adjoining room. Next, the mixture flows to the votator at the mixing station,
+[80.4s -> 86.1s]  where it meets its fizzy partner, CO2. This carbonator does the crucial job of infusing
+[86.1s -> 90.3s]  the mix with carbon dioxide, giving it that hiss sound when you open the drink.
+[93.0s -> 98.1s]  Before the bottles can be filled, they must be spotless. They arrive fresh from the factory,
+[98.1s -> 103.1s]  but still get a thorough rinse. The rinsing machine flips them upside down, flushes them
+[103.1s -> 107.1s]  with filtered water, then returns them upright, ready for the next step.
+[107.8s -> 118.4s]  Now, the bottles are labeled before any Coke touches them. This ensures every bottle
+[118.4s -> 124.4s]  is branded perfectly with the iconic red and white logo. This hot melt modular labeling machine
+[124.4s -> 130.4s]  works with precision, swiftly affixing each label with precise alignment and accuracy on a large scale.
+[130.9s -> 142.0s]  But the quality checks don't stop there. High-tech inspection machines scans every
+[142.0s -> 146.4s]  cleaned bottle for defects like cracks or improper seals. Any bottle that doesn't
+[146.4s -> 157.6s]  pass inspection is removed from the line. Then comes the filling. The syrup mixture,
+[157.6s -> 163.7s]  kept at a precise 41 to 43 degrees, flows into the bottles. This careful temperature control
+[163.7s -> 168.5s]  means every bottle is filled perfectly, ensuring stability and preventing foaming.
+[169.3s -> 174.6s]  Once filled, the bottles head to the filler's reservoir. Air is removed, and each bottle is
+[174.6s -> 179.6s]  filled with a specific amount of Coca-Cola. Then, the caps come flying down a chute,
+[179.6s -> 183.2s]  propelled by compressed air, and are twisted onto the bottles.
+[183.8s -> 188.5s]  The capping machine ensures that each cap is sealed tightly, locking in the carbonation.
+[189.1s -> 194.0s]  But it's not over yet. The glass bottles get an aluminum crown that's crimped on securely by the
+[194.0s -> 198.8s]  crown capping machine. Then, the bottles travel through a warmer where they're brought to room
+[198.8s -> 204.5s]  temperature to prevent them from sweating during packaging. Finally, they undergo one last inspection
+[204.5s -> 210.7s]  to catch any impurities before being hoisted into cases. Cans follow a similar journey. First,
+[210.7s -> 215.7s]  they're prepared and cleaned by the can cleaning system, ensuring they're in perfect condition.
+[215.7s -> 220.0s]  The syrup is mixed with water and sweeteners, then pumped into the filling lines.
+[220.6s -> 224.2s]  Cans are filled with the carefully balanced mixture, just like the bottles.
+[224.9s -> 230.1s]  Capping the cans is just as precise. A dedicated worker oversees the can seamer,
+[230.1s -> 235.7s]  making sure it never runs out of caps. Each can is tightly sealed, ensuring the carbonation
+[235.7s -> 241.5s]  stays intact. After capping, the cans are washed and inspected by advanced machines.
+[241.5s -> 246.1s]  High-speed cameras and sensors check for misaligned seams or accidental spills,
+[246.1s -> 261.5s]  ensuring only the best cans move forward. Now, it's time for packaging.
+[261.5s -> 265.6s]  Once the bottles are filled and capped, they're wrapped in cardboard for protection.
+[265.6s -> 269.2s]  The cardboard is unwound from a reel, cut to the correct length,
+[269.2s -> 274.0s]  and shaped to fit around the bottles. This wrap-around packaging is then secured
+[274.0s -> 278.5s]  with pre-folded clips, ensuring the bottles stay in place during transit.
+[278.5s -> 283.1s]  It's like tucking them in for a safe journey. After being wrapped in cardboard,
+[283.1s -> 287.7s]  the bottles are shrink-wrapped for added protection. The shrink wrap is applied tightly,
+[287.7s -> 293.5s]  providing a secure, tamper-proof seal that keeps the bottles safe and intact throughout their journey.
+[293.5s -> 296.4s]  The cans are carefully packed into sturdy boxes.
+[296.4s -> 301.7s]  Machines ensure that these boxes are precisely the right size to hold the cans securely,
+[301.7s -> 305.7s]  minimizing movement during transit. Think of it as a perfect puzzle,
+[305.7s -> 309.5s]  where every piece fits just right. Once the cans are packed,
+[309.5s -> 312.2s]  they are shrink-wrapped to secure them for shipping.
+[312.2s -> 315.6s]  This process involves wrapping a plastic film around the boxes
+[315.6s -> 318.9s]  and heating it to shrink the film tightly around the cans.
+[318.9s -> 322.6s]  Shrink wrapping ensures that the cans stay firmly in place.
+[322.6s -> 326.7s]  The bottle cases are then sorted and stacked by automated systems.
+[326.7s -> 331.5s]  This step ensures everything is organized and ready for loading onto pallets.
+[331.5s -> 335.3s]  Efficient sorting means quicker, smoother deliveries to stores,
+[335.3s -> 347.3s]  keeping shelves stocked and ready for you. Just like the bottles,
+[347.3s -> 350.5s]  the can cases are sorted and stacked with precision.
+[350.5s -> 355.3s]  This careful organization helps in the smooth handling and shipping of large quantities.
+[355.3s -> 359.2s]  The sorted cases are shrink-wrapped to keep them stable during transport.
+[359.2s -> 362.2s]  This final wrap ensures everything stays put,
+[362.2s -> 375.1s]  reducing the risk of shifting during shipping. Robots then take over to organize the pallets.
+[375.1s -> 381.1s]  These machines stack the cases with precision, optimizing space and ensuring everything is secure.
+[381.1s -> 385.2s]  The robotic pallet organizers work efficiently to maximize stability
+[385.2s -> 388.5s]  and ensure that each pallet is perfectly balanced and ready for transport.
+[389.2s -> 391.9s]  Finally, the pallets are loaded onto trucks.
+[391.9s -> 397.0s]  Careful monitoring ensures everything is secure and the trucks are packed efficiently.
+[397.0s -> 399.4s]  Once loaded, they're off to distribution centers,
+[399.4s -> 402.5s]  bringing Coca-Cola to picnics and parties near you.
+[402.5s -> 405.8s]  And just like that, your favorite fizzy drink is on its way.
+[408.9s -> 410.6s]  If you found this intriguing,

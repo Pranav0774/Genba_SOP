@@ -1,0 +1,49 @@
+PYSCENEDETECT COMMANDS & RESULTS LOG — Genba Video to SOP Generator
+======================================================================
+
+1. INSTALLATION
+------------------------------------------------------------------------------
+pip install scenedetect[opencv]
+
+
+2. TUNING PROCESS (eng_03) — attempts before arriving at final settings
+------------------------------------------------------------------------------
+
+Attempt 1 — detect-adaptive, default settings:
+Command:
+scenedetect -i D:\genba-sop\videos\english\eng_03.mp4 detect-adaptive save-images -o D:\genba-sop\photos\eng_03
+
+Result: 185 scenes detected, average shot length 2.8 seconds
+Issue: Far too sensitive — picking up camera shake/hand movement, not real step changes
+
+
+Attempt 2 — detect-adaptive, threshold=5, min-scene-len=5s:
+Command:
+scenedetect -i D:\genba-sop\videos\english\eng_03.mp4 detect-adaptive --threshold 5 --min-scene-len 5s save-images -o D:\genba-sop\photos\eng_03_v2
+
+Result: 62 scenes detected, average shot length 8.2 seconds
+Issue: Improved, but still too many scenes for a task with realistically fewer real steps
+
+
+Attempt 3 (FINAL) — detect-adaptive, threshold=8, min-scene-len=10s:
+Command:
+scenedetect -i D:\genba-sop\videos\english\eng_03.mp4 detect-adaptive --threshold 8 --min-scene-len 10s save-images -o D:\genba-sop\photos\eng_03
+
+Result: 31 scenes detected, average shot length 16.4 seconds
+Outcome: Selected as final setting — reasonable granularity for candidate photo extraction.
+Note: Candidate photos still require human review/selection to pick the correct
+representative photo per SOP step — this is expected, as PySceneDetect's role in
+Phase 1 is to narrow down to candidates, not make the final selection (a later-phase task).
+
+
+3. FINAL COMMAND USED FOR ALL VIDEOS
+------------------------------------------------------------------------------
+scenedetect -i <VIDEO_PATH> detect-adaptive --threshold 8 --min-scene-len 10s save-images -o <OUTPUT_PHOTO_FOLDER>
+
+Example (applied per video):
+scenedetect -i D:\genba-sop\videos\english\eng_01.mp4 detect-adaptive --threshold 8 --min-scene-len 10s save-images -o D:\genba-sop\photos\eng_01
+scenedetect -i D:\genba-sop\videos\english\eng_02.mp4 detect-adaptive --threshold 8 --min-scene-len 10s save-images -o D:\genba-sop\photos\eng_02
+scenedetect -i D:\genba-sop\videos\english\eng_03.mp4 detect-adaptive --threshold 8 --min-scene-len 10s save-images -o D:\genba-sop\photos\eng_03
+(repeated per video — English, Japanese, and noisy)
+
+Note: 3 images are saved per detected scene by default (start/middle/end of scene).

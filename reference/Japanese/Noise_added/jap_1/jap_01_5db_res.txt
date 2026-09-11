@@ -1,0 +1,7 @@
+Character Error Rate: 49.85%
+(Target for Japanese videos: <= 15%)
+
+Substitutions: 107
+Deletions:     364
+Insertions:    41
+Hits:          556

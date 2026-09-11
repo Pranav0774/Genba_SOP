@@ -1,0 +1,197 @@
+TRANSCRIPT
+
+[0.0s -> 3.1s]  The Wood Whisperer is sponsored by Titebond.
+[3.1s -> 5.0s]  Now that I have a separate commercial space
+[5.0s -> 7.5s]  for my regular shop, I'm finding that I need
+[7.5s -> 8.8s]  some tools at home too.
+[8.8s -> 11.6s]  And thankfully I have a little bit of space in a garage
+[11.6s -> 13.2s]  where I could bring some basic tools
+[13.2s -> 15.9s]  and just have the things I need for small house projects.
+[15.9s -> 18.1s]  So one of those things is a planer
+[18.1s -> 20.2s]  and I need a stand for that planer.
+[20.2s -> 21.5s]  So that's what we're gonna do today.
+[21.5s -> 25.3s]  It's gonna be a bare bones basic DIY style build.
+[25.3s -> 27.3s]  I don't really have a whole lot in the way of resources
+[27.3s -> 29.8s]  here and thankfully we only need a couple of tools.
+[29.8s -> 32.0s]  And while I do have some power in here,
+[32.0s -> 35.0s]  I don't have a lot and I thought this would be a good test
+[35.0s -> 37.6s]  for my new Jackery Explorer 1000.
+[37.6s -> 39.9s]  This is a solar power generator.
+[39.9s -> 42.0s]  And I think this might be pretty cool to have on hand
+[42.0s -> 43.8s]  for running some of the lights in this space
+[43.8s -> 45.4s]  because of course I'm trying to film this
+[45.4s -> 47.8s]  as well as charging batteries and maybe even
+[47.8s -> 49.4s]  running a tool or two off of it.
+[49.4s -> 51.1s]  So let's get started on this project.
+[51.1s -> 52.4s]  It's gonna be a good one.
+[52.4s -> 54.2s]  Yeah, I'm excited about it too.
+[54.2s -> 56.2s]  I spent some time noodling around in SketchUp
+[56.2s -> 59.3s]  just to visualize the project before making the cut list.
+[59.3s -> 60.6s]  Armed with the list of parts,
+[60.6s -> 64.1s]  I can start cutting the two by fours because pine is fine.
+[64.1s -> 65.2s]  A lot of sap in here.
+[65.2s -> 66.3s]  Mm.
+[66.3s -> 68.9s]  I'll cut all the parts for the primary frame first.
+[68.9s -> 80.7s]  What do I want?
+[80.7s -> 82.5s]  By the way, if you don't have good work support
+[82.5s -> 84.7s]  for longer pieces, you could sometimes find a piece
+[84.7s -> 86.4s]  of scrap that'll do the job nicely.
+[86.4s -> 88.2s]  Makes for a much more stable cut.
+[89.3s -> 90.8s]  Time to fire up the drills.
+[91.9s -> 95.4s]  We'll get started by making the two side sub-assemblies.
+[95.4s -> 98.3s]  Now this is a great application for pocket screws.
+[99.2s -> 100.5s]  But I don't have my jig here,
+[100.5s -> 103.3s]  so I'm just gonna jam some screws in from the outside.
+[103.3s -> 106.0s]  To make sure I get the same screw locations in each piece,
+[106.0s -> 106.8s]  I'm gonna mark.
+[106.8s -> 107.7s]  Well, that's my name.
+[107.7s -> 109.3s]  The locations on a piece of scrap
+[109.3s -> 111.9s]  and transfer those lines to the other pieces.
+[111.9s -> 113.7s]  I'm drilling pilot holes from the outside
+[113.7s -> 116.2s]  so that the screw travels easily through the first piece
+[116.2s -> 120.6s]  and bites into the adjoining piece.
+[120.6s -> 121.9s]  Even with a four-inch screw,
+[121.9s -> 123.2s]  you wanna sink it pretty deep,
+[123.2s -> 125.5s]  so I'm using a larger bit to counterbore
+[125.5s -> 127.3s]  about an inch down.
+[127.3s -> 128.4s]  I need to clean off the bench,
+[128.4s -> 130.3s]  so I figured why not see if the jackery
+[130.3s -> 132.6s]  can run the shop vac, and it can.
+[132.6s -> 136.5s]  Nice.
+[136.5s -> 137.9s]  Each joint will get some glue,
+[137.9s -> 140.7s]  though I'm really pushing the limits of working temps today.
+[140.7s -> 142.3s]  It's pretty flippin' cold.
+[142.3s -> 143.3s]  It's a bit nidly out.
+[143.3s -> 144.5s]  Whenever driving screws,
+[144.5s -> 146.6s]  I like to use a clamp to hold the pieces together
+[146.6s -> 148.3s]  and prevent them from slipping.
+[148.3s -> 151.0s]  Now these screws are definitely overkill,
+[151.0s -> 153.4s]  but they're all I had in the four-inch plus range,
+[153.4s -> 161.2s]  so I'm using them.
+[161.2s -> 162.2s]  Now that's one.
+[162.2s -> 184.4s]  Let's assemble the second one.
+[184.4s -> 185.5s]  And there's two.
+[186.4s -> 188.8s]  Now to connect these two with the other rails,
+[188.8s -> 191.0s]  I'll carefully locate the screw holes.
+[191.0s -> 192.8s]  The key is to offset them slightly
+[192.8s -> 201.3s]  so that they don't hit the previous screws.
+[201.3s -> 202.8s]  I'll start one side at a time,
+[202.8s -> 204.2s]  again making use of my clamps
+[204.2s -> 216.9s]  to keep things from shifting.
+[216.9s -> 229.5s]  And now for the other side.
+[229.5s -> 233.6s]  Just like that, we've got a base.
+[233.6s -> 235.9s]  Well, as you can tell, it's pretty cold in here.
+[235.9s -> 237.8s]  I think I lost feeling in my left toe.
+[237.8s -> 239.3s]  That's all part of the experience, honey.
+[239.3s -> 241.2s]  But this hot chocolate is really helping a lot,
+[241.2s -> 242.7s]  and this is a good time to take a break
+[242.7s -> 246.3s]  and tell you about this Jackery Explorer 1000.
+[246.3s -> 247.2s]  We got a lot going on
+[247.2s -> 249.4s]  and a very compact form factor here.
+[249.4s -> 251.4s]  You got a beautiful digital display.
+[251.4s -> 253.0s]  It tells you how much battery you have left,
+[253.0s -> 255.5s]  what kind of output or input if you're charging it.
+[255.5s -> 258.6s]  We of course have our AC ports here, DC,
+[258.6s -> 260.2s]  as well as our USB ports,
+[260.2s -> 261.7s]  which is great for all the devices,
+[261.7s -> 262.7s]  just about everything I have
+[262.7s -> 264.5s]  charges via USB these days.
+[264.5s -> 266.9s]  And of course, a cigarette adapter too.
+[266.9s -> 269.6s]  And if you need it, think about camping.
+[269.6s -> 272.9s]  Having a built-in light is a pretty nice feature.
+[272.9s -> 274.0s]  Now to charge this thing up,
+[274.0s -> 275.6s]  you simply plug it into the wall,
+[275.6s -> 277.4s]  or I think one of the coolest features
+[277.4s -> 280.0s]  is being able to use the solar panels.
+[280.0s -> 282.0s]  Now, while a solar power generator like this
+[282.0s -> 283.7s]  has some applications in the shop,
+[283.7s -> 286.0s]  you could certainly use certain small tools with it.
+[286.0s -> 288.0s]  And if you're in a low or no power situation,
+[288.0s -> 290.0s]  it could definitely get you out of a bind.
+[290.0s -> 292.2s]  What I'm thinking about are summer camping trips.
+[292.2s -> 294.2s]  Just times when you're in a remote location,
+[294.2s -> 296.8s]  you don't necessarily have good access to electricity.
+[296.8s -> 299.4s]  Something like this is really gonna come in handy.
+[300.1s -> 301.0s]  Really nice.
+[301.0s -> 302.6s]  And when we first moved to Missouri,
+[302.6s -> 303.8s]  if you follow me on social media,
+[303.8s -> 304.7s]  you might have seen,
+[304.7s -> 306.4s]  within like the first two weeks of being here,
+[306.4s -> 308.3s]  we had a massive flood.
+[308.3s -> 310.0s]  And I was not prepared for that.
+[310.0s -> 312.0s]  I watched my sump pump in the basement,
+[312.0s -> 314.2s]  stop working in the middle of this flood.
+[314.2s -> 315.3s]  I just thought to myself, wow,
+[315.3s -> 318.0s]  we are screwed if this water level comes up too high,
+[318.0s -> 320.0s]  because I didn't have any kind of battery backup.
+[320.0s -> 322.5s]  So having a generator like this in the house
+[322.5s -> 325.4s]  is going to be just a good insurance policy for us.
+[325.4s -> 326.7s]  Now, here's the thing you need to know.
+[326.7s -> 329.9s]  Jackery is having an amazing sale for Black Friday
+[329.9s -> 330.9s]  and Cyber Monday.
+[330.9s -> 333.3s]  In fact, on their Cyber Monday live stream,
+[333.3s -> 334.9s]  they're gonna be doing a huge giveaway,
+[334.9s -> 336.9s]  including a travel trailer.
+[336.9s -> 338.5s]  So we're gonna put the links in the description
+[338.5s -> 339.8s]  if you wanna check that out.
+[339.8s -> 341.5s]  But at the very least, go check out the deals
+[341.5s -> 343.2s]  that they have so you could save some money
+[343.2s -> 345.2s]  if you wanted to pick up one of these generators.
+[345.2s -> 346.7s]  So thanks for your support, Jackery,
+[346.7s -> 348.5s]  and let's get back to our build.
+[348.5s -> 349.5s]  To make the stand mobile,
+[349.5s -> 356.7s]  let's add some three-inch casters.
+[356.7s -> 358.9s]  The screws won't hold real well long-term
+[358.9s -> 359.8s]  in the end grain.
+[359.8s -> 362.0s]  So I add some supplemental pieces to the bottom,
+[362.0s -> 383.3s]  giving me plenty of room for the four screws.
+[383.3s -> 387.4s]  And we're mobile.
+[387.4s -> 389.0s]  The stand will have a shelf at the bottom,
+[389.0s -> 390.8s]  and of course we need a surface on the top.
+[390.8s -> 398.3s]  So I'll cut a bunch of one-by-fours into slats.
+[398.3s -> 400.8s]  The two outer slats need to be notched for the legs.
+[400.8s -> 401.8s]  So I'll draw the lines,
+[401.8s -> 403.9s]  though I know the lines are kind of hard to see.
+[403.9s -> 405.2s]  Can't see the line, can you, Russ?
+[405.2s -> 407.0s]  Okay, I totally forced that one,
+[407.0s -> 409.9s]  but I'm not one to shy away from low-hanging fruit.
+[411.2s -> 412.2s]  Flat.
+[412.2s -> 415.0s]  I'll use a jigsaw to cut out the notches.
+[415.0s -> 417.8s]  And the jackery easily handled powering this tool.
+[417.8s -> 420.5s]  Pretty awesome.
+[420.5s -> 422.8s]  The rest of the slats are just spaced by eye,
+[422.8s -> 423.9s]  and then attached to the frame
+[423.9s -> 426.1s]  with a single screw for each slat.
+[426.1s -> 428.0s]  A single screw in the middle allows the boards
+[428.0s -> 437.9s]  to expand and contract freely.
+[437.9s -> 439.4s]  The top doesn't need anything special,
+[439.4s -> 441.5s]  so I'll add a little overhang on each side
+[441.5s -> 453.1s]  and then space them as evenly as I can.
+[453.1s -> 457.3s]  Now let's bring in the planer.
+[457.3s -> 458.2s]  All right, so there you go.
+[458.2s -> 459.4s]  A one-day build.
+[459.4s -> 461.5s]  In fact, this is just a few hours
+[461.5s -> 462.7s]  to make something like this.
+[462.7s -> 464.2s]  And just about anybody can do it
+[464.3s -> 466.3s]  because you only need a few basic tools
+[466.3s -> 467.6s]  and some basic materials.
+[467.6s -> 470.5s]  But it is a nice, sturdy stand.
+[470.5s -> 473.2s]  We not only have the top support for the planer,
+[473.2s -> 475.2s]  or honestly, any other tool you would wanna put there,
+[475.2s -> 477.4s]  but you have the bottom shelf there for extra stock
+[477.4s -> 479.1s]  or, again, another tool.
+[479.1s -> 480.1s]  And you can move it around
+[480.1s -> 482.0s]  wherever you need it to be in the shop.
+[482.0s -> 483.4s]  Now, I really like the idea
+[483.4s -> 485.6s]  of having the four lockable casters,
+[485.6s -> 486.7s]  especially on a planer.
+[486.7s -> 488.4s]  As you're feeding stock through there,
+[488.4s -> 490.4s]  you could potentially be pushing this thing around.
+[490.4s -> 492.2s]  So four locking casters, I think,
+[492.2s -> 494.4s]  is a really good option for something like this.
+[494.4s -> 496.2s]  So we will provide plans for this
+[496.2s -> 497.7s]  if you wanna make one for yourself.
+[497.7s -> 499.2s]  But I just wanna thank you guys for watching.
+[499.2s -> 501.4s]  Thank you, as always, for subscribing.
+[501.4s -> 503.1s]  And we'll see you next time.
+[503.1s -> 507.4s]  I hope you can see what a silly waste of resources this was.

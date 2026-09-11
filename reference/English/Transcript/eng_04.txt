@@ -1,0 +1,140 @@
+TRANSCRIPT
+
+[0.0s -> 2.8s]  The Wood Whisperer is sponsored by Titebond.
+[2.8s -> 8.7s]  So we're back in my home garage to start another simple DIY project with limited tools, limited
+[8.7s -> 11.1s]  materials, but it's going to be really, really cool.
+[11.1s -> 13.5s]  So this is the planer stand we built last time.
+[13.5s -> 17.2s]  One thing that really helps when you have a planer is having extra work support because
+[17.2s -> 20.7s]  sometimes you feed something in on the inside, you got to run around to the other side
+[20.7s -> 21.7s]  to catch it.
+[21.7s -> 23.2s]  It's nice to have some kind of support there.
+[23.2s -> 27.9s]  So we're going to build an adjustable height work stand that you could use on the planer.
+[27.9s -> 31.4s]  You could use it as outfeed for a chop saw, whatever you want to use it for.
+[31.4s -> 34.8s]  We're also going to do this in a situation where I have limited power.
+[34.8s -> 39.1s]  Again, and I've got the Jackery Explorer 1000 here that just helped me along with charging
+[39.1s -> 40.1s]  my batteries.
+[40.1s -> 43.6s]  Still got the music here, just in case we want some tunes.
+[43.6s -> 46.0s]  And I've got my laptop charging here at the same time.
+[46.0s -> 49.3s]  So speaking of the laptop, we're just going to go in, grab the measurements, get them
+[49.3s -> 51.7s]  on paper and start cutting the material.
+[51.7s -> 55.1s]  The whole stand is made with a couple of 2x4s and a 1x4.
+[55.1s -> 56.1s]  Okay, ready?
+[56.1s -> 57.1s]  Nice and wobbly?
+[57.5s -> 67.2s]  On most woodworking projects, I advise people to not cut all of their parts right at the beginning.
+[67.2s -> 71.0s]  But that's when we're dealing with expensive hardwoods and incredibly precise measurements.
+[71.0s -> 74.9s]  On a project like this, it's totally fine to chop everything right at the start and
+[74.9s -> 76.2s]  then move into assembly.
+[76.2s -> 89.7s]  We'll assemble the legs of the stand first.
+[89.7s -> 93.5s]  A piece of scrap helps support the upright while I use a square to get it all aligned
+[93.5s -> 94.5s]  properly.
+[94.5s -> 97.5s]  By the way, if you have to work in a cold shop, it's a good idea to keep your
+[97.5s -> 102.8s]  glue inside the house and possibly take the parts into a warm place to help the glue cure.
+[102.8s -> 108.2s]  Type-on 2 really doesn't want to be in anything lower than 55 degrees Fahrenheit or 13 degrees
+[108.2s -> 109.2s]  Celsius.
+[109.2s -> 127.6s]  Next, with a couple of screws at each joint, the legs are ready to go.
+[127.6s -> 131.0s]  To connect the legs to each other, we'll install a couple of stretchers.
+[131.0s -> 134.8s]  So I'm just measuring out the locations and then pre-drilling for screws.
+[134.8s -> 146.7s]  Over here.
+[146.7s -> 149.9s]  Now this is one of those do-as-I-say-not-as-I-do situations.
+[149.9s -> 153.1s]  I really don't advise using your drill battery as a hammer.
+[153.1s -> 155.3s]  Thankfully, these are like super non-critical.
+[155.3s -> 157.6s]  The battery on the drill?
+[157.6s -> 158.6s]  No.
+[158.6s -> 159.6s]  The stretchers.
+[159.6s -> 161.5s]  But I'm doing it anyway.
+[161.5s -> 166.5s]  I'll clamp the stretchers in place first and then drive the screws.
+[166.5s -> 175.8s]  Get a spin, get it!
+[175.8s -> 186.7s]  Now we can start cutting the 1x4s that will make up the adjustable work support.
+[186.7s -> 189.1s]  I got to make four of these, so I'm just going to do this.
+[189.1s -> 192.2s]  Well, I like to use both sides of my brain.
+[192.2s -> 197.9s]  We'll have two pieces glued and screwed to each leg flush with the top.
+[197.9s -> 200.9s]  This provides a channel for the upright to travel in.
+[200.9s -> 201.9s]  Ooh.
+[201.9s -> 204.3s]  Warm.
+[204.3s -> 225.7s]  Oh yeah.
+[225.7s -> 237.0s]  Yeah, I don't want that to be up, if anything, I want it down so they're not in the way.
+[237.0s -> 246.5s]  Let's go!
+[246.5s -> 249.0s]  Well, it's a good time for a break.
+[250.0s -> 256.8s]  And this is a good time to take a break and tell you about this Jackery Explorer 1000.
+[256.8s -> 259.6s]  We got a lot going on in a very compact form factor here.
+[259.6s -> 261.9s]  You've got a beautiful digital display.
+[261.9s -> 265.8s]  It tells you how much battery you have left, what kind of output or input if you're charging
+[265.8s -> 266.8s]  it.
+[266.8s -> 271.2s]  We, of course, have our AC ports here, DC, as well as our USB ports, which is great
+[271.2s -> 272.3s]  for all the devices.
+[272.3s -> 276.2s]  Just about everything I have charges via USB these days and, of course, a cigarette
+[276.2s -> 277.8s]  adapter too.
+[277.8s -> 283.0s]  And if you need it, think about camping, having a built-in light is a pretty nice feature.
+[283.0s -> 287.4s]  Now, to charge this thing up, you simply plug it into the wall, or I think one of the coolest
+[287.4s -> 290.7s]  features is being able to use the solar panels.
+[290.7s -> 294.5s]  And while a solar power generator like this has some applications in the shop, you could
+[294.5s -> 296.6s]  certainly use certain small tools with it.
+[296.6s -> 300.9s]  And if you're in a low or no power situation, it could definitely get you out of a bind.
+[300.9s -> 303.2s]  What I'm thinking about are summer camping trips.
+[303.2s -> 306.5s]  Just times when you're in a remote location, you don't necessarily have good access
+[306.6s -> 307.6s]  to electricity.
+[307.6s -> 309.6s]  Something like this is really going to come in handy.
+[309.6s -> 313.1s]  And when we first moved to Missouri, if you follow me on social media, you might have seen
+[313.1s -> 316.9s]  within like the first two weeks of being here, we had a massive flood.
+[316.9s -> 318.4s]  And I was not prepared for that.
+[318.4s -> 322.7s]  I watched my sump pump in the basement stop working in the middle of this flood and
+[322.7s -> 326.6s]  just thought to myself, wow, we are screwed if this water level comes up too high because
+[326.6s -> 328.5s]  I didn't have any kind of battery backup.
+[328.5s -> 333.1s]  So having a generator like this in the house is going to be just a good insurance policy
+[333.1s -> 334.1s]  for us.
+[334.1s -> 338.2s]  We provide endless clean energy with solar panels and fast charging.
+[338.2s -> 341.1s]  These units are incredibly quiet, safe and reliable.
+[341.1s -> 345.2s]  And you can support high power devices, whether you're outdoors, inside the house during an
+[345.2s -> 348.5s]  outage or in a shop space with limited power options.
+[348.5s -> 352.1s]  Right now, Jackery is having a big holiday sale that you don't want to miss with
+[352.1s -> 354.1s]  up to 28% off.
+[354.1s -> 357.6s]  So thanks for your support, Jackery, and let's get back to our build.
+[357.6s -> 361.1s]  Now let's cut the support piece to length, taking the measurement from the work stand
+[361.1s -> 368.7s]  itself.
+[368.7s -> 372.4s]  With the movable vertical pieces in place, I can mark their location so that I know
+[372.4s -> 375.7s]  where to drive the screws through the top support piece.
+[375.7s -> 379.9s]  I can then drop the piece in with some glue and drive a couple more screws.
+[379.9s -> 395.6s]  Always a good idea to pre-drill if you can.
+[395.6s -> 397.6s]  Now we need to drill a series of holes.
+[397.6s -> 414.4s]  The top hole goes all the way through both pieces.
+[414.4s -> 417.6s]  The rest of the holes will go on the movable piece and you could space them however
+[417.6s -> 418.6s]  you like.
+[418.6s -> 422.4s]  This thing should be as close as you dare since you don't want the holes to run into
+[422.4s -> 426.1s]  each other, but the more holes you have, the more height options you have.
+[426.1s -> 430.4s]  One, two, three, four, five, six, seven, I added seven, total of eight holes.
+[430.4s -> 443.0s]  Let's do that on the other side real quick.
+[443.0s -> 450.7s]  Too cheap to spring for a Brad Point bit?
+[450.7s -> 451.7s]  Go faster.
+[451.7s -> 458.0s]  Oh yeah.
+[458.0s -> 461.6s]  Now we'll cut a couple of lengths of 3 eighths inch dowel stock that'll serve as
+[461.6s -> 462.6s]  stops.
+[462.6s -> 467.5s]  Two holes up.
+[467.5s -> 469.8s]  But will it support my booty?
+[470.8s -> 471.8s]  Don't do it.
+[478.2s -> 479.8s]  Alright, so I think that just about does it.
+[479.8s -> 482.6s]  Now a couple of things you could do to maybe make this a little bit better.
+[482.6s -> 485.9s]  First of all, if you have a Brad Point bit, instead of a regular twist bit,
+[485.9s -> 488.5s]  that's going to give you much more accurate placement of your holes and that's
+[488.5s -> 490.1s]  critical for alignment.
+[490.1s -> 494.3s]  So if you have a little bit of trouble getting your dowel to seat correctly,
+[494.3s -> 497.5s]  you could always make the outer holes a little bit bigger.
+[497.5s -> 500.1s]  Just give yourself a little bit of room and slack there and that should help
+[500.1s -> 502.2s]  you find this interior hole.
+[502.2s -> 504.3s]  That's what we did and it seems to work pretty well.
+[504.3s -> 508.1s]  You can also adjust the spacing and maybe the size of the dowel just to have
+[508.1s -> 509.9s]  more increments in heights.
+[509.9s -> 513.5s]  If you find that this just is always a little bit off, you might try a different
+[513.5s -> 514.5s]  hole pattern, right?
+[514.5s -> 517.9s]  So there's a lot of creative ways that you can actually improve this design.
+[517.9s -> 519.7s]  But I think it's going to work pretty well.
+[519.7s -> 523.5s]  Only thing left to do is to try it out with the planer and just see if it works.
+[523.5s -> 529.6s]  Oh, that's funny.
+[529.6s -> 533.2s]  You can go under the board too to get even higher.
+[533.2s -> 534.2s]  Neato potato.
+[534.2s -> 540.8s]  Here like that.
+[540.8s -> 543.6s]  Now we're going to do a test run with the planer, but we don't have dust
+[543.6s -> 544.6s]  collection in here.
+[544.6s -> 546.7s]  So this stuff, the chips, they're just going to go everywhere.
+[546.7s -> 548.7s]  Jason here is going to hold the shop vac.
+[548.7s -> 551.3s]  The shop vac is going to be plugged into the jackery.
+[551.3s -> 553.9s]  We're just going to see if we can't make it a little less messy.

@@ -1,0 +1,8 @@
+[0.2s -> 4.8s]  Hi everyone, come with me to learn a little more about the ultrasound machine I use.
+[4.8s -> 8.5s]  This technology helps us identify abnormalities and dense tissue.
+[8.5s -> 13.1s]  The specific probe we use is best for superficial structures like the breast.
+[13.1s -> 16.2s]  In this case, I'm demonstrating on my arm.
+[16.2s -> 19.5s]  Ultrasounds are great for locating blood flow through lesions on breasts.
+[19.5s -> 23.2s]  As you can see, I found the blood vessel, which is the red blob on the screen.
+[23.2s -> 27.5s]  With this machine too, I can toggle with these buttons to adjust the images for
+[27.5s -> 28.6s]  optimal viewing.

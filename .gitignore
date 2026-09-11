@@ -1,0 +1,7 @@
+venv/
+hf_cache/
+*.wav
+*.mp4
+*.flac
+__pycache__/
+tools/
