@@ -1,0 +1,122 @@
+eng_03-Scene-001-02.jpg:
+The person is demonstrating the use of a planer, a woodworking tool, in a workshop setting. They are wearing protective gloves and a beanie, emphasizing safety while handling the equipment.
+
+eng_03-Scene-003-01.jpg:
+The person is demonstrating the use of a Jackery Explorer 1000 portable power station, holding it with gloves on for safety. The setting appears to be a construction or workshop area, with wooden framing visible in the background.
+
+eng_03-Scene-005-02.jpg:
+The person is using a miter saw to cut a piece of wood. They are wearing a glove on their left hand for protection. The saw is mounted on a workbench, and the person is holding the wood steady with their right hand.
+
+eng_03-Scene-006-01.jpg:
+The person is using a miter saw to cut a piece of wood. They are holding the wood steady with one hand while operating the saw with the other. Protective gear, such as gloves, is not visible, which could be a safety concern.
+
+eng_03-Scene-006-02.jpg:
+The person is sanding a wooden beam with a sanding block. They are wearing a smartwatch and have a notebook and pen on the workbench, suggesting they are taking notes or planning their work. The workspace includes a tape measure, gloves, and a portable power station, indicating a well-equipped environment.
+
+eng_03-Scene-007-01.jpg:
+The person is using a red power tool, likely a sander or drill, to work on a piece of wood. They are wearing a smartwatch but no gloves or other protective gear. The tool is plugged in, and the person is holding it with both hands, focusing on the task.
+
+eng_03-Scene-007-03.jpg:
+The person is marking a piece of wood with a pencil, likely to measure or align it with another piece clamped to the workbench. The pencil is being used without gloves, and there are no visible safety hazards in the image.
+
+eng_03-Scene-008-02.jpg:
+The person is using a Milwaukee cordless drill to make a hole in a piece of wood. They are wearing a smartwatch but no gloves or other protective gear. A pencil and a drill bit are visible on the workbench, and the drill is being held without a protective guard.
+
+eng_03-Scene-009-01.jpg:
+The person is using a drill to make a hole in a piece of wood. They are not wearing gloves, and there is sawdust visible, indicating the wood is being cut. The drill bit is visible as it penetrates the wood.
+
+eng_03-Scene-009-03.jpg:
+The person is applying glue to a piece of wood, preparing to join it with another piece. They are using a bottle of wood glue and a clamp is visible on the workbench, suggesting they will secure the pieces together. No gloves are visible, so hand protection is not evident in this step.
+
+eng_03-Scene-010-02.jpg:
+The person is using a clamp to secure a wooden frame on a workbench. They are wearing a smartwatch but no gloves or other protective gear. The clamp is being adjusted to ensure the frame is held firmly in place.
+
+eng_03-Scene-011-02.jpg:
+The person is using a Craftsman power drill to make a hole in a piece of wood. They are wearing a red beanie and a gray hoodie, but no gloves or other protective gear are visible. The drill is creating wood shavings as it drills into the wood.
+
+eng_03-Scene-012-01.jpg:
+The person is using a drill to work on a piece of wood clamped to a workbench. They are wearing a long-sleeved shirt, but no gloves or other protective gear are visible. The environment appears to be a workshop with various tools and materials around, and the person is working in a cold environment, which may affect their precision and safety.
+
+eng_03-Scene-012-02.jpg:
+The person is marking a piece of wood with a pencil, likely to indicate where to cut or drill. They are not wearing gloves, which could be a safety concern in a workshop setting.
+
+eng_03-Scene-013-01.jpg:
+The person is using a cordless drill to drive screws into a wooden frame, likely as part of a woodworking project. They are wearing a long-sleeved shirt and jeans, but no gloves or other protective gear are visible. The workspace includes various tools and materials, indicating a well-equipped workshop environment.
+
+eng_03-Scene-013-03.jpg:
+The person is assembling a wooden frame, likely for a window or door, by aligning and securing the pieces together. They are using their hands to ensure the pieces fit properly, and there are no visible safety hazards such as gloves or protective gear in the image.
+
+eng_03-Scene-015-01.jpg:
+The person is using a Milwaukee impact driver to screw a piece of wood into a larger wooden structure. They are wearing a red cap and safety goggles, but no gloves, which is a safety concern. The workspace includes various tools and materials, indicating a workshop setting.
+
+eng_03-Scene-015-02.jpg:
+The person is using a cordless drill to secure a wooden beam to a frame. They are wearing a red beanie and ear protection, emphasizing the importance of safety during woodworking tasks.
+
+eng_03-Scene-015-03.jpg:
+The person is demonstrating the use of a Jackery portable power station, likely explaining its features or how to use it. They are holding a mug, possibly to show the power station's ability to power appliances or devices. Protective gloves are visible on the table, indicating a focus on safety during the demonstration.
+
+eng_03-Scene-016-03.jpg:
+The person is holding a Jackery Explorer 1000 portable power station, showcasing its features and outlets. The power station is being held securely, with no protective gear visible, indicating a focus on the product's functionality rather than safety in this training segment.
+
+eng_03-Scene-017-01.jpg:
+The person is demonstrating the use of a Jackery Explorer 1000 portable power station, holding a charging cable and explaining its features. The setting appears to be a workshop or construction area, with wooden panels in the background.
+
+eng_03-Scene-017-02.jpg:
+The person is setting up a portable solar panel next to a Jackery power station. They are wearing glasses and a black jacket, and the solar panel is being unfolded on the grass near a body of water. No gloves or protective gear are visible, and the area appears safe for outdoor use.
+
+eng_03-Scene-017-03.jpg:
+The person is connecting a cable to a Jackery Explorer 1000 portable power station, which is placed on the grass. The power station is connected to a solar panel, indicating the use of renewable energy. No gloves or protective gear are visible, and the grassy surface suggests an outdoor setting.
+
+eng_03-Scene-018-02.jpg:
+The person is demonstrating the use of a Jackery Explorer 1000 portable power station. They are holding the power station with one hand and gesturing with the other, likely explaining its features or how to use it. The setting appears to be a workshop or construction site, indicated by the wooden walls and construction materials in the background.
+
+eng_03-Scene-021-02.jpg:
+The person is measuring a metal bracket with a tape measure to ensure it fits correctly on the wooden frame. They are using a pencil to mark the measurement. No gloves or protective gear are visible, and the environment appears to be a workshop with various tools and materials around.
+
+eng_03-Scene-021-03.jpg:
+The person is using a miter saw to cut a piece of wood. They are holding the wood steady with one hand while the saw blade is positioned above it. Protective gear, such as gloves, is not visible, which could be a safety concern.
+
+eng_03-Scene-022-01.jpg:
+The person is applying wood glue to a joint of a wooden frame. They are using a squeeze bottle of glue and are wearing a long-sleeved shirt and jeans, but no gloves or other protective gear are visible. The glue is being applied carefully to ensure a strong bond.
+
+eng_03-Scene-022-02.jpg:
+The person is using a clamp to secure a piece of wood to a larger wooden frame. The clamp has a red handle and is being applied to the corner of the frame to hold the pieces together. No gloves or other protective gear are visible, and the person is wearing casual clothing.
+
+eng_03-Scene-022-03.jpg:
+The person is using a cordless drill to secure a piece of wood into a wooden frame. They are not wearing gloves, and the drill bit is visible, indicating the use of a power tool. The setting appears to be a workshop with various tools and equipment in the background.
+
+eng_03-Scene-023-01.jpg:
+The person is using a cordless drill to drive screws into a wooden frame. They are wearing jeans and work boots, and the frame is clamped securely to the work surface. The drill is red and black, and the person is holding it with both hands for stability.
+
+eng_03-Scene-023-03.jpg:
+The person is marking a piece of wood with a pencil, likely to measure or align it for a woodworking project. They are not wearing gloves, which could be a safety concern in a workshop setting.
+
+eng_03-Scene-024-02.jpg:
+The person is using a jigsaw to cut a piece of wood, likely as part of a woodworking project. They are wearing a long-sleeved shirt and jeans, but no gloves or other protective gear are visible. The jigsaw is being used carefully, and the wood is being held steady to ensure a precise cut.
+
+eng_03-Scene-025-01.jpg:
+The person is assembling a wooden frame, likely for a piece of furniture. They are using a wooden mallet to tap a piece of wood into place, ensuring it fits securely. The person is wearing gloves, which is a safety measure to protect their hands from splinters and rough edges.
+
+eng_03-Scene-025-02.jpg:
+The person is using a cordless drill to secure wooden slats onto a frame. They are wearing a Christmas-themed beanie and ear protection, emphasizing the importance of safety during woodworking tasks.
+
+eng_03-Scene-026-01.jpg:
+The person is assembling a wooden structure, likely a bench or table, by inserting a vertical wooden plank into a horizontal slot. They are using their hands to align and secure the piece, ensuring it fits properly. No gloves or protective gear are visible, and the workspace appears to be a workshop with various tools and materials around.
+
+eng_03-Scene-026-02.jpg:
+The person is assembling a wooden structure, likely a table or bench, by aligning and securing wooden planks. They are using their hands to position the planks, ensuring they fit properly. No gloves or protective gear are visible, and the workspace appears to be a workshop with various tools and materials around.
+
+eng_03-Scene-026-03.jpg:
+The person is using a cordless drill to drive screws into a wooden table. They are wearing a smartwatch but no gloves, and the drill is red and black. The table is made of light-colored wood, and a red toolbox with screws is visible on the table.
+
+eng_03-Scene-027-01.jpg:
+The person is using a cordless drill to drive a screw into a wooden surface. They are wearing a wristwatch but no gloves, and the drill is held in a way that suggests they are applying pressure to ensure the screw is driven in securely.
+
+eng_03-Scene-027-03.jpg:
+The person is demonstrating the use of a planer, a woodworking tool used to smooth and flatten wood. They are wearing a red beanie and glasses, but no gloves or other protective gear are visible. The planer is placed on a wooden workbench, and the person appears to be explaining its operation or features.
+
+eng_03-Scene-028-01.jpg:
+The person is adjusting the height of a woodworking planer on a wooden stand. They are wearing a smartwatch but no gloves or other protective gear. The planer is a black Oliver model, and the stand is made of light-colored wood. The background shows construction materials and a partially built wall, indicating a workshop setting.
+
+eng_03-Scene-029-02.jpg:
+The person is demonstrating the use of a belt sander, a tool used for smoothing and finishing wood surfaces. They are wearing a red beanie and glasses, and their hands are gesturing towards the sander, likely explaining its operation or safety precautions.

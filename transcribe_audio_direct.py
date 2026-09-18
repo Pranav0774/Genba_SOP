@@ -1,6 +1,6 @@
 from faster_whisper import WhisperModel
 
-AUDIO_PATH = r"D:\genba-sop\videos\noise_mixed\Japanese\jap_1\jap_01_5db.wav"
+AUDIO_PATH = r"D:\genba-sop\videos\noise_mixed\English\eng_03_verified\eng_03_20db.wav"
 MODEL_SIZE = "small"
 
 print(f"Loading faster-whisper model ({MODEL_SIZE})...")
@@ -26,7 +26,7 @@ for segment in segments:
 
 print("=" * 60)
 
-OUTPUT_PATH = r"D:\genba-sop\reference\Japanese\Noise_added\jap_1\jap_01_5db.txt"
+OUTPUT_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_3\eng_03_20db.txt"
 with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
     f.write("\n".join(full_text))
 

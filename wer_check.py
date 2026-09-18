@@ -1,8 +1,9 @@
 import re
 import jiwer
 
-GROUND_TRUTH_PATH = r"D:\genba-sop\reference\English\Ground_Truth\eng_01_ground_truth.txt"
-MACHINE_PATH = r"D:\genba-sop\reference\English\Transcript\eng_01.txt"
+GROUND_TRUTH_PATH = r"D:\genba-sop\reference\English\Ground_Truth\eng_03_ground_truth.txt"
+MACHINE_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_3\eng_03_5db.txt"
+OUTPUT_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_3\eng_03_5db_result.txt"
 LANGUAGE = "english"
 
 
@@ -37,17 +38,28 @@ error = jiwer.wer(
     hypothesis_transform=transform,
 )
 
-print(f"Word Error Rate: {error * 100:.2f}%")
-print(f"(Target for English videos: <= 12%)")
-
-# Detailed breakdown (substitutions, deletions, insertions)
 output = jiwer.process_words(
     reference=ground_truth,
     hypothesis=machine,
     reference_transform=transform,
     hypothesis_transform=transform,
 )
-print(f"\nSubstitutions: {output.substitutions}")
-print(f"Deletions:     {output.deletions}")
-print(f"Insertions:    {output.insertions}")
-print(f"Hits:          {output.hits}")
+
+# Build the result text once, so it's identical whether printed or saved
+result_lines = [
+    f"Word Error Rate: {error * 100:.2f}%",
+    f"(Target for English videos: <= 12%)",
+    "",
+    f"Substitutions: {output.substitutions}",
+    f"Deletions:     {output.deletions}",
+    f"Insertions:    {output.insertions}",
+    f"Hits:          {output.hits}",
+]
+result_text = "\n".join(result_lines)
+
+print(result_text)
+
+with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    f.write(result_text)
+
+print(f"\nSaved to: {OUTPUT_PATH}")

@@ -5,3 +5,4 @@ hf_cache/
 *.flac
 __pycache__/
 tools/
+ollama_models/

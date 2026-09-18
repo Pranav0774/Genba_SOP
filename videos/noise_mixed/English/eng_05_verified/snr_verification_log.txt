@@ -1,0 +1,5 @@
+SNR Verification Log - eng_05
+==================================================
+Target: 20 dB | Achieved (measured RMS): 20.00 dB | File: D:\genba-sop\videos\noise_mixed\English\eng_05_verified\eng_05_20db.wav
+Target: 10 dB | Achieved (measured RMS): 10.00 dB | File: D:\genba-sop\videos\noise_mixed\English\eng_05_verified\eng_05_10db.wav
+Target: 5 dB | Achieved (measured RMS): 5.00 dB | File: D:\genba-sop\videos\noise_mixed\English\eng_05_verified\eng_05_5db.wav
