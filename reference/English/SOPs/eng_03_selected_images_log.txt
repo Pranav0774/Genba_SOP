@@ -1,0 +1,55 @@
+Selected Image Log — eng_03
+============================================================
+Step 1 [89.3s]: Fire up the drills
+  -> Selected image: eng_03-Scene-006-03.jpg
+
+Step 2 [91.9s]: Get started by making the two side sub-assemblies
+  -> Selected image: eng_03-Scene-007-01.jpg
+
+Step 3 [100.5s]: Jam screws in from the outside
+  -> Selected image: eng_03-Scene-006-02.jpg
+
+Step 4 [106.0s]: Mark screw locations
+  -> Selected image: eng_03-Scene-007-03.jpg
+
+Step 5 [111.9s]: Drill pilot holes from the outside
+  -> Selected image: eng_03-Scene-008-02.jpg
+
+Step 6 [125.5s]: Use larger bit to counterbore about an inch down
+  -> Selected image: eng_03-Scene-008-03.jpg
+
+Step 7 [136.5s]: Apply glue to each joint
+  -> Selected image: eng_03-Scene-009-02.jpg
+
+Step 8 [188.8s]: Carefully locate the screw holes
+  -> Selected image: eng_03-Scene-012-02.jpg
+
+Step 9 [201.3s]: Start one side at a time
+  -> Selected image: eng_03-Scene-013-02.jpg
+
+Step 10 [216.9s]: Keep things from shifting
+  -> Selected image: eng_03-Scene-014-03.jpg
+
+Step 11 [398.3s]: Cut one-by-fours into slats
+  -> Selected image: eng_03-Scene-023-04.jpg
+
+Step 12 [400.8s]: Notch outer slats for legs
+  -> Selected image: eng_03-Scene-023-03.jpg
+
+Step 13 [401.8s]: Draw lines for notching
+  -> Selected image: eng_03-Scene-023-05.jpg
+
+Step 14 [412.2s]: Use a jigsaw to cut out the notches
+  -> Selected image: eng_03-Scene-024-02.jpg
+
+Step 15 [423.9s]: Attach the slat to the frame with a single screw
+  -> Selected image: eng_03-Scene-024-03.jpg
+
+Step 16 [426.1s]: Place a single screw in the middle
+  -> Selected image: eng_03-Scene-025-02.jpg
+
+Step 17 [439.4s]: Add a little overhang on each side of the top
+  -> Selected image: eng_03-Scene-025-03.jpg
+
+Step 18 [453.1s]: Bring in the planer to test the finished stand
+  -> Selected image: eng_03-Scene-026-03.jpg

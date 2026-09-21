@@ -1,0 +1,4 @@
+Selected Image Log — eng_01
+============================================================
+Step 1 [16.2s]: Demonstrate on arm
+  -> Selected image: eng_01-Scene-002-01.jpg

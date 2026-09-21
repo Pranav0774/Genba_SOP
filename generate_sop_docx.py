@@ -1,39 +1,24 @@
-"""
-Phase 2, Step 7 — Build the Word document generator
-(numbered steps + embedded candidate photos + tools/safety)
-
-Combines:
-- The numbered SOP steps (from step_split.py output)
-- Tools and safety points (from extract_tools_safety.py output)
-- Candidate photos (from PySceneDetect output folder)
-
-into a single Word SOP document using python-docx.
-
-Run inside the activated venv:
-    pip install python-docx
-    python generate_sop_docx.py
-"""
-
 import os
 import re
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-VIDEO_NAME = "eng_03"
+VIDEO_NAME = "eng_05"
 
-STEPS_PATH = rf"D:\genba-sop\reference\English\{VIDEO_NAME}_steps.txt"
-TOOLS_SAFETY_PATH = rf"D:\genba-sop\reference\English\{VIDEO_NAME}_tools_safety.txt"
+STEPS_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_steps.txt"
+TOOLS_SAFETY_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_tools_safety.txt"
 PHOTOS_FOLDER = rf"D:\genba-sop\photos\English\{VIDEO_NAME}"
 SCENE_CSV_PATH = rf"D:\genba-sop\photos\{VIDEO_NAME}\{VIDEO_NAME}-Scenes.csv"
-OUTPUT_PATH = rf"D:\genba-sop\reference\English\{VIDEO_NAME}_SOP.docx"
-LOG_PATH = rf"D:\genba-sop\reference\English\{VIDEO_NAME}_selected_images_log.txt"
+OUTPUT_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_SOP.docx"
+LOG_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_selected_images_log.txt"
+
+EXCLUDE_PHOTOS_BEFORE_SECONDS = {
+    "eng_04": 64.5,
+}.get(VIDEO_NAME, 0.0)
 
 
 def parse_steps(path):
-    """Parse numbered steps with timestamps, flagging any marked [UNCLEAR].
-    Expected format: '1. [12.3s] Step description here'
-    """
     with open(path, "r", encoding="utf-8") as f:
         lines = f.read().strip().split("\n")
 
@@ -42,7 +27,6 @@ def parse_steps(path):
         line = line.strip()
         if not line:
             continue
-        # Match "1. [12.3s] description"
         match = re.match(r"^\d+\.\s*\[(\d+(?:\.\d+)?)s?\]\s*(.+)$", line)
         if match:
             timestamp = float(match.group(1))
@@ -51,7 +35,6 @@ def parse_steps(path):
             text = text.replace("[UNCLEAR]", "").strip()
             steps.append((text, is_unclear, timestamp))
         else:
-            # Fallback: no timestamp found in this line, skip timestamp matching for it
             match2 = re.match(r"^\d+\.\s*(.+)$", line)
             if match2:
                 text = match2.group(1)
@@ -80,7 +63,6 @@ def parse_tools_safety(path):
 
 
 def get_candidate_photos(folder, max_photos=None):
-    """Get sorted list of photo paths. Optionally limit count for a clean document."""
     photos = sorted([
         os.path.join(folder, f) for f in os.listdir(folder)
         if f.lower().endswith((".jpg", ".jpeg", ".png"))
@@ -92,71 +74,102 @@ def get_candidate_photos(folder, max_photos=None):
 
 
 def load_scene_timestamps(csv_path):
-    """Load PySceneDetect's scene list CSV.
-    Returns a dict: scene_number -> start_time_seconds
-
-    Note: PySceneDetect's CSV has an extra "Timecode List:" line before the
-    real header row, so we skip the first line before parsing.
-    """
     import csv
     scene_times = {}
     with open(csv_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    # Skip the first line ("Timecode List:,...") - real headers are on line 2
     reader = csv.DictReader(lines[1:])
     for row in reader:
         try:
             scene_num = int(row["Scene Number"])
             start_sec = float(row["Start Time (seconds)"])
-            scene_times[scene_num] = start_sec
+            end_sec = float(row["End Time (seconds)"])
+            scene_times[scene_num] = (start_sec, end_sec)
         except (KeyError, ValueError):
             continue
     return scene_times
 
 
 def get_photo_scene_number(photo_filename):
-    """Extract scene number from filename like 'eng_03-Scene-005-01.jpg' -> 5"""
     match = re.search(r"Scene-(\d+)", photo_filename)
     return int(match.group(1)) if match else None
 
 
-def match_photos_to_steps(steps, photos, scene_times):
-    """For each step, find the photo whose scene timestamp is closest to the step's timestamp.
-    Falls back to even distribution if timestamps are unavailable.
-    """
-    # Build list of (photo_path, timestamp) using scene_times lookup
-    photo_ts = []
+def get_photo_position(photo_filename):
+    match = re.search(r"Scene-\d+-(\d+)", photo_filename)
+    return int(match.group(1)) if match else 1
+
+
+def build_scene_position_counts(photos):
+    counts = {}
     for p in photos:
         scene_num = get_photo_scene_number(os.path.basename(p))
-        ts = scene_times.get(scene_num) if scene_num is not None else None
+        position = get_photo_position(os.path.basename(p))
+        if scene_num is not None:
+            counts[scene_num] = max(counts.get(scene_num, 1), position)
+    return counts
+
+
+def get_photo_timestamp(photo_filename, scene_times, scene_position_counts):
+    scene_num = get_photo_scene_number(photo_filename)
+    if scene_num is None or scene_num not in scene_times:
+        return None
+    start, end = scene_times[scene_num]
+    position = get_photo_position(photo_filename)
+    total = scene_position_counts.get(scene_num, 3)
+    if total <= 1:
+        return (start + end) / 2
+    fraction = (position - 1) / (total - 1)
+    fraction = max(0.0, min(1.0, fraction))
+    return start + fraction * (end - start)
+
+
+def match_photos_to_steps(steps, photos, scene_times, exclude_before_seconds=0.0):
+    scene_position_counts = build_scene_position_counts(photos)
+    photo_ts = []
+    for p in photos:
+        ts = get_photo_timestamp(os.path.basename(p), scene_times, scene_position_counts)
+        if ts is not None and ts < exclude_before_seconds:
+            continue
         photo_ts.append((p, ts))
 
     have_any_timestamps = any(ts is not None for _, ts in photo_ts)
 
-    matched = []
+    matched = [None] * len(steps)
     if have_any_timestamps:
-        for step_text, is_unclear, step_ts in steps:
+        available = [(p, ts) for p, ts in photo_ts if ts is not None]
+
+        pairs = []
+        for step_idx, (step_text, is_unclear, step_ts) in enumerate(steps):
             if step_ts is None:
-                matched.append(None)
                 continue
-            # find closest photo by timestamp
-            candidates = [(p, ts) for p, ts in photo_ts if ts is not None]
-            if not candidates:
-                matched.append(None)
+            for photo_path, photo_t in available:
+                pairs.append((abs(photo_t - step_ts), step_idx, photo_path))
+        pairs.sort(key=lambda x: x[0])
+
+        assigned_steps = set()
+        used_photos = set()
+        for _, step_idx, photo_path in pairs:
+            if step_idx in assigned_steps or photo_path in used_photos:
                 continue
-            best = min(candidates, key=lambda x: abs(x[1] - step_ts))
-            matched.append(best[0])
+            matched[step_idx] = photo_path
+            assigned_steps.add(step_idx)
+            used_photos.add(photo_path)
+
+        for step_idx, (step_text, is_unclear, step_ts) in enumerate(steps):
+            if step_ts is None or matched[step_idx] is not None:
+                continue
+            if available:
+                best = min(available, key=lambda x: abs(x[1] - step_ts))
+                matched[step_idx] = best[0]
     else:
-        # Fallback: even distribution by position (old behavior)
         num_steps = len(steps)
         num_photos = len(photos)
         for i in range(num_steps):
             if num_photos > 0:
                 idx = min(int(i * num_photos / num_steps), num_photos - 1)
-                matched.append(photos[idx])
-            else:
-                matched.append(None)
+                matched[i] = photos[idx]
 
     return matched
 
@@ -239,7 +252,7 @@ if __name__ == "__main__":
     print(f"Loaded {len(scene_times)} scene timestamps")
 
     print("Matching photos to steps by timestamp...")
-    matched_photos = match_photos_to_steps(steps, photos, scene_times)
+    matched_photos = match_photos_to_steps(steps, photos, scene_times, EXCLUDE_PHOTOS_BEFORE_SECONDS)
     matched_count = sum(1 for p in matched_photos if p is not None)
     print(f"Matched {matched_count}/{len(steps)} steps to a photo")
 

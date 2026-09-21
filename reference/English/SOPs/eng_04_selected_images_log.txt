@@ -1,0 +1,58 @@
+Selected Image Log — eng_04
+============================================================
+Step 1 [49.3s]: Get measurements
+  -> Selected image: eng_04-Scene-004-03.jpg
+
+Step 2 [49.3s]: Start cutting the material on paper
+  -> Selected image: eng_04-Scene-005-01.jpg
+
+Step 3 [89.7s]: Position a piece of scrap to support the upright while aligning it with a square
+  -> Selected image: eng_04-Scene-006-02.jpg
+
+Step 4 [109.2s]: Secure legs with screws at each joint
+  -> Selected image: eng_04-Scene-006-04.jpg
+
+Step 5 [131.0s]: Measure out locations for screws
+  -> Selected image: eng_04-Scene-006-06.jpg
+
+Step 6 [134.8s]: Pre-drill for screws
+  -> Selected image: eng_04-Scene-007-02.jpg
+
+Step 7 [161.5s]: Clamp the stretchers in place
+  -> Selected image: eng_04-Scene-008-03.jpg
+
+Step 8 [175.8s]: Start cutting the 1x4s for the adjustable work support
+  -> Selected image: eng_04-Scene-009-03.jpg
+
+Step 9 [186.7s]: Make four of these
+  -> Selected image: eng_04-Scene-010-02.jpg
+
+Step 10 [357.6s]: Cut support piece to length using measurement from work stand
+  -> Selected image: eng_04-Scene-017-03.jpg
+
+Step 11 [375.7s]: Mark location for screws
+  -> Selected image: eng_04-Scene-018-03.jpg
+
+Step 12 [379.9s]: Apply glue and drive screws
+  -> Selected image: eng_04-Scene-018-04.jpg
+
+Step 13 [395.6s]: Pre-drill holes
+  -> Selected image: eng_04-Scene-018-05.jpg
+
+Step 14 [397.6s]: The top hole goes all way through both pieces
+  -> Selected image: eng_04-Scene-018-06.jpg
+
+Step 15 [443.0s]: Do that on the other side
+  -> Selected image: eng_04-Scene-018-10.jpg
+
+Step 16 [461.6s]: Cut two lengths of 3 eighths inch dowel stock
+  -> Selected image: eng_04-Scene-019-02.jpg
+
+Step 17 [467.5s]: Drill two holes up
+  -> Selected image: eng_04-Scene-019-03.jpg
+
+Step 18 [534.2s]: Hold the shop vac
+  -> Selected image: eng_04-Scene-021-02.jpg
+
+Step 19 [551.3s]: Make it a little less messy
+  -> Selected image: eng_04-Scene-022-03.jpg

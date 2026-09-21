@@ -45,15 +45,14 @@ output = jiwer.process_words(
     hypothesis_transform=transform,
 )
 
-# Build the result text once, so it's identical whether printed or saved
 result_lines = [
     f"Word Error Rate: {error * 100:.2f}%",
     f"(Target for English videos: <= 12%)",
     "",
     f"Substitutions: {output.substitutions}",
-    f"Deletions:     {output.deletions}",
-    f"Insertions:    {output.insertions}",
-    f"Hits:          {output.hits}",
+    f"Deletions: {output.deletions}",
+    f"Insertions: {output.insertions}",
+    f"Hits: {output.hits}",
 ]
 result_text = "\n".join(result_lines)
 

@@ -1,23 +1,18 @@
-"""
-Phase 2, Step 6 — Extract tools and safety points from transcript output
-
-Sends the transcript to qwen2.5:7b-instruct (via Ollama) and asks it to
-pull out a list of tools/materials used, and any safety-relevant points.
-
-Prerequisite: Ollama running locally with qwen2.5:7b-instruct pulled.
-
-Run inside the activated venv:
-    python extract_tools_safety.py
-"""
-
 import requests
 import re
+import time
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5:7b-instruct"
 
-TRANSCRIPT_PATH = r"D:\genba-sop\reference\English\Ground_Truth\eng_03_ground_truth.txt"
-OUTPUT_PATH = r"D:\genba-sop\reference\English\eng_03_tools_safety.txt"
+MAX_ATTEMPTS = 3
+RETRY_BACKOFF_SECONDS = 5
+REQUEST_TIMEOUT_SECONDS = 180
+
+VIDEO_NAME = "eng_05"
+
+TRANSCRIPT_PATH = rf"D:\genba-sop\reference\English\Ground_Truth\{VIDEO_NAME}_ground_truth.txt"
+OUTPUT_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_tools_safety.txt"
 
 PROMPT_TEMPLATE = """You are analyzing a spoken workplace training transcript to extract two lists for a Standard Operating Procedure (SOP) document.
 
@@ -64,9 +59,18 @@ def extract_tools_safety(transcript_text: str) -> str:
         }
     }
 
-    response = requests.post(OLLAMA_URL, json=payload)
-    response.raise_for_status()
-    return response.json().get("response", "").strip()
+    last_error = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            response = requests.post(OLLAMA_URL, json=payload, timeout=REQUEST_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json().get("response", "").strip()
+        except (requests.exceptions.RequestException, ValueError) as e:
+            last_error = e
+            print(f"    WARNING: Ollama call failed [attempt {attempt}/{MAX_ATTEMPTS}]: {e}")
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(RETRY_BACKOFF_SECONDS)
+    raise last_error
 
 
 if __name__ == "__main__":

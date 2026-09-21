@@ -5,28 +5,24 @@ from faster_whisper import WhisperModel
 
 VIDEO_PATH = r"D:\genba-sop\videos\english\eng_01.mp4"
 AUDIO_PATH = r"D:\genba-sop\videos\english\eng_01_new_audio.wav"
-MODEL_SIZE = "small"   # options: tiny, base, small, medium, large-v3
-                        # start small — faster to download and test with
+MODEL_SIZE = "small"
 
-# ---- Extract audio using ffmpeg ----
 print("Extracting audio from video...")
 subprocess.run([
     "ffmpeg",
-    "-y",                
+    "-y",
     "-i", VIDEO_PATH,
-    "-ar", "16000",      
-    "-ac", "1",          
+    "-ar", "16000",
+    "-ac", "1",
     AUDIO_PATH
 ], check=True)
 
 print(f"Audio extracted to: {AUDIO_PATH}")
 
-# ---- Load faster-whisper model ----
 print(f"Loading faster-whisper model ({MODEL_SIZE})...")
 
 model = WhisperModel(MODEL_SIZE, device="cpu", compute_type="int8")
 
-# ---- Transcribe with VAD enabled ----
 print("Transcribing...")
 segments, info = model.transcribe(
     AUDIO_PATH,

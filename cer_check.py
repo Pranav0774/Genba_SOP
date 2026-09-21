@@ -48,12 +48,11 @@ if LANGUAGE == "english":
         hypothesis_transform=transform,
     )
     print(f"\nSubstitutions: {output.substitutions}")
-    print(f"Deletions:     {output.deletions}")
-    print(f"Insertions:    {output.insertions}")
-    print(f"Hits:          {output.hits}")
+    print(f"Deletions: {output.deletions}")
+    print(f"Insertions: {output.insertions}")
+    print(f"Hits: {output.hits}")
 
 elif LANGUAGE == "japanese":
-    
     transform = jiwer.Compose([
         jiwer.RemoveMultipleSpaces(),
         jiwer.Strip(),
@@ -77,9 +76,9 @@ elif LANGUAGE == "japanese":
         hypothesis_transform=transform,
     )
     print(f"\nSubstitutions: {output.substitutions}")
-    print(f"Deletions:     {output.deletions}")
-    print(f"Insertions:    {output.insertions}")
-    print(f"Hits:          {output.hits}")
+    print(f"Deletions: {output.deletions}")
+    print(f"Insertions: {output.insertions}")
+    print(f"Hits: {output.hits}")
 
 else:
     raise ValueError("LANGUAGE must be 'english' or 'japanese'")

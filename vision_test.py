@@ -1,22 +1,9 @@
-"""
-Phase 2, Step 1-2 — Vision model setup + initial testing on candidate photos
-
-Sends a candidate photo to the local Qwen2.5-VL model (via Ollama) and asks it
-to describe what's happening in the image, for SOP step generation.
-
-Prerequisite: Ollama running locally with qwen2.5vl:7b pulled.
-
-Run inside the activated venv:
-    python vision_test.py
-"""
-
 import requests
 import base64
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5vl:7b"
 
-# Point this at one of your candidate photos
 IMAGE_PATH = r"D:\genba-sop\photos\English\eng_03\eng_03-Scene-005-02.jpg"
 
 PROMPT = (

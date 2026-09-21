@@ -1,32 +1,20 @@
-"""
-Phase 2, Step 4 — Draft step-splitting logic (transcript -> numbered steps)
-
-Sends the transcript to qwen2.5:7b-instruct (via Ollama) and asks it to
-split the narration into clear, numbered SOP steps, with timestamps.
-
-Long transcripts are split into smaller CHUNKS of transcript segments before
-being sent to the model. Small local models tend to lose track of formatting
-rules and start echoing raw input when given very long transcripts in one go;
-chunking keeps each request small enough to stay reliable, and results are
-combined and renumbered afterward.
-
-Prerequisite: Ollama running locally with qwen2.5:7b-instruct pulled.
-
-Run inside the activated venv:
-    python step_split.py
-"""
-
 import requests
 import re
+import time
+import os
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5:7b-instruct"
 
-TRANSCRIPT_PATH = r"D:\genba-sop\reference\English\Transcript\eng_04.txt"
-OUTPUT_PATH = r"D:\genba-sop\reference\English\eng_04_steps.txt"
+MAX_ATTEMPTS = 3
+RETRY_BACKOFF_SECONDS = 5
+REQUEST_TIMEOUT_SECONDS = 180
 
-# How many transcript segments to send to the model per request.
-# Smaller = more reliable formatting, but more requests (slower overall).
+VIDEO_NAME = "eng_05"
+
+TRANSCRIPT_PATH = rf"D:\genba-sop\reference\English\Transcript\{VIDEO_NAME}.txt"
+OUTPUT_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_steps.txt"
+
 SEGMENTS_PER_CHUNK = 8
 
 PROMPT_TEMPLATE = """You are converting part of a spoken workplace training transcript into a clean Standard Operating Procedure (SOP).
@@ -65,7 +53,6 @@ Output ONLY the list of genuine steps in the exact format shown above (one per l
 
 
 def parse_segments(raw_text):
-    """Extract (start, end, text) tuples from a raw timestamped transcript."""
     pattern = r"\[(\d+\.?\d*)s\s*->\s*(\d+\.?\d*)s\]\s*(.*?)(?=\[\d+\.?\d*s\s*->|\Z)"
     matches = re.findall(pattern, raw_text, re.DOTALL)
     segments = []
@@ -85,7 +72,23 @@ def segments_to_transcript_text(segments):
     return "\n".join(f"[{s:.1f}s -> {e:.1f}s] {t}" for s, e, t in segments)
 
 
-def call_model(transcript_chunk_text):
+def _post_with_retry(payload, label=""):
+    last_error = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            response = requests.post(OLLAMA_URL, json=payload, timeout=REQUEST_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json().get("response", "").strip()
+        except (requests.exceptions.RequestException, ValueError) as e:
+            last_error = e
+            print(f"    WARNING: Ollama call failed{f' ({label})' if label else ''} "
+                  f"[attempt {attempt}/{MAX_ATTEMPTS}]: {e}")
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(RETRY_BACKOFF_SECONDS)
+    raise last_error
+
+
+def call_model(transcript_chunk_text, label=""):
     prompt = PROMPT_TEMPLATE.format(transcript=transcript_chunk_text)
     payload = {
         "model": MODEL,
@@ -93,9 +96,7 @@ def call_model(transcript_chunk_text):
         "stream": False,
         "options": {"num_predict": 400}
     }
-    response = requests.post(OLLAMA_URL, json=payload)
-    response.raise_for_status()
-    return response.json().get("response", "").strip()
+    return _post_with_retry(payload, label=label)
 
 
 CONSOLIDATE_PROMPT_TEMPLATE = """Below is a draft list of SOP steps extracted from a workplace training video, with timestamps.
@@ -103,6 +104,8 @@ CONSOLIDATE_PROMPT_TEMPLATE = """Below is a draft list of SOP steps extracted fr
 Some of these may NOT be genuine physical actions - they could be leftover jokes, sponsor/product mentions, meta-commentary ("thanks for watching"), or vague statements that don't describe a real action.
 
 Review the list and output ONLY the entries that describe a genuine, actionable physical step someone would follow to perform the task. Remove everything else. Keep the original timestamp and wording for the ones you keep - do not rewrite them.
+
+IMPORTANT: testing, trying out, or verifying the finished build (e.g. "try it out with the planer", "test run with the planer", "assign someone to hold the shop vac for dust collection") is a genuine, valuable final step, NOT commentary - keep entries like this. Only remove entries that are actual jokes, sponsor reads, or meta-commentary about the video itself, not steps about validating the finished product.
 
 Draft list:
 ---
@@ -114,8 +117,6 @@ Output ONLY the kept lines, in the exact same "[X.Xs] text" format, one per line
 
 
 def consolidate_steps(steps):
-    """Second pass: re-check the combined step list and drop anything non-actionable
-    that slipped through per-chunk filtering."""
     if not steps:
         return steps
 
@@ -127,14 +128,16 @@ def consolidate_steps(steps):
         "stream": False,
         "options": {"num_predict": 1200}
     }
-    response = requests.post(OLLAMA_URL, json=payload)
-    response.raise_for_status()
-    raw_output = response.json().get("response", "").strip()
+    try:
+        raw_output = _post_with_retry(payload, label="consolidation")
+    except (requests.exceptions.RequestException, ValueError) as e:
+        print(f"    WARNING: consolidation pass failed after {MAX_ATTEMPTS} attempts ({e}). "
+              f"Keeping the pre-consolidation draft list instead of losing all progress.")
+        return steps
     return parse_step_lines(raw_output)
 
 
 def parse_step_lines(raw_output):
-    """Parse '[12.3s] Step text' lines (optionally already numbered) from model output."""
     lines = []
     for line in raw_output.split("\n"):
         line = line.strip()
@@ -162,14 +165,22 @@ if __name__ == "__main__":
     for i, chunk in enumerate(chunks, 1):
         chunk_text = segments_to_transcript_text(chunk)
         print(f"  Chunk {i}/{len(chunks)}...")
-        raw_output = call_model(chunk_text)
+        try:
+            raw_output = call_model(chunk_text, label=f"chunk {i}/{len(chunks)}")
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"    ERROR: chunk {i} failed after {MAX_ATTEMPTS} attempts ({e}). "
+                  f"Skipping this chunk and continuing with the rest.")
+            continue
         steps = parse_step_lines(raw_output)
         if not steps:
             print(f"    WARNING: chunk {i} produced no parseable steps. Raw output:")
             print(f"    {raw_output[:300]}")
         all_steps.extend(steps)
 
-    # Sort by timestamp (chunks are already in order, but just in case)
+        partial_path = OUTPUT_PATH + ".partial"
+        with open(partial_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(f"[{ts:.1f}s] {text}" for ts, text in sorted(all_steps)))
+
     all_steps.sort(key=lambda x: x[0])
     print(f"\nDraft steps before consolidation: {len(all_steps)}")
 
@@ -196,3 +207,7 @@ if __name__ == "__main__":
         f.write(final_output)
 
     print(f"\nSaved {len(all_steps)} steps to: {OUTPUT_PATH}")
+
+    partial_path = OUTPUT_PATH + ".partial"
+    if os.path.exists(partial_path):
+        os.remove(partial_path)

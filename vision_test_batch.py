@@ -1,15 +1,3 @@
-"""
-Phase 2, Step 3 — Validate vision model output across multiple candidate photos
-
-Loops through every photo in a folder, sends each to Qwen2.5-VL, and saves
-the descriptions to a single text file for review.
-
-Prerequisite: Ollama running locally with qwen2.5vl:7b pulled.
-
-Run inside the activated venv:
-    python vision_test_batch.py
-"""
-
 import requests
 import base64
 import os
@@ -17,10 +5,7 @@ import os
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5vl:7b"
 
-# Folder containing candidate photos to test
 PHOTO_FOLDER = r"D:\genba-sop\photos\English\eng_03"
-
-# Where to save the combined output
 OUTPUT_PATH = r"D:\genba-sop\reference\English\Vision_des\vision_descriptions_eng_03.txt"
 
 PROMPT = (
