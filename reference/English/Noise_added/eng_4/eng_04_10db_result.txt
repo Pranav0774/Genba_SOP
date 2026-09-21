@@ -1,0 +1,7 @@
+Word Error Rate: 10.34%
+(Target for English videos: <= 12%)
+
+Substitutions: 31
+Deletions: 111
+Insertions: 14
+Hits: 1367

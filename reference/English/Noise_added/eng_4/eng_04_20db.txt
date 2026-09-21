@@ -1,130 +1,84 @@
- The Wood Whisperer is sponsored by Titebond.
- So we're back in my home garage to start another simple DIY project with limited tools, limited
- materials, and it's going to be really, really cool.
- So this is the planar stand we built last time.
- One thing that really helps when you have a planar is having extra work support.
- Sometimes you feed something in on the inside, you've got to run around to the other side
- to catch it.
- It's nice to have some kind of support there.
- So we're going to build an adjustable height work stand that you could use on the planar.
- You could use it as outfeed for a chop saw or whatever you want to use it for.
- We're also going to do this in a situation where I have limited power.
- Again, and I've got the Jackery Explorer 1000 here that just helped me along with charging
- my batteries.
- I've still got the music here just in case we want some tunes.
- And I've got my laptop charging here at the same time.
- So speaking of the laptop, we're just going to go in, grab the measurements, get them
- on paper and start cutting the material.
- The whole stand is made with a couple of 2x4s and a 1x4.
- Okay, ready?
- Nice and wobbly?
- Yeah, hit it.
- Yeah!
- On most woodworking projects, I advise people to not cut all of their parts right at the
- beginning.
- But that's when we're dealing with expensive hardwoods and incredibly precise measurements.
- On a project like this, it's totally fine to chop everything right at the start
- and then move into assembly.
- We need the laser.
- We'll assemble the legs of the stand first.
- A piece of scrap helps support the upright while I use a square to get it all aligned
- properly.
- By the way, if you have to work in a cold shop, it's a good idea to keep your glue inside
- the house and possibly take the parts into a warm place to help the glue cure.
- Type-on 2 really doesn't want to be in anything lower than 55 degrees Fahrenheit or 13 degrees
- Celsius.
- Next, with a couple of screws at each joint, the legs are ready to go.
- To connect the legs to each other, we'll install a couple of stretchers.
- So I'm just measuring out the locations and then pre-drilling for screws.
- Now this is one of those do-as-I-say-not-as-I-do situations I really don't advise using your
- drill battery as a hammer.
- Thankfully, these are like super non-critical, but I'm doing it anyway.
- I'll clamp the stretchers in place first and then drive the screws.
- Now we can start cutting the 1x4s that will make up the adjustable work support.
- We'll have two pieces glued and screwed to each leg flush with the top.
- This provides a channel for the upright to travel in.
- It's a good time for a break.
- This is a good time to take a break and tell you about this Jackery Explorer 1000.
- We've got a lot going on and a very compact form factor here.
- You've got a beautiful digital display.
- It tells you how much battery you have left, what kind of output or input if you're
- charging it.
- We of course have our AC ports here, DC, as well as our USB ports, which is great for
- all the devices.
- Just about everything I have charges via USB these days.
- Of course, a cigarette adapter too.
- If you need it, think about camping, having a built-in light is a pretty nice feature.
- To charge this thing up, you simply plug it into the wall, or I think one of the coolest
- features is being able to use the solar panels.
- While a solar power generator like this has some applications in the shop, you could
- certainly use certain small tools with it.
- If you're in a low or no power situation, it could definitely get you out of a bind.
- What I'm thinking about are summer camping trips, just times when you're in a remote
- location, you don't necessarily have good access to electricity.
- Something like this is really going to come in handy.
- When we first moved to Missouri, if you follow me on social media, you might have
- seen within the first two weeks of being here, we had a massive flood.
- I was not prepared for that.
- I watched my sump pump in the basement stop working in the middle of this flood and
- just thought to myself, wow, we are screwed if this water level comes up too high because
- I didn't have any kind of battery backup.
- Having a generator like this in the house is going to be just a good insurance
- policy for us.
- We had endless clean energy with solar panels and fast charging.
- These units are incredibly quiet, safe, and reliable.
- You could support high power devices whether you're outdoors, inside the house during
- an outage or in a shop space with limited power options.
- Right now, Jackery is having a big holiday sale that you don't want to miss with
- up to 28% off.
- So thanks for your support, Jackery, and let's get back to our build.
- Now let's cut the support piece to length, taking the measurement from the work stand
- itself.
- With the movable vertical pieces in place, I can mark their location so that I know
- where to drive the screws through the top support piece.
- I can then drop the piece in with some glue and drive a couple more screws.
- Always a good idea to pre-drill if you can.
- Now we need to drill a series of holes.
- The top hole goes all the way through both pieces.
- The rest of the holes will go on the movable piece and you could space them
- however you like.
- The spacing should be as close as you dare since you don't want the holes to
- run into each other, but the more holes you have, the more height options you
- have.
- One, two, three, four, five, six, seven, I added seven, total of eight holes.
- Let's do that on the other side real quick.
- Too cheap to spring for a Bradpoint bit?
- A little faster.
- Oh yeah.
- Now we'll cut a couple of lengths of 3 eighths inch dowel stock that'll
- serve as stops.
- Two holes up.
- Will it support my booty?
- Don't do it.
- All right, so I think that just about does it.
- Now a couple of things you could do to maybe make this a little bit
- better.
- First of all, if you have a Bradpoint bit instead of a regular twist
- bit, that's going to give you much more accurate placement of your
- holes and that's critical for alignment.
- So if you have a little bit of trouble getting your dowel to
- seat correctly, you could always make the outer holes a little bit
- bigger.
- Just give yourself a little bit of room and slack there and that
- should help you find this interior hole.
- That's what we did and it seems to work pretty well.
- You can also adjust the spacing and maybe the size of the dowel
- just to have more increments in heights.
- If you find that this just is always a little bit off, you might
- try a different hole pattern, right?
- So there's a lot of creative ways that you can actually improve
- this design, but I think it's going to work pretty well.
- Only thing left to do is to try it out with the planer and just
- see if it works.
- Oh, that's funny.
- You can go under the board too to get even higher.
- Now, we're going to do a test run with the planer, but we don't
- have dust collection in here.
- So this stuff, the chips, they're just going to go everywhere.
- Jason here is going to hold the shop vac.
- The shop vac is going to be plugged into the jackery.
- We're just going to see if we can't make it a little less messy.
+[0.0s -> 2.7s]  The Wood Whisperer is sponsored by Titebond.
+[2.7s -> 8.4s]  So we're back in my home garage to start another simple DIY project with limited tools,
+[8.4s -> 12.4s]  limited materials, but it's going to be really really cool. So this is the planar stand we
+[12.4s -> 17.0s]  built last time. One thing that really helps when you have a planar is having extra work support
+[17.0s -> 20.4s]  because sometimes you feed something in on the inside, you've got to run around to the other
+[20.4s -> 24.0s]  side to catch it. It's nice to have some kind of support there. So we're going to build
+[24.0s -> 28.6s]  an adjustable height work stand that you could use on the planar. You could use it
+[28.6s -> 32.6s]  as out feed for a chop saw, whatever you want to use it for. We're also going to do this in a
+[32.6s -> 37.7s]  situation where I have limited power. Again, and I've got the Jackery Explorer 1000 here
+[37.7s -> 41.9s]  that just helped me along with charging my batteries. Still got the music here just in
+[41.9s -> 46.3s]  case we want some tunes. And I've got my laptop charging here at the same time. So speaking
+[46.3s -> 50.0s]  of the laptop, we're just going to go in, grab the measurements, get them on paper,
+[50.0s -> 55.3s]  and start cutting the material. The whole stand is made with a couple of 2x4s and a 1x4.
+[55.4s -> 56.9s]  Okay, ready? Nice and wobbly.
+[62.5s -> 66.6s]  On most woodworking projects, I advise people to not cut all of their parts right at the
+[66.6s -> 70.3s]  beginning. But that's when we're dealing with expensive hardwoods and incredibly precise
+[70.3s -> 74.2s]  measurements. On a project like this, it's totally fine to chop everything right at
+[74.2s -> 89.5s]  the start and then move into assembly. We'll assemble the legs of the stand first.
+[89.5s -> 93.4s]  A piece of scrap helps support the upright while I use a square to get it all aligned
+[93.4s -> 97.8s]  properly. By the way, if you have to work in a cold shop, it's a good idea to keep your glue
+[97.8s -> 102.5s]  inside the house and possibly take the parts into a warm place to help the glue cure.
+[102.5s -> 106.8s]  Type-on 2 really doesn't want to be in anything lower than 55 degrees Fahrenheit
+[106.8s -> 125.2s]  or 13 degrees Celsius. Next, with a couple of screws at each joint, the legs are ready to go.
+[127.4s -> 131.2s]  To connect the legs to each other, we'll install a couple of stretchers. So I'm just
+[131.3s -> 134.1s]  measuring out the locations and then pre-drilling for screws.
+[146.5s -> 151.6s]  Now, this is one of those do-as-I-say-not-as-I-do situations. I really don't advise using your
+[151.6s -> 155.2s]  drill battery as a hammer. Thankfully, these are like super non-critical.
+[159.5s -> 164.2s]  But I'm doing it anyway. I'll clamp the stretchers in place first and then drive the screws.
+[166.4s -> 179.4s]  Now we can start cutting the one-by-fours that will make up the adjustable work support.
+[191.8s -> 195.4s]  We'll have two pieces glued and screwed to each leg flush with the top.
+[197.7s -> 200.1s]  This provides a channel for the upright to travel in.
+[229.8s -> 248.6s]  Well, it's a good time for a break.
+[251.6s -> 256.6s]  And this is a good time to take a break and tell you about this Jackery Explorer 1000.
+[256.6s -> 260.7s]  We got a lot going on and a very compact form factor here. You've got a beautiful
+[260.7s -> 265.0s]  digital display. It tells you how much battery you have left, what kind of output or input,
+[265.0s -> 270.6s]  if you're charging it. We, of course, have our AC ports here, DC, as well as our USB ports,
+[270.6s -> 274.9s]  which is great for all the devices. Just about everything I have charges via USB these days.
+[274.9s -> 279.9s]  And, of course, a cigarette adapter too. And if you need it, think about camping,
+[279.9s -> 284.4s]  having a built-in light is a pretty nice feature. Now to charge this thing up,
+[284.4s -> 289.1s]  you simply plug it into the wall. Or I think one of the coolest features is being able to use
+[289.1s -> 294.1s]  the solar panels. Now, while a solar power generator like this has some applications in the shop,
+[294.1s -> 297.9s]  you could certainly use certain small tools with it. And if you're in a low or no power
+[297.9s -> 302.6s]  situation, it could definitely get you out of a bind. What I'm thinking about are summer camping
+[302.6s -> 307.3s]  trips. Just times when you're in a remote location, you don't necessarily have good access to electricity.
+[307.3s -> 310.9s]  Something like this is really going to come in handy. And when we first moved to Missouri,
+[310.9s -> 314.2s]  if you follow me on social media, you might have seen, within like the first two weeks
+[314.2s -> 318.9s]  of being here, we had a massive flood. And I was not prepared for that. I watched my
+[318.9s -> 323.4s]  sun pump in the basement stop working in the middle of this flood and just thought to myself,
+[323.4s -> 327.5s]  wow, we are screwed if this water level comes up too high. Because I didn't have any kind of
+[327.5s -> 332.1s]  battery backup. So having a generator like this in the house is going to be just a good
+[332.1s -> 337.9s]  insurance policy for us. Provide endless clean energy with solar panels and fast charging.
+[337.9s -> 342.9s]  These units are incredibly quiet, safe and reliable. And you can support high power devices,
+[342.9s -> 346.9s]  whether you're outdoors inside the house during an outage or in a shop space with
+[346.9s -> 351.4s]  limited power options. Right now, Jackery is having a big holiday sale that you don't
+[351.4s -> 356.4s]  want to miss with up to 28% off. So thanks for your support, Jackery. And let's get back to
+[356.4s -> 361.5s]  our build. Now let's cut the support piece to length, taking the measurement from the workstand itself.
+[368.4s -> 372.5s]  With the movable vertical pieces in place, I can mark their location so that I know where
+[372.5s -> 377.6s]  to drive the screws through the top support piece. I can then drop the piece in with some glue
+[377.6s -> 381.5s]  and drive a couple more screws. Always a good idea to pre-drill if you can.
+[392.1s -> 398.6s]  Just kidding. I'm finished. Now we need to drill a series of holes. The top hole goes all the
+[398.6s -> 416.4s]  way through both pieces. The rest of the holes will go on the movable piece,
+[416.4s -> 420.6s]  and you can space them however you like. The spacing should be as close as you dare,
+[420.6s -> 423.9s]  since you don't want the holes to run into each other. But the more holes you have,
+[423.9s -> 428.4s]  the more height options you have. One, two, three, four, five, six, seven,
+[428.4s -> 432.1s]  I added seven total of eight holes. Let's do that on the other side real quick.
+[442.8s -> 444.7s]  Too cheap to spring for a brad point bit?
+[457.8s -> 462.0s]  Now we'll cut a couple of lengths of 3 eighths inch dowel stock that'll serve as stops.
+[467.2s -> 469.2s]  But will it support my booty?
+[478.0s -> 481.4s]  All right, so I think that just about does it. Now a couple things you could do to maybe make
+[481.4s -> 485.6s]  this a little bit better. First of all, if you have a brad point bit, instead of a regular twist bit,
+[485.6s -> 489.2s]  that's going to give you much more accurate placement of your holes, and that's critical
+[489.2s -> 494.1s]  for alignment. So if you have a little bit of trouble getting your dowel to seat correctly,
+[494.1s -> 498.3s]  you could always make the outer holes a little bit bigger. Just give yourself a little bit of
+[498.3s -> 502.6s]  room and slack there, and that should help you find this interior hole. That's what we did,
+[502.6s -> 506.9s]  and it seems to work pretty well. You can also adjust the spacing and maybe the size of the
+[506.9s -> 512.4s]  dowel just to have more increments in heights. If you find that this just is always a little bit
+[512.4s -> 515.9s]  off, you might try a different hole pattern, right? So there's a lot of creative ways that you can
+[515.9s -> 520.3s]  actually improve this design, but I think it's going to work pretty well. Only thing left to do
+[520.3s -> 530.3s]  is to try it out with the planer and just see if it works. Oh, that's funny. You can go under
+[530.3s -> 541.8s]  the board too to get even higher. Neato potato here like that. Now we're going to do a test run
+[541.8s -> 545.3s]  with the planer, but we don't have dust collection in here. So this stuff, the chips,
+[545.3s -> 548.9s]  they're just going to go everywhere. Jason here is going to hold the shop back. The shop
+[548.9s -> 553.3s]  back is going to be plugged into the jackery, and we're just going to see if we can't make it a little
+[553.3s -> 555.3s]  less messy.
