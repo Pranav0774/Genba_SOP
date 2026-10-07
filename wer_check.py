@@ -1,9 +1,9 @@
 import re
 import jiwer
 
-GROUND_TRUTH_PATH = r"D:\genba-sop\reference\English\Ground_Truth\eng_03_ground_truth.txt"
-MACHINE_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_3\eng_03_5db.txt"
-OUTPUT_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_3\eng_03_5db_result.txt"
+GROUND_TRUTH_PATH = r"D:\genba-sop\reference\English\Ground_Truth\eng_04_ground_truth.txt"
+MACHINE_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_4\eng_04_20db.txt"
+OUTPUT_PATH = r"D:\genba-sop\reference\English\Noise_added\eng_4\eng_04_20db_result.txt"
 LANGUAGE = "english"
 
 

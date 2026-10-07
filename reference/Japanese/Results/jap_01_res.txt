@@ -1,8 +1,7 @@
-(venv) PS D:\genba-sop>  python cer_check.py
-Character Error Rate: 19.28%
+Character Error Rate: 12.01%
 (Target for Japanese videos: <= 15%)
 
-Substitutions: 112
-Deletions:     64
-Insertions:    22
-Hits:          851
+Substitutions: 29
+Deletions: 87
+Insertions: 18
+Hits: 1000
