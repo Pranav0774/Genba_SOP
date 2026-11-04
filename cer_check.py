@@ -5,6 +5,10 @@ GROUND_TRUTH_PATH = r"D:\genba-sop\reference\Japanese\Ground_Truth\jap_03_ground
 MACHINE_PATH = r"D:\genba-sop\reference\Japanese\Transcript\jap_03.txt"
 OUTPUT_PATH = r"D:\genba-sop\reference\Japanese\Results\jap_03_res.txt"
 LANGUAGE = "japanese"
+STRIP_JAPANESE_PUNCTUATION = True
+
+
+JAPANESE_PUNCTUATION = r"[、。，．,.!！?？「」『』（）()・]"
 
 
 def clean_text(text: str) -> str:
@@ -14,6 +18,8 @@ def clean_text(text: str) -> str:
     text = re.sub(r"Speaker \d+ \(\d{2}:\d{2}\)", "", text)
     text = re.sub(r"\[\d+\.\d+s\s*->\s*\d+\.\d+s\]", "", text)
     text = re.sub(r"\[\d{1,2}:\d{2}(?::\d{2})?\]", "", text)
+    if LANGUAGE == "japanese" and STRIP_JAPANESE_PUNCTUATION:
+        text = re.sub(JAPANESE_PUNCTUATION, "", text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
@@ -78,7 +84,7 @@ elif LANGUAGE == "japanese":
         hypothesis_transform=transform,
     )
     result_lines = [
-        f"Character Error Rate: {error * 100:.2f}%",
+        f"Character Error Rate: {error * 100:.2f}%" + (" (punctuation ignored)" if STRIP_JAPANESE_PUNCTUATION else ""),
         f"(Target for Japanese videos: <= 15%)",
         "",
         f"Substitutions: {output.substitutions}",

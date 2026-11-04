@@ -1,0 +1,61 @@
+Frame match report (exact-time frames)
+============================================================
+Step 1 [74.8s]: Blend and pump syrup, water, and sweetener through pipes
+  -> frame at 76.30s (motion 32.9, sharpness 14)  CHECK: POSSIBLE TRANSITION
+
+Step 2 [80.4s]: Transfer mixture to batch tanks
+  -> frame at 82.40s (motion 5.3, sharpness 39)
+
+Step 3 [86.1s]: Carbonate mix with CO2 in votator
+  -> frame at 88.10s (motion 8.9, sharpness 14)
+
+Step 4 [107.8s]: Label bottles
+  -> frame at 109.80s (motion 5.3, sharpness 28)
+
+Step 5 [142.0s]: Scan bottles for defects
+  -> frame at 144.50s (motion 44.8, sharpness 10)  CHECK: POSSIBLE TRANSITION
+
+Step 6 [183.8s]: Air removed from bottles
+  -> frame at 186.80s (motion 33.5, sharpness 79)  CHECK: POSSIBLE TRANSITION
+
+Step 7 [189.1s]: Apply aluminum crown to bottles
+  -> frame at 191.10s (motion 3.8, sharpness 69)
+
+Step 8 [220.6s]: Pump mixture into filling lines
+  -> frame at 223.60s (motion 42.4, sharpness 10)  CHECK: POSSIBLE TRANSITION
+
+Step 9 [224.9s]: Fill cans with mixture
+  -> frame at 226.90s (motion 22.3, sharpness 12)  CHECK: POSSIBLE TRANSITION
+
+Step 10 [230.1s]: Supervise can seaming process
+  -> frame at 232.60s (motion 18.1, sharpness 10)
+
+Step 11 [269.2s]: Cut cardboard to correct length
+  -> frame at 271.20s (motion 28.4, sharpness 12)  CHECK: POSSIBLE TRANSITION
+
+Step 12 [274.0s]: Shape cardboard to fit bottles
+  -> frame at 275.00s (motion 17.9, sharpness 35)
+
+Step 13 [278.5s]: Secure packaging with pre-folded clips
+  -> frame at 280.00s (motion 21.9, sharpness 9)  CHECK: POSSIBLE TRANSITION
+
+Step 14 [283.1s]: Wrap bottles in shrink film
+  -> frame at 285.10s (motion 26.5, sharpness 23)  CHECK: POSSIBLE TRANSITION
+
+Step 15 [296.4s]: Pack cans into boxes
+  -> frame at 299.40s (motion 10.7, sharpness 542)
+
+Step 16 [312.2s]: Wrap plastic film around boxes
+  -> frame at 313.20s (motion 14.7, sharpness 8)  CHECK: SOFT FRAME (blurred, possibly a dissolve)
+
+Step 17 [315.6s]: Heat the shrink wrap film
+  -> frame at 318.10s (motion 20.3, sharpness 12)  CHECK: POSSIBLE TRANSITION
+
+Step 18 [318.9s]: Shrink wrap cans
+  -> frame at 320.90s (motion 36.4, sharpness 38)  CHECK: POSSIBLE TRANSITION
+
+Step 19 [355.3s]: Wrap sorted cases to keep them stable during transport
+  -> frame at 358.30s (motion 21.3, sharpness 195)  CHECK: POSSIBLE TRANSITION
+
+Step 20 [389.2s]: Load pallets onto trucks
+  -> frame at 391.70s (motion 28.7, sharpness 527)  CHECK: POSSIBLE TRANSITION

@@ -1,0 +1,106 @@
+Frame match report (exact-time frames)
+============================================================
+Step 1 [33.4s]: サイドブレーキをニュートラルにします || 右側で持ち上げて || 1目の水位を確認しましたら
+  -> frame at 36.40s (motion 0.0, sharpness 451)
+
+Step 2 [71.5s]: マストが台に当たらないくらいまで差します || 木の水平を確認します
+  -> frame at 72.50s (motion 18.8, sharpness 551)
+
+Step 3 [104.7s]: 木を水平にします || 水平になりましたらよしと確認します
+  -> frame at 107.20s (motion 1.3, sharpness 742)
+
+Step 4 [113.3s]: 10センチの高さまで上げます
+  -> frame at 114.30s (motion 0.3, sharpness 680)
+
+Step 5 [145.2s]: 約5センチくらいまで下げましたら
+  -> frame at 146.20s (motion 1.1, sharpness 795)
+
+Step 6 [148.2s]: 後ろシリアルをチェックして
+  -> frame at 149.70s (motion 0.7, sharpness 771)
+
+Step 7 [153.2s]: 下ろします
+  -> frame at 154.20s (motion 1.1, sharpness 756)
+
+Step 8 [161.3s]: 爪の先端が離れましたら前押し || 今度は広さしめ、深く刺します
+  -> frame at 162.80s (motion 1.7, sharpness 834)
+
+Step 9 [170.3s]: 両方つくように
+  -> frame at 171.45s (motion 3.4, sharpness 621)
+
+Step 10 [173.7s]: サイドブレーキニュートラルにします
+  -> frame at 176.70s (motion 0.0, sharpness 259)
+
+Step 11 [196.3s]: バックします
+  -> frame at 197.80s (motion 1.8, sharpness 677)
+
+Step 12 [224.3s]: チルトレバーで下ろします
+  -> frame at 225.80s (motion 0.6, sharpness 885)
+
+Step 13 [229.2s]: 10センチくらいまで上げます || パレット荷物の下面が通路から10センチくらいまで上げます
+  -> frame at 231.20s (motion 3.5, sharpness 1181)
+
+Step 14 [237.3s]: 目いっぱい起こします || パレットの先端が20センチから30センチくらい台から近づけます
+  -> frame at 240.30s (motion 0.5, sharpness 774)
+
+Step 15 [277.1s]: 荷物をまず水平にします || ギフトレバーで上げます
+  -> frame at 279.60s (motion 0.3, sharpness 1039)
+
+Step 16 [293.7s]: だいたい台から10センチくらいの高さに上げます
+  -> frame at 296.20s (motion 11.5, sharpness 718)
+
+Step 17 [300.7s]: 前押し前押しで前進します
+  -> frame at 303.20s (motion 0.0, sharpness 394)
+
+Step 18 [313.7s]: 底に入れるように入っていきます
+  -> frame at 314.70s (motion 19.8, sharpness 777)
+
+Step 19 [323.4s]: サイドブレーキに戻らない || 5センチくらいまで下げる
+  -> frame at 324.90s (motion 2.2, sharpness 682)
+
+Step 20 [331.5s]: 2の水平を確認する
+  -> frame at 333.50s (motion 0.7, sharpness 759)
+
+Step 21 [355.5s]: 前押し、後押し、前押し、後押し || 少しバックする
+  -> frame at 357.00s (motion 1.0, sharpness 635)
+
+Step 22 [362.5s]: 白線が出ない程度にバックする
+  -> frame at 365.50s (motion 0.9, sharpness 592)
+
+Step 23 [377.6s]: 火の水でチェックする || 10センチの高さまで上げる
+  -> frame at 380.10s (motion 1.1, sharpness 766)
+
+Step 24 [393.1s]: パレットや荷物が曲がっていないか確認する || 白線とパレットを平行にする
+  -> frame at 396.10s (motion 1.3, sharpness 720)
+
+Step 25 [401.1s]: 平行になりましたら || 前に前進します
+  -> frame at 403.10s (motion 1.7, sharpness 733)
+
+Step 26 [415.7s]: 5センチくらい下げてください
+  -> frame at 417.20s (motion 1.6, sharpness 806)
+
+Step 27 [419.2s]: 荷物水平を確認します || 荷物をちょっと前下がりにします
+  -> frame at 422.20s (motion 0.2, sharpness 748)
+
+Step 28 [435.3s]: しっかり下ろします
+  -> frame at 436.30s (motion 1.0, sharpness 785)
+
+Step 29 [438.4s]: 爪の先端、鼻の端の方を確認しましたら || 爪を抜きます
+  -> frame at 440.90s (motion 1.1, sharpness 774)
+
+Step 30 [446.4s]: 爪の先端が台から離れましたら止まります
+  -> frame at 447.40s (motion 17.1, sharpness 631)
+
+Step 31 [452.9s]: サイドブレーキ、ミュートラブル || 爪を下ろします
+  -> frame at 455.40s (motion 1.5, sharpness 852)
+
+Step 32 [458.5s]: 走行姿勢を進めまして || 踏切を進めます || 駐車スケースに入りましたら
+  -> frame at 461.00s (motion 2.5, sharpness 737)
+
+Step 33 [482.6s]: 爪の先端を確実につけて || 前を少したるませて
+  -> frame at 485.60s (motion 1.3, sharpness 673)
+
+Step 34 [489.4s]: エンジンを止めて
+  -> frame at 490.40s (motion 1.6, sharpness 728)
+
+Step 35 [491.4s]: シートベルトを外して || 前を後ろに押して || 後ろ向きで降りて
+  -> frame at 492.40s (motion 1.1, sharpness 717)

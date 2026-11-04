@@ -1,0 +1,55 @@
+Frame match report (exact-time frames)
+============================================================
+Step 1 [89.3s]: Fire up the drills
+  -> frame at 90.45s (motion 13.5, sharpness 101)
+
+Step 2 [91.9s]: Get started by making the two side sub-assemblies
+  -> frame at 92.90s (motion 3.8, sharpness 1093)
+
+Step 3 [100.5s]: Jam screws in from the outside
+  -> frame at 102.00s (motion 4.4, sharpness 69)
+
+Step 4 [106.0s]: Mark screw locations
+  -> frame at 110.00s (motion 2.2, sharpness 84)  CHECK: WINDOW EXTENDED (blurred or dark frames at first)
+
+Step 5 [111.9s]: Drill pilot holes from the outside
+  -> frame at 112.90s (motion 5.0, sharpness 95)
+
+Step 6 [125.5s]: Use larger bit to counterbore about an inch down
+  -> frame at 129.10s (motion 5.9, sharpness 144)  CHECK: WINDOW EXTENDED (blurred or dark frames at first)
+
+Step 7 [136.5s]: Apply glue to each joint
+  -> frame at 137.60s (motion 4.5, sharpness 91)
+
+Step 8 [188.8s]: Carefully locate the screw holes
+  -> frame at 189.80s (motion 5.7, sharpness 45)
+
+Step 9 [201.3s]: Start one side at a time
+  -> frame at 202.45s (motion 24.7, sharpness 39)  CHECK: POSSIBLE TRANSITION
+
+Step 10 [216.9s]: Keep things from shifting
+  -> frame at 219.90s (motion 5.1, sharpness 103)
+
+Step 11 [398.3s]: Cut one-by-fours into slats
+  -> frame at 400.30s (motion 11.9, sharpness 66)
+
+Step 12 [400.8s]: Notch outer slats for legs
+  -> frame at 401.50s (motion 21.4, sharpness 36)  CHECK: POSSIBLE TRANSITION
+
+Step 13 [401.8s]: Draw lines for notching
+  -> frame at 402.80s (motion 3.7, sharpness 70)
+
+Step 14 [412.2s]: Use a jigsaw to cut out the notches
+  -> frame at 413.70s (motion 7.7, sharpness 57)
+
+Step 15 [423.9s]: Attach the slat to the frame with a single screw
+  -> frame at 424.90s (motion 6.7, sharpness 50)
+
+Step 16 [426.1s]: Place a single screw in the middle
+  -> frame at 427.10s (motion 4.4, sharpness 55)
+
+Step 17 [439.4s]: Add a little overhang on each side of the top
+  -> frame at 440.40s (motion 14.5, sharpness 54)
+
+Step 18 [453.1s]: Bring in the planer to test the finished stand
+  -> frame at 454.60s (motion 15.0, sharpness 77)

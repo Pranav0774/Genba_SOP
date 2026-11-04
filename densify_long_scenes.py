@@ -5,11 +5,11 @@ import subprocess
 
 from PIL import Image
 
-VIDEOS = ["eng_01", "eng_02", "eng_03", "eng_04", "eng_05"]
+VIDEOS = ["jap_01", "jap_02", "jap_03"]
 
-VIDEO_PATH_TEMPLATE = r"D:\genba-sop\videos\english\{video}.mp4"
+VIDEO_PATH_TEMPLATE = r"D:\genba-sop\videos\japanese\{video}.mp4"
 SCENE_CSV_TEMPLATE = r"D:\genba-sop\photos\{video}\{video}-Scenes.csv"
-PHOTOS_DIR_TEMPLATE = r"D:\genba-sop\photos\English\{video}"
+PHOTOS_DIR_TEMPLATE = r"D:\genba-sop\photos\{video}"
 
 DENSIFY_THRESHOLD_SECONDS = 20.0
 TARGET_SPACING_SECONDS = 10.0
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
             for i in range(num_images):
                 fraction = i / (num_images - 1)
-                ts = start + fraction * duration
+                ts = min(start + fraction * duration, end - 0.3)
                 out_path = os.path.join(photos_dir, f"{video}-Scene-{scene_num:03d}-{i + 1:02d}.jpg")
                 extract_frame(video_path, ts, out_path)
 

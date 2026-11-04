@@ -1,0 +1,91 @@
+Step merge log - jap_03
+============================================================
+Steps 8-10: NOT merged (different operations)
+    [113.3s] 10センチの高さまで上げます
+    [145.2s] 約5センチくらいまで下げましたら
+    [148.2s] 後ろシリアルをチェックして
+
+Steps 15-17: NOT merged (different operations)
+    [173.7s] サイドブレーキニュートラルにします
+    [196.3s] バックします
+    [224.3s] チルトレバーで下ろします
+
+Steps 24-26: NOT merged (different operations)
+    [293.7s] だいたい台から10センチくらいの高さに上げます
+    [300.7s] 前押し前押しで前進します
+    [313.7s] 底に入れるように入っていきます
+
+Steps 1-3 merged into one step:
+    [33.4s] サイドブレーキをニュートラルにします
+    [48.1s] 右側で持ち上げて
+    [53.1s] 1目の水位を確認しましたら
+
+Steps 4-5 merged into one step:
+    [71.5s] マストが台に当たらないくらいまで差します
+    [102.1s] 木の水平を確認します
+
+Steps 6-7 merged into one step:
+    [104.7s] 木を水平にします
+    [107.8s] 水平になりましたらよしと確認します
+
+Steps 12-13 merged into one step:
+    [161.3s] 爪の先端が離れましたら前押し
+    [165.3s] 今度は広さしめ、深く刺します
+
+Steps 18-19 merged into one step:
+    [229.2s] 10センチくらいまで上げます
+    [229.2s] パレット荷物の下面が通路から10センチくらいまで上げます
+
+Steps 20-21 merged into one step:
+    [237.3s] 目いっぱい起こします
+    [268.1s] パレットの先端が20センチから30センチくらい台から近づけます
+
+Steps 22-23 merged into one step:
+    [277.1s] 荷物をまず水平にします
+    [289.3s] ギフトレバーで上げます
+
+Steps 27-28 merged into one step:
+    [323.4s] サイドブレーキに戻らない
+    [328.5s] 5センチくらいまで下げる
+
+Steps 30-31 merged into one step:
+    [355.5s] 前押し、後押し、前押し、後押し
+    [359.5s] 少しバックする
+
+Steps 33-34 merged into one step:
+    [377.6s] 火の水でチェックする
+    [380.6s] 10センチの高さまで上げる
+
+Steps 35-36 merged into one step:
+    [393.1s] パレットや荷物が曲がっていないか確認する
+    [397.1s] 白線とパレットを平行にする
+
+Steps 37-38 merged into one step:
+    [401.1s] 平行になりましたら
+    [404.4s] 前に前進します
+
+Steps 40-41 merged into one step:
+    [419.2s] 荷物水平を確認します
+    [427.8s] 荷物をちょっと前下がりにします
+
+Steps 43-44 merged into one step:
+    [438.4s] 爪の先端、鼻の端の方を確認しましたら
+    [443.8s] 爪を抜きます
+
+Steps 46-47 merged into one step:
+    [452.9s] サイドブレーキ、ミュートラブル
+    [456.1s] 爪を下ろします
+
+Steps 48-50 merged into one step:
+    [458.5s] 走行姿勢を進めまして
+    [463.8s] 踏切を進めます
+    [467.0s] 駐車スケースに入りましたら
+
+Steps 51-52 merged into one step:
+    [482.6s] 爪の先端を確実につけて
+    [486.7s] 前を少したるませて
+
+Steps 54-56 merged into one step:
+    [491.4s] シートベルトを外して
+    [495.0s] 前を後ろに押して
+    [496.6s] 後ろ向きで降りて

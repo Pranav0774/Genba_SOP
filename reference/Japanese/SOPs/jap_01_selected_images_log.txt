@@ -1,0 +1,31 @@
+Selected Image Log — jap_01
+============================================================
+Step 1 [68.6s]: タイヤは必ず浮かして使う
+  -> Selected image: jap_01-step-001.jpg
+
+Step 2 [80.8s]: 設置する地盤が軟弱では話にならない
+  -> Selected image: jap_01-step-002.jpg
+
+Step 3 [112.9s]: ジャッキレースがあっても潜り込んでしまう
+  -> Selected image: jap_01-step-003.jpg
+
+Step 4 [119.9s]: コンクリート蓋の方は一瞬で割れてしまった
+  -> Selected image: jap_01-step-004.jpg
+
+Step 5 [139.3s]: 厚い鉄板を敷いて抜かれないようにしたい
+  -> Selected image: jap_01-step-005.jpg
+
+Step 6 [141.1s]: 木材を使い確実な養生を施す
+  -> Selected image: jap_01-step-006.jpg
+
+Step 7 [197.2s]: 電線に注意する
+  -> Selected image: jap_01-step-007.jpg
+
+Step 8 [209.2s]: 絶縁対策の施されていないレンタル機やリーチ車の使用を避ける
+  -> Selected image: jap_01-step-008.jpg
+
+Step 9 [209.2s]: 慎重な操作をする
+  -> Selected image: jap_01-step-009.jpg
+
+Step 10 [259.6s]: 働く仲間を守り、自分の命を守る
+  -> Selected image: jap_01-step-010.jpg

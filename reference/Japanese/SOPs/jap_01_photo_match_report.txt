@@ -1,0 +1,31 @@
+Frame match report (exact-time frames)
+============================================================
+Step 1 [68.6s]: タイヤは必ず浮かして使う
+  -> frame at 69.60s (motion 0.2, sharpness 1243)
+
+Step 2 [80.8s]: 設置する地盤が軟弱では話にならない
+  -> frame at 82.80s (motion 0.2, sharpness 2026)
+
+Step 3 [112.9s]: ジャッキレースがあっても潜り込んでしまう
+  -> frame at 115.90s (motion 1.7, sharpness 1480)
+
+Step 4 [119.9s]: コンクリート蓋の方は一瞬で割れてしまった
+  -> frame at 122.90s (motion 2.3, sharpness 806)
+
+Step 5 [139.3s]: 厚い鉄板を敷いて抜かれないようにしたい
+  -> frame at 140.55s (motion 5.6, sharpness 1051)
+
+Step 6 [141.1s]: 木材を使い確実な養生を施す
+  -> frame at 142.10s (motion 6.5, sharpness 875)
+
+Step 7 [197.2s]: 電線に注意する
+  -> frame at 198.20s (motion 5.3, sharpness 1107)
+
+Step 8 [209.2s]: 絶縁対策の施されていないレンタル機やリーチ車の使用を避ける
+  -> frame at 210.70s (motion 0.5, sharpness 1369)
+
+Step 9 [209.2s]: 慎重な操作をする
+  -> frame at 211.70s (motion 0.6, sharpness 1448)
+
+Step 10 [259.6s]: 働く仲間を守り、自分の命を守る
+  -> frame at 261.10s (motion 42.6, sharpness 1561)  CHECK: POSSIBLE TRANSITION

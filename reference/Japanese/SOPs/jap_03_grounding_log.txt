@@ -1,0 +1,3 @@
+TOOL removed, not in the transcript: グリッド
+SAFETY marked 要確認, weak support in the transcript (39%): チルトレバーを使用して降ろすことは絶対に禁止されています。
+SAFETY marked 要確認, weak support in the transcript (36%): エンジンを止める前に爪の先端を確実につける必要があります。

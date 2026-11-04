@@ -1,0 +1,58 @@
+Frame match report (exact-time frames)
+============================================================
+Step 1 [49.3s]: Get measurements
+  -> frame at 64.50s (motion 49.3, sharpness 136)  CHECK: POSSIBLE TRANSITION
+
+Step 2 [49.3s]: Start cutting the material on paper
+  -> frame at 64.50s (motion 49.3, sharpness 136)  CHECK: SAME MOMENT AS PREVIOUS STEP, POSSIBLE TRANSITION
+
+Step 3 [89.7s]: Position a piece of scrap to support the upright while aligning it with a square
+  -> frame at 92.20s (motion 2.4, sharpness 105)
+
+Step 4 [109.2s]: Secure legs with screws at each joint
+  -> frame at 112.20s (motion 2.2, sharpness 100)
+
+Step 5 [131.0s]: Measure out locations for screws
+  -> frame at 132.50s (motion 4.7, sharpness 117)
+
+Step 6 [134.8s]: Pre-drill for screws
+  -> frame at 137.80s (motion 4.1, sharpness 107)
+
+Step 7 [161.5s]: Clamp the stretchers in place
+  -> frame at 163.50s (motion 4.3, sharpness 81)
+
+Step 8 [175.8s]: Start cutting the 1x4s for the adjustable work support
+  -> frame at 178.80s (motion 5.7, sharpness 44)
+
+Step 9 [186.7s]: Make four of these
+  -> frame at 187.70s (motion 8.9, sharpness 106)
+
+Step 10 [357.6s]: Cut support piece to length using measurement from work stand
+  -> frame at 360.60s (motion 8.1, sharpness 58)
+
+Step 11 [375.7s]: Mark location for screws
+  -> frame at 377.70s (motion 2.9, sharpness 68)
+
+Step 12 [379.9s]: Apply glue and drive screws
+  -> frame at 382.90s (motion 1.6, sharpness 85)
+
+Step 13 [395.6s]: Pre-drill holes
+  -> frame at 396.60s (motion 3.1, sharpness 95)
+
+Step 14 [397.6s]: The top hole goes all way through both pieces
+  -> frame at 400.60s (motion 2.6, sharpness 89)
+
+Step 15 [443.0s]: Do that on the other side
+  -> frame at 445.50s (motion 2.7, sharpness 87)
+
+Step 16 [461.6s]: Cut two lengths of 3 eighths inch dowel stock
+  -> frame at 462.60s (motion 4.7, sharpness 79)
+
+Step 17 [467.5s]: Drill two holes up
+  -> frame at 469.50s (motion 11.0, sharpness 57)
+
+Step 18 [534.2s]: Hold the shop vac
+  -> frame at 535.20s (motion 2.6, sharpness 118)
+
+Step 19 [551.3s]: Make it a little less messy
+  -> frame at 553.30s (motion 2.8, sharpness 226)

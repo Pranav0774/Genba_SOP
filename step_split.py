@@ -2,20 +2,27 @@ import requests
 import re
 import time
 import os
+import difflib
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5:7b-instruct"
 
 MAX_ATTEMPTS = 3
 RETRY_BACKOFF_SECONDS = 5
-REQUEST_TIMEOUT_SECONDS = 180
+REQUEST_TIMEOUT_SECONDS = 600
 
-VIDEO_NAME = "eng_05"
+from video_config import video_and_language
 
-TRANSCRIPT_PATH = rf"D:\genba-sop\reference\English\Transcript\{VIDEO_NAME}.txt"
-OUTPUT_PATH = rf"D:\genba-sop\reference\English\SOPs\{VIDEO_NAME}_steps.txt"
+VIDEO_NAME, LANGUAGE = video_and_language("jap_03")
 
-SEGMENTS_PER_CHUNK = 8
+TRANSCRIPT_DIR = "Transcript_vocab_v3" if LANGUAGE == "Japanese" else "Transcript"
+TRANSCRIPT_PATH = rf"D:\genba-sop\reference\{LANGUAGE}\{TRANSCRIPT_DIR}\{VIDEO_NAME}.txt"
+OUTPUT_PATH = rf"D:\genba-sop\reference\{LANGUAGE}\SOPs\{VIDEO_NAME}_steps.txt"
+
+SEGMENTS_PER_CHUNK = 24 if LANGUAGE == "Japanese" else 8
+SNAP_MIN_COVERAGE = 0.5
+NUM_PREDICT_CHUNK =800 if LANGUAGE == "Japanese" else 400
+EXTRA_OPTIONS = {"num_ctx": 8192, "temperature": 0.1, "seed": 7} if LANGUAGE == "Japanese" else {}
 
 PROMPT_TEMPLATE = """You are converting part of a spoken workplace training transcript into a clean Standard Operating Procedure (SOP).
 
@@ -50,6 +57,46 @@ Transcript segment:
 
 Output ONLY the list of genuine steps in the exact format shown above (one per line), nothing else. If there are no genuine steps in this segment, output nothing at all. Do not number them, do not add commentary.
 """
+
+
+PROMPT_TEMPLATE_JA = """You are converting part of a spoken Japanese workplace training transcript into a clean Standard Operating Procedure (SOP).
+
+The transcript below is in Japanese and has timestamps in the format [start_seconds -> end_seconds] before each spoken segment. It was produced by speech recognition, so some words may be misrecognized.
+
+Your job is to extract ONLY genuine physical actions or instructions someone would need to follow to perform this task. This is NOT a transcript summary - most segments should be DISCARDED.
+
+STRICT RULES - follow these exactly:
+1. A step must describe a physical action, decision, or instruction relevant to actually performing the task (e.g. "部品を取り付ける", "レバーを引いて固定する").
+2. Safety rules, precautions, warnings and prohibitions ARE valid steps, even when stated as a lesson or reason (e.g. "必ず〜する", "〜してはいけない", "電線に注意する", "一つ一つ確認しながら慎重に操作する"). This is often a safety-awareness video, where the rules are the content.
+3. DISCARD segments that are any of the following - do NOT turn them into steps:
+   - Introductions, quiz questions to the viewer ("どちらが正しいと思うか")
+   - Descriptions of what the video will show or what already happened, with no instruction
+   - Demonstrations of the WRONG way to do something (keep only the correct method and the rule that follows from it)
+   - Questions, small talk, filler, single-word exclamations
+   - Meta-commentary about the video ("ご視聴ありがとうございました")
+4. DISCARD a segment only when it is clearly not an instruction (a question, greeting, or description of the video). If it states an action, rule, precaution or warning, KEEP it.
+5. Every step you keep must start with ONE start time in square brackets, e.g. "[12.3s] ステップ文". Use only the start time. NEVER write a range such as [12.3s -> 15.0s]. Do NOT number the steps yourself.
+6. Write each kept step in Japanese as a short imperative instruction, removing filler words. Do not translate to English.
+7. Write steps as commands to the worker. Do NOT describe what the people in the video are doing or what the narrator is about to show (e.g. "作業者は〜している", "〜を見てみよう").
+8. Quiz videos: if the video presents two options and later reveals which is correct, include ONLY the correct option, written as an instruction. Never include the wrong option or the unsafe example.
+9. If a kept step is garbled or looks like a speech-recognition error, keep your best reading and mark it with "[UNCLEAR]" at the end.
+
+You are given a large section of the transcript. It usually yields about 2 to 8 real steps. Use the whole section as context (for example, a later sentence that reveals the correct answer) to decide which method is right. Go through the section from the first segment to the last and include EVERY distinct rule, countermeasure or precaution that is stated. Do not stop early.
+
+Output format (placeholders only - never output these placeholder words; use only what is actually said in the transcript below):
+[12.3s] <short Japanese instruction taken from the transcript>
+[25.0s] <another short Japanese instruction taken from the transcript> [UNCLEAR]
+
+Transcript segment:
+---
+{transcript}
+---
+
+Output ONLY the list of genuine steps in the exact format shown above (one per line), nothing else. If there are no genuine steps in this segment, output nothing at all. Do not number them, do not add commentary.
+"""
+
+if LANGUAGE == "Japanese":
+    PROMPT_TEMPLATE = PROMPT_TEMPLATE_JA
 
 
 def parse_segments(raw_text):
@@ -94,7 +141,7 @@ def call_model(transcript_chunk_text, label=""):
         "model": MODEL,
         "prompt": prompt,
         "stream": False,
-        "options": {"num_predict": 400}
+        "options": {"num_predict": NUM_PREDICT_CHUNK, **EXTRA_OPTIONS}
     }
     return _post_with_retry(payload, label=label)
 
@@ -116,6 +163,24 @@ Output ONLY the kept lines, in the exact same "[X.Xs] text" format, one per line
 """
 
 
+CONSOLIDATE_PROMPT_TEMPLATE_JA = """Below is a draft list of SOP steps extracted from a Japanese workplace safety/training video, with timestamps.
+
+Remove ONLY entries that are clearly not instructions: quiz questions, greetings or closing remarks, narration about what the video is about to show, demonstrations of the WRONG method, and exact duplicates.
+
+Keep every entry that states an action, rule, precaution, warning or prohibition, even if it is short or phrased as a lesson. When unsure, KEEP the entry - a human reviews the list afterwards. Keep the original timestamp and wording - do not rewrite or translate anything.
+
+Draft list:
+---
+{draft_steps}
+---
+
+Output ONLY the kept lines, in the exact same "[X.Xs] text" format, one per line, in their original order. Do not number them, do not add commentary.
+"""
+
+if LANGUAGE == "Japanese":
+    CONSOLIDATE_PROMPT_TEMPLATE = CONSOLIDATE_PROMPT_TEMPLATE_JA
+
+
 def consolidate_steps(steps):
     if not steps:
         return steps
@@ -126,7 +191,7 @@ def consolidate_steps(steps):
         "model": MODEL,
         "prompt": prompt,
         "stream": False,
-        "options": {"num_predict": 1200}
+        "options": {"num_predict": 1500, **EXTRA_OPTIONS}
     }
     try:
         raw_output = _post_with_retry(payload, label="consolidation")
@@ -137,17 +202,46 @@ def consolidate_steps(steps):
     return parse_step_lines(raw_output)
 
 
+def _normalize_for_match(text):
+    return re.sub(r"[\s、。,.!！?？「」『』（）()・\d\[\]]|UNCLEAR", "", text)
+
+
+def snap_steps_to_segments(steps, segments):
+    """The model often stamps a step with a segment's end time, or a neighbouring segment.
+    Move each step to the start of the transcript segment its wording was taken from."""
+    normalized = [(s, e, _normalize_for_match(t)) for s, e, t in segments]
+    snapped = []
+    for ts, text in steps:
+        step_norm = _normalize_for_match(text)
+        best = None
+        for start, _, seg_norm in normalized:
+            if not step_norm or not seg_norm:
+                continue
+            blocks = difflib.SequenceMatcher(None, step_norm, seg_norm, autojunk=False).get_matching_blocks()
+            coverage = sum(b.size for b in blocks) / len(step_norm)
+            candidate = (coverage, -abs(start - ts), start)
+            if best is None or candidate > best:
+                best = candidate
+        if best is not None and best[0] >= SNAP_MIN_COVERAGE:
+            snapped.append((best[2], text))
+        else:
+            snapped.append((ts, text))
+    return sorted(snapped, key=lambda x: x[0])
+
+
 def parse_step_lines(raw_output):
     lines = []
     for line in raw_output.split("\n"):
         line = line.strip()
         if not line:
             continue
-        match = re.match(r"^(?:\d+\.\s*)?\[(\d+\.?\d*)s\]\s*(.+)$", line)
+        match = re.match(r"^(?:\d+\.\s*)?\[(\d+\.?\d*)s?(?:\s*->\s*\d+\.?\d*s?)?\]\s*(.+)$", line)
         if match:
             ts = float(match.group(1))
             text = match.group(2).strip()
             lines.append((ts, text))
+        else:
+            print(f"    WARNING: could not parse model line, dropped: {line[:60]}")
     return lines
 
 
@@ -183,10 +277,16 @@ if __name__ == "__main__":
 
     all_steps.sort(key=lambda x: x[0])
     print(f"\nDraft steps before consolidation: {len(all_steps)}")
+    for ts, text in all_steps:
+        print(f"  [{ts:.1f}s] {text}")
 
     print("Running consolidation pass to remove any remaining non-actionable entries...")
     all_steps = consolidate_steps(all_steps)
     print(f"Steps after consolidation: {len(all_steps)}")
+
+    if LANGUAGE == "Japanese":
+        all_steps = snap_steps_to_segments(all_steps, segments)
+        print("Snapped step timestamps to the start of their source transcript segments.")
 
     output_lines = []
     for i, (ts, text) in enumerate(all_steps, 1):
@@ -204,6 +304,9 @@ if __name__ == "__main__":
     print("=" * 60)
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        f.write(final_output)
+    # merge_steps.py always works from this unmerged copy, so merging is repeatable
+    with open(OUTPUT_PATH.replace("_steps.txt", "_steps_full.txt"), "w", encoding="utf-8") as f:
         f.write(final_output)
 
     print(f"\nSaved {len(all_steps)} steps to: {OUTPUT_PATH}")
