@@ -53,6 +53,7 @@ def paths(video):
         "tools": os.path.join(sops, f"{video}_tools_safety.txt"),
         "review": os.path.join(sops, f"{video}_review.json"),
         "output": os.path.join(sops, f"{video}_SOP_reviewed.docx"),
+        "output_other": os.path.join(sops, f"{video}_SOP_reviewed_{'en' if language == 'Japanese' else 'ja'}.docx"),
         "log": os.path.join(sops, f"{video}_reviewed_images_log.txt"),
         "frames": os.path.join(photos, "step_frames"),
     }
@@ -178,13 +179,54 @@ def auto_pick_frames(video, steps):
     return times
 
 
-def build_sop(video, steps, tools, safety):
+def other_language(language):
+    return "English" if language == "Japanese" else "Japanese"
+
+
+def split_details(details):
+    return [part.strip() for part in (details or "").split("||") if part.strip()]
+
+
+def collect_translation_items(steps, tools, safety):
+    """Every line that needs translating, as (text, kind): step wording and details are sentences, tool
+    names are terms."""
+    items = []
+    for step in steps:
+        items.append((step["text"], "sentence"))
+        items.extend((part, "sentence") for part in split_details(step.get("details")))
+    items.extend((tool, "term") for tool in tools)
+    items.extend((point, "sentence") for point in safety)
+    return list(dict.fromkeys(items))
+
+
+def translated_copy(steps, tools, safety, translations, target):
+    """The steps, tools and safety points with their wording replaced by the translations. A line with
+    no translation keeps its original wording and is marked for checking, so nothing is left blank."""
+    from translate_text import VERIFY_MARK_EN, VERIFY_MARK_JA
+
+    mark = VERIFY_MARK_JA if target == "Japanese" else VERIFY_MARK_EN
+
+    def tr(text):
+        return translations.get(text) or (text + mark)
+
+    new_steps = []
+    for step in steps:
+        copy = dict(step)
+        copy["text"] = tr(step["text"])
+        copy["details"] = SEPARATOR.join(tr(part) for part in split_details(step.get("details")))
+        new_steps.append(copy)
+    return new_steps, [tr(t) for t in tools], [tr(s) for s in safety]
+
+
+def build_sop(video, steps, tools, safety, language=None, output=None):
     """Write the Word document from the reviewed data. steps: dicts with text, details, unclear, ts,
-    photo (video time in seconds, or None for no photo). Returns the path written."""
+    photo (video time in seconds, or None for no photo). language and output default to the video's
+    own language and the usual reviewed-document path. Returns the path written."""
     import numpy as np  # noqa: F401  (cv2 needs it)
     from generate_sop_docx import build_document
 
     p = paths(video)
+    language = language or p["language"]
     os.makedirs(p["frames"], exist_ok=True)
     tuples, photo_paths = [], []
     for n, step in enumerate(steps, 1):
@@ -198,12 +240,12 @@ def build_sop(video, steps, tools, safety):
                 cv2.imwrite(photo_path, frame, [cv2.IMWRITE_JPEG_QUALITY, 92])
         photo_paths.append(photo_path)
 
-    output = p["output"]
+    output = output or p["output"]
     try:
-        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], p["language"])
+        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], language)
     except PermissionError:
         output = output.replace(".docx", f"_{time.strftime('%H%M%S')}.docx")  # the first file is open in Word
-        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], p["language"])
+        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], language)
     return output
 
 

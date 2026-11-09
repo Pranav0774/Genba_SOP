@@ -6,6 +6,7 @@ import pandas as pd
 import streamlit as st
 
 import app_core as core
+import translate_text
 
 st.set_page_config(page_title="Genba SOP", layout="wide")
 
@@ -67,6 +68,9 @@ def load_video_state(video, use_saved=True):
     review = (core.load_review(video) if use_saved else None) or core.initial_review(video)
     st.session_state.review = review
     st.session_state.photo_times = {s["id"]: s.get("photo") for s in review["steps"]}
+    st.session_state.translations = dict(review.get("translations") or {})
+    st.session_state.translation_failed = []
+    st.session_state.translation_version = st.session_state.get("translation_version", 0) + 1
     st.session_state.version = st.session_state.get("version", 0) + 1
     st.session_state.loaded_video = video
 
@@ -112,8 +116,10 @@ paths = core.paths(video)
 
 st.title("Genba video → SOP")
 st.caption(f"{video} · {paths['language']}")
-tab_process, tab_steps, tab_tools, tab_photos, tab_build = st.tabs(
-    ["1 · Process", "2 · Steps", "3 · Tools & safety", "4 · Photos", "5 · Build"]
+source_language = paths["language"]
+target_language = core.other_language(source_language)
+tab_process, tab_steps, tab_tools, tab_photos, tab_translate, tab_build = st.tabs(
+    ["1 · Process", "2 · Steps", "3 · Tools & safety", "4 · Photos", f"5 · Translate to {target_language}", "6 · Build"]
 )
 
 # ---------------------------------------------------------------- 1 process
@@ -264,7 +270,52 @@ with tab_photos:
                     st.write("(no photo)")
             st.divider()
 
-# ---------------------------------------------------------------- 5 build
+# ---------------------------------------------------------------- 5 translate
+with tab_translate:
+    st.subheader(f"Translate into {target_language}")
+    st.caption("Do this after the steps, tools, safety points and photos are reviewed, so the translation is made "
+               "from the corrected text. Machine translation is a draft: correct anything wrong in the table.")
+    translations = st.session_state.translations
+    items = core.collect_translation_items(kept, tools, safety)
+    missing = [item for item in items if item[0] not in translations]
+    st.write(f"{len(items)} lines to translate · {len(items) - len(missing)} already translated")
+
+    if st.button(f"Translate {len(missing)} line(s) into {target_language}", disabled=not missing, type="primary"):
+        if not core.ollama_running():
+            st.error("Ollama is not running. Start it, then try again.")
+        else:
+            bar = st.progress(0.0, text="Starting...")
+            failed = translate_text.translate_many(
+                items, source_language, target_language, translations,
+                progress=lambda i, n: bar.progress(i / n, text=f"{i} of {n}"),
+            )
+            st.session_state.translation_failed = failed
+            st.session_state.translation_version += 1
+            st.rerun()
+
+    kind_label = {"sentence": "Sentence", "term": "Tool / material"}
+    rows = [{"Type": kind_label[kind], "Source": text, "Translation": translations[text]}
+            for text, kind in items if text in translations]
+    if rows:
+        if st.session_state.translation_failed:
+            st.warning(f"{len(st.session_state.translation_failed)} line(s) could not be translated automatically "
+                       "and are empty. Type a translation in, or leave it empty to use the original wording "
+                       "marked for checking.")
+        edited_translations = st.data_editor(
+            pd.DataFrame(rows), key=f"translations_{video}_{st.session_state.translation_version}",
+            hide_index=True, disabled=["Type", "Source"],
+            column_config={
+                "Type": st.column_config.TextColumn(width="small"),
+                "Source": st.column_config.TextColumn(f"{source_language} (source)", width="large"),
+                "Translation": st.column_config.TextColumn(f"{target_language} (editable)", width="large"),
+            },
+        )
+        final_translations = {**translations,
+                              **{rec["Source"]: clean_text(rec["Translation"]) for rec in edited_translations.to_dict("records")}}
+    else:
+        final_translations = dict(translations)
+
+# ---------------------------------------------------------------- 6 build
 with tab_build:
     st.subheader("Build the document")
     photo_times = st.session_state.photo_times
@@ -278,20 +329,41 @@ with tab_build:
     if to_check:
         st.warning(f"{to_check} item(s) are still marked 要確認. Check them, then clear the mark.")
 
-    payload = {"steps": [{**s} for s in final_steps], "tools": tools, "safety": safety}
+    payload = {"steps": [{**s} for s in final_steps], "tools": tools, "safety": safety,
+               "translations": final_translations}
+    choice = st.radio("Documents to build",
+                      [f"{source_language} only", f"{target_language} only", f"Both ({source_language} and {target_language})"],
+                      horizontal=True)
+    wants_source = not choice.startswith(target_language)
+    wants_target = not choice.startswith(source_language)
+    if wants_target:
+        untranslated = [text for text, _ in items if not final_translations.get(text)]
+        if untranslated:
+            st.info(f"{len(untranslated)} line(s) have no {target_language} translation yet. "
+                    "They will appear in their original wording, marked for checking.")
+
     c1, c2 = st.columns(2)
     if c1.button("Save my review"):
         core.save_review(video, payload)
         st.success("Saved. It will be loaded again next time you open this video.")
-    if c2.button("Build the Word document", type="primary"):
+    if c2.button("Build the Word document(s)", type="primary"):
         core.save_review(video, payload)
+        outputs = []
         with st.spinner("Building..."):
-            output = core.build_sop(video, final_steps, tools, safety)
-        st.session_state.built = output
-        st.success(f"Built: {output}")
+            if wants_source:
+                outputs.append(core.build_sop(video, final_steps, tools, safety))
+            if wants_target:
+                steps_t, tools_t, safety_t = core.translated_copy(final_steps, tools, safety,
+                                                                  final_translations, target_language)
+                outputs.append(core.build_sop(video, steps_t, tools_t, safety_t,
+                                              language=target_language, output=paths["output_other"]))
+        st.session_state.built = outputs
+        for output in outputs:
+            st.success(f"Built: {output}")
 
-    built = st.session_state.get("built")
-    if built and os.path.exists(built):
-        with open(built, "rb") as f:
-            st.download_button("Download the document", f.read(), file_name=os.path.basename(built),
-                               mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+    for built in st.session_state.get("built") or []:
+        if os.path.exists(built):
+            with open(built, "rb") as f:
+                st.download_button(f"Download {os.path.basename(built)}", f.read(), file_name=os.path.basename(built),
+                                   mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                   key=f"download_{built}")

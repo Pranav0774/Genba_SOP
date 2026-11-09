@@ -1,6 +1,7 @@
-"""The local text model sometimes slips a Simplified Chinese character into Japanese text, such as
-运 for 運 in 运転資格証. These are characters that are not Japanese kanji, so replacing them with the
-Japanese form is safe. Characters that are valid in both (点, 当, 状, 机, 后 ...) are deliberately not listed."""
+"""The local text model sometimes slips Simplified Chinese characters into Japanese text, such as
+运 for 運 in 运転資格証. Characters that are not Japanese kanji are replaced with the Japanese form
+where it is known, and can be detected where it is not."""
+import re
 
 # each pair is "simplified" then "Japanese form"
 _PAIRS = (
@@ -11,7 +12,20 @@ _PAIRS = (
     "总総 经経 济済 结結 论論 统統 领領 导導 门門"
 ).split()
 _TABLE = str.maketrans({pair[0]: pair[1] for pair in _PAIRS})
+_IDEOGRAPH = re.compile(r"[㐀-鿿]")
 
 
 def to_japanese_kanji(text):
     return text.translate(_TABLE)
+
+
+def non_japanese_characters(text):
+    """Kanji in the text that Japanese does not use (Simplified Chinese forms). A character that
+    Windows Japanese text encoding (code page 932) cannot hold is not a Japanese kanji."""
+    bad = []
+    for ch in _IDEOGRAPH.findall(text):
+        try:
+            ch.encode("cp932")
+        except UnicodeEncodeError:
+            bad.append(ch)
+    return bad

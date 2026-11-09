@@ -1,0 +1,71 @@
+# Japanese | English   (one pair per line; lines starting with # are ignored)
+# Used by translate_text.py: when a line contains a term, the pair is given to the translation model.
+# Extend this file whenever a translation uses the wrong word.
+
+# --- forklift and general handling
+フォークリフト | forklift
+チルトレバー | tilt lever
+リフトレバー | lift lever
+サイドブレーキ | parking brake
+駐車ブレーキ | parking brake
+マスト | mast
+爪 | fork
+ツメ | fork
+パレット | pallet
+白線 | white line
+荷 | load
+走行 | travelling
+ニュートラル | neutral
+水平 | level
+
+# --- mobile crane and aerial lift
+ラフテレーンクレーン | rough-terrain crane
+ホイールクレーン | wheel crane
+アウトリガー | outrigger
+ジャッキベース | jack base
+ジャッキ | jack
+タイヤ | tire
+地盤 | ground
+鉄板 | steel plate
+厚い鉄板 | thick steel plate
+コンクリート蓋 | concrete cover
+敷鉄板 | steel ground plate
+過負荷防止装置 | overload prevention device (AML)
+タフ化防止装置 | overload prevention device (AML)
+合図者 | signaller
+運転資格証 | operator's licence card
+架空電線 | overhead power line
+防護管 | protective sleeve
+吊り荷 | suspended load
+共吊り | tandem lifting
+斜め吊り | angled lifting
+横引き | side pulling
+旋回 | slewing
+絶縁対策 | insulation measures
+感電 | electric shock
+養生 | ground protection
+
+# --- sewing (English video terms; Japanese given for English-to-Japanese)
+ボビン | bobbin
+押え金 | presser foot
+はずみ車 | handwheel
+返し縫い | back stitch
+縫い代 | seam allowance
+下糸 | bobbin thread
+上糸 | top thread
+ミシン | sewing machine
+ミシン糸 | sewing thread
+
+# --- woodworking
+ドリル | drill
+下穴 | pilot hole
+座ぐり | counterbore
+ジグソー | jigsaw
+プレーナー | planer
+キャスター | caster
+木材 | lumber
+ネジ | screw
+クランプ | clamp
+ダボ | dowel
+1×4材 | one-by-four
+2×4材 | 2x4 lumber
