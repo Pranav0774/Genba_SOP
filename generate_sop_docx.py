@@ -238,13 +238,20 @@ LABELS = {
 L = LABELS[LANGUAGE]
 
 
-def apply_cjk_font(doc, font_name="Yu Gothic"):
+def apply_cjk_font(doc, font_name="Yu Gothic", latin_too=True):
+    """Use font_name for Japanese text; with latin_too also for Latin text (Japanese documents)."""
     for style_name in ("Normal", "Title", "Heading 1", "List Bullet"):
         style = doc.styles[style_name]
-        style.font.name = font_name
-        rfonts = style.element.rPr.rFonts
+        if latin_too:
+            style.font.name = font_name
+        rpr = style.element.get_or_add_rPr()
+        rfonts = rpr.find(qn("w:rFonts"))
+        if rfonts is None:
+            rfonts = rpr.makeelement(qn("w:rFonts"), {})
+            rpr.append(rfonts)
         rfonts.set(qn("w:eastAsia"), font_name)
-        for attr in ("w:asciiTheme", "w:hAnsiTheme", "w:eastAsiaTheme", "w:cstheme"):
+        themed = ("w:asciiTheme", "w:hAnsiTheme", "w:eastAsiaTheme", "w:cstheme") if latin_too else ("w:eastAsiaTheme",)
+        for attr in themed:
             if rfonts.get(qn(attr)) is not None:
                 del rfonts.attrib[qn(attr)]
 
@@ -253,8 +260,8 @@ def build_document(video_name, steps, tools, safety, matched_photos, output_path
     language = language or LANGUAGE
     L = LABELS[language]
     doc = Document()
-    if language == "Japanese":
-        apply_cjk_font(doc)
+    # always set the East Asian font: an English document can still hold Japanese (untranslated lines)
+    apply_cjk_font(doc, latin_too=language == "Japanese")
 
     title = doc.add_heading(L["title"].format(name=video_name), level=0)
 
@@ -280,15 +287,21 @@ def build_document(video_name, steps, tools, safety, matched_photos, output_path
         # a step merged from several short ones is stored as "main || detail || detail"
         main_text, *detail_texts = [part.strip() for part in step_text.split("||")]
         p = doc.add_paragraph()
+        # keep the step's wording on the same page as its photo, with a gap above so the wording
+        # is not read as a caption of the previous step's photo
+        p.paragraph_format.keep_with_next = True
+        p.paragraph_format.space_before = Pt(14)
         ts_label = L["at"].format(step_ts) if step_ts is not None else ""
         run = p.add_run(f"{i}. {main_text}{ts_label}")
         run.font.size = Pt(11)
+        run.bold = True
 
         if is_unclear:
             flag = p.add_run("  要確認")
             flag.bold = True
         for detail in detail_texts:
-            doc.add_paragraph(detail, style="List Bullet")
+            bullet = doc.add_paragraph(detail, style="List Bullet")
+            bullet.paragraph_format.keep_with_next = True
 
         photo_name = os.path.basename(photo_path) if photo_path else "NO MATCH FOUND"
         if photo_path:

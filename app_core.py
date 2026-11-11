@@ -16,6 +16,7 @@ ROOT = r"D:\genba-sop"
 SEPARATOR = " || "
 OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 EXCLUDE_FRAMES_BEFORE = {"eng_04": 64.5}
+NONE_MARKERS = ("記載なし", "None mentioned", "None listed")
 
 LANGUAGE_FOLDERS = {"Japanese": "japanese", "English": "english"}
 PREFIXES = {"Japanese": "jap_", "English": "eng_"}
@@ -109,9 +110,27 @@ def parse_tools_file(path, language):
         content = f.read()
     tools_match = re.search(r"TOOLS AND MATERIALS\s*(.*?)\s*SAFETY POINTS", content, re.DOTALL)
     safety_match = re.search(r"SAFETY POINTS\s*(.*)", content, re.DOTALL)
-    clean = lambda m: [_fix_text(l.strip().lstrip("-").strip(), language)
-                       for l in (m.group(1).split("\n") if m else []) if l.strip().lstrip("-").strip()]
+    def clean(m):
+        lines = [_fix_text(l.strip().lstrip("-").strip(), language) for l in (m.group(1).split("\n") if m else [])]
+        # "none mentioned" is the model's way of saying the list is empty, not an item
+        return [l for l in lines if l and not any(marker in l for marker in NONE_MARKERS)]
+
     return clean(tools_match), clean(safety_match)
+
+
+def pipeline_frame_times(video, step_count):
+    """The frame times the pipeline chose for each step, read from its match report. Empty if the
+    report is missing or was made for a different number of steps."""
+    report = os.path.join(os.path.dirname(paths(video)["steps"]), f"{video}_photo_match_report.txt")
+    if not os.path.exists(report):
+        return []
+    with open(report, "r", encoding="utf-8") as f:
+        text = f.read()
+    step_total = len(re.findall(r"^Step \d+ \[", text, re.MULTILINE))
+    times = {int(n): float(t) for n, t in re.findall(r"^Step (\d+) \[[^\n]*\n\s*-> frame at ([\d.]+)s", text, re.MULTILINE)}
+    if step_total != step_count:
+        return []
+    return [times.get(i) for i in range(1, step_count + 1)]
 
 
 def load_review(video):
@@ -133,9 +152,11 @@ def initial_review(video, use_full_steps=False):
     steps_path = p["steps_full"] if use_full_steps and os.path.exists(p["steps_full"]) else p["steps"]
     steps = parse_steps_file(steps_path, p["language"])
     tools, safety = parse_tools_file(p["tools"], p["language"])
+    # start from the frames the pipeline picked; fall back to two seconds after the step starts
+    picked = [] if use_full_steps else pipeline_frame_times(video, len(steps))
     for i, step in enumerate(steps):
         step["id"] = i
-        step["photo"] = round(step["ts"] + 2.0, 2)
+        step["photo"] = picked[i] if picked and picked[i] is not None else round(step["ts"] + 2.0, 2)
     return {"steps": steps, "tools": tools, "safety": safety}
 
 
@@ -207,7 +228,9 @@ def translated_copy(steps, tools, safety, translations, target):
     mark = VERIFY_MARK_JA if target == "Japanese" else VERIFY_MARK_EN
 
     def tr(text):
-        return translations.get(text) or (text + mark)
+        if translations.get(text):
+            return translations[text]
+        return text if mark.strip() in text else text + mark
 
     new_steps = []
     for step in steps:
@@ -218,7 +241,7 @@ def translated_copy(steps, tools, safety, translations, target):
     return new_steps, [tr(t) for t in tools], [tr(s) for s in safety]
 
 
-def build_sop(video, steps, tools, safety, language=None, output=None):
+def build_sop(video, steps, tools, safety, language=None, output=None, title=None):
     """Write the Word document from the reviewed data. steps: dicts with text, details, unclear, ts,
     photo (video time in seconds, or None for no photo). language and output default to the video's
     own language and the usual reviewed-document path. Returns the path written."""
@@ -242,10 +265,10 @@ def build_sop(video, steps, tools, safety, language=None, output=None):
 
     output = output or p["output"]
     try:
-        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], language)
+        build_document(title or video, tuples, tools, safety, photo_paths, output, p["log"], language)
     except PermissionError:
         output = output.replace(".docx", f"_{time.strftime('%H%M%S')}.docx")  # the first file is open in Word
-        build_document(video, tuples, tools, safety, photo_paths, output, p["log"], language)
+        build_document(title or video, tuples, tools, safety, photo_paths, output, p["log"], language)
     return output
 
 
@@ -270,7 +293,7 @@ def run_stage(script, video, args=()):
     env.setdefault("HF_HOME", os.path.join(ROOT, "hf_cache"))
     env["PYTHONIOENCODING"] = "utf-8"
     process = subprocess.Popen(
-        [sys.executable, script, video, *args], cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        [sys.executable, "-u", script, video, *args], cwd=ROOT,  # -u: show the script's output as it runs stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, encoding="utf-8", errors="replace", env=env,
     )
     for line in process.stdout:

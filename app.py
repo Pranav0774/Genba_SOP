@@ -185,7 +185,7 @@ with tab_steps:
     frame = pd.DataFrame(review["steps"], columns=["keep", "ts", "text", "details", "unclear", "id"])
     edited = st.data_editor(
         frame, key=f"steps_{video}_{st.session_state.version}", num_rows="dynamic", hide_index=True,
-        column_order=["keep", "ts", "text", "details", "unclear"],
+        column_order=["keep", "unclear", "ts", "text", "details"],
         column_config={
             "keep": st.column_config.CheckboxColumn("Keep", default=True, width="small"),
             "ts": st.column_config.NumberColumn("Start (s)", format="%.1f", step=0.1, width="small"),
@@ -227,6 +227,8 @@ with tab_photos:
             with st.spinner("Choosing frames..."):
                 times = core.auto_pick_frames(video, kept)
             for step, t in zip(kept, times):
+                if st.session_state.get(none_key_of(step["id"])):
+                    continue  # the reviewer chose "No photo" for this step: leave it
                 photo_times[step["id"]] = t
                 st.session_state[key_of(step["id"])] = float(t) if t is not None else 0.0
                 st.session_state[none_key_of(step["id"])] = t is None
@@ -329,37 +331,59 @@ with tab_build:
     if to_check:
         st.warning(f"{to_check} item(s) are still marked 要確認. Check them, then clear the mark.")
 
+    title = st.text_input(f"Document title ({source_language})", value=review.get("title") or video,
+                          key=f"title_{video}_{st.session_state.version}")
+    title_other = st.text_input(f"Document title ({target_language})", value=review.get("title_other") or "",
+                                key=f"title_other_{video}_{st.session_state.version}",
+                                placeholder="Leave empty to use the same title")
     payload = {"steps": [{**s} for s in final_steps], "tools": tools, "safety": safety,
-               "translations": final_translations}
+               "translations": final_translations, "title": title, "title_other": title_other}
     choice = st.radio("Documents to build",
                       [f"{source_language} only", f"{target_language} only", f"Both ({source_language} and {target_language})"],
                       horizontal=True)
     wants_source = not choice.startswith(target_language)
     wants_target = not choice.startswith(source_language)
-    if wants_target:
-        untranslated = [text for text, _ in items if not final_translations.get(text)]
-        if untranslated:
-            st.info(f"{len(untranslated)} line(s) have no {target_language} translation yet. "
-                    "They will appear in their original wording, marked for checking.")
+    never_translated = [item for item in items if item[0] not in final_translations]
+    if wants_target and never_translated:
+        st.warning(f"{len(never_translated)} line(s) are not translated into {target_language} yet. "
+                   "Building will translate them first (a few seconds per line). "
+                   "Check the result on the Translate tab afterwards.")
 
     c1, c2 = st.columns(2)
     if c1.button("Save my review"):
         core.save_review(video, payload)
         st.success("Saved. It will be loaded again next time you open this video.")
     if c2.button("Build the Word document(s)", type="primary"):
-        core.save_review(video, payload)
-        outputs = []
-        with st.spinner("Building..."):
-            if wants_source:
-                outputs.append(core.build_sop(video, final_steps, tools, safety))
-            if wants_target:
-                steps_t, tools_t, safety_t = core.translated_copy(final_steps, tools, safety,
-                                                                  final_translations, target_language)
-                outputs.append(core.build_sop(video, steps_t, tools_t, safety_t,
-                                              language=target_language, output=paths["output_other"]))
-        st.session_state.built = outputs
-        for output in outputs:
-            st.success(f"Built: {output}")
+        can_build = True
+        if wants_target and never_translated:
+            if not core.ollama_running():
+                st.error(f"The {target_language} document needs translation, and Ollama is not running. "
+                         "Start Ollama and build again.")
+                can_build = False
+            else:
+                bar = st.progress(0.0, text="Translating...")
+                failed = translate_text.translate_many(
+                    items, source_language, target_language, st.session_state.translations,
+                    progress=lambda i, n: bar.progress(i / n, text=f"Translating {i} of {n}"),
+                )
+                final_translations = {**st.session_state.translations, **final_translations}
+                payload["translations"] = final_translations
+                st.session_state.translation_failed = failed
+                st.session_state.translation_version += 1
+        if can_build:
+            core.save_review(video, payload)
+            outputs = []
+            with st.spinner("Building..."):
+                if wants_source:
+                    outputs.append(core.build_sop(video, final_steps, tools, safety, title=title))
+                if wants_target:
+                    steps_t, tools_t, safety_t = core.translated_copy(final_steps, tools, safety,
+                                                                      final_translations, target_language)
+                    outputs.append(core.build_sop(video, steps_t, tools_t, safety_t, language=target_language,
+                                                  output=paths["output_other"], title=title_other or title))
+            st.session_state.built = outputs
+            for output in outputs:
+                st.success(f"Built: {output}")
 
     for built in st.session_state.get("built") or []:
         if os.path.exists(built):

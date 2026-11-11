@@ -35,7 +35,7 @@ if os.path.exists(OUTPUT_PATH) and "--force" not in sys.argv:
 
 if not os.path.exists(AUDIO_PATH):
     print("Extracting audio from the video...")
-    subprocess.run([FFMPEG, "-y", "-i", VIDEO_PATH, "-ar", "16000", "-ac", "1", AUDIO_PATH], check=True)
+    subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", VIDEO_PATH, "-ar", "16000", "-ac", "1", AUDIO_PATH], check=True)
 
 if LANGUAGE == "Japanese":
     model_size, options = "large-v3", dict(
