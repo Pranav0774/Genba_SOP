@@ -1,86 +1,109 @@
 # Genba Video → SOP Generator
 
-Turns a smartphone-recorded workplace ("Genba") video into a draft Standard Operating Procedure (SOP): a numbered-steps Word document with embedded photos, a tools/materials list, and safety points, in English and Japanese. The goal is a fast AI-generated *first draft* that a human then reviews and edits — not a fully automated, unreviewed output.
+Turns a smartphone-recorded workplace ("Genba") video into a draft Standard Operating Procedure (SOP): a Word document with numbered steps, a photo for each step, a tools/materials list and safety points, in Japanese and English. Everything runs locally and offline, so factory video never leaves the machine.
 
-Full spec, KPIs, and scope live in [`Genba_Video_SOP_Generator 1.docx`](Genba_Video_SOP_Generator%201.docx); this README summarizes the pipeline, current status, and roadmap as actually implemented in this repo.
+The output is a fast AI-generated *first draft* that a person then reviews and corrects in the review app. It is not meant to be used unreviewed.
 
-## Pipeline
+Full spec, KPIs and scope are in [`Genba_Video_SOP_Generator 1.docx`](Genba_Video_SOP_Generator%201.docx). This README describes what is implemented in this repo.
 
-Each stage is a standalone Python script. There is no unified CLI yet — every script is run manually, in order, with input/output paths hardcoded near the top of the file (edit before running).
+## How it works
 
 | # | Stage | Script | What it does |
-|---|-------|--------|---------------|
-| 1 | Video → audio | ffmpeg (via `transcribe_test.py`) | `ffmpeg -i video.mp4 -ar 16000 -ac 1 audio.wav` |
-| 2 | Audio → transcript | [`transcribe_audio_direct.py`](transcribe_audio_direct.py), [`transcribe_test.py`](transcribe_test.py) | `faster-whisper` (CPU, int8) with Silero VAD, timestamped `[start -> end] text` segments |
-| 3 | Accuracy check | [`wer_check.py`](wer_check.py), [`cer_check.py`](cer_check.py) | Compares transcript to hand-written ground truth — word error rate (English) / character error rate (Japanese) via `jiwer` |
-| 4 | Noise robustness set | [`mix_noise_snr.py`](mix_noise_snr.py) | RMS-based synthetic noise mixing at controlled SNR (20/10/5 dB), for testing ASR degradation |
-| 5 | Video → candidate photos | PySceneDetect (external CLI, see [`reference/pyscenedetect_log.txt`](reference/pyscenedetect_log.txt)) | `scenedetect -i video detect-adaptive --threshold 8 --min-scene-len 10s save-images` → 3 candidate frames (start/mid/end) per detected scene, plus a scene-timestamp CSV |
-| 6 | Photos → descriptions | [`vision_test.py`](vision_test.py), [`vision_test_batch.py`](vision_test_batch.py) | Each candidate photo sent to a local Ollama `qwen2.5vl:7b` vision model for a 1–2 sentence action/tool/safety description |
-| 7 | Transcript → steps | [`step_split.py`](step_split.py) | Chunks the transcript and sends it to a local Ollama `qwen2.5:7b-instruct` model, which discards small talk/meta-commentary and keeps only genuine action steps, flagging ambiguous ones `[UNCLEAR]`; a second consolidation pass cleans the combined list |
-| 8 | Transcript → tools & safety | [`extract_tools_safety.py`](extract_tools_safety.py) | One Ollama call extracts a "Tools and Materials" list and a "Safety Points" list |
-| 9 | Assemble SOP | [`generate_sop_docx.py`](generate_sop_docx.py) | Matches each step to the closest-timestamped candidate photo, builds the final Word doc (`python-docx`) with headings, bullet lists, and numbered steps with embedded photos; unclear steps get a bold **要確認** (verify) marker; also writes a plain-text image-selection log for QA |
+|---|-------|--------|--------------|
+| 1 | Video → transcript | [`transcribe_video.py`](transcribe_video.py) | Extracts audio with ffmpeg and transcribes it with `faster-whisper` on the CPU. Japanese uses `large-v3` with a vocabulary hint ([`reference/Japanese/genba_vocabulary.txt`](reference/Japanese/genba_vocabulary.txt)); English uses `small`. Output is timestamped `[start -> end] text` segments. |
+| 2 | Transcript → steps | [`step_split.py`](step_split.py) | A local Ollama model (`qwen2.5:7b-instruct`) keeps only real actions and rules, flags unclear ones `[UNCLEAR]`, and a second pass removes leftovers. Japanese step times are snapped to the transcript segment they came from. |
+| 3 | Merge short steps (optional) | [`merge_steps.py`](merge_steps.py) | For demonstration videos, groups consecutive micro-steps of one operation into one step. The model only chooses which steps to group; the wording is never rewritten, and a rule check stops opposite actions being merged. Use `--no-merge` for videos that are a list of independent rules. |
+| 4 | Transcript → tools and safety | [`extract_tools_safety.py`](extract_tools_safety.py) | One model call extracts the two lists. For Japanese, tools the transcript never names are removed and weakly supported safety points are marked `（要確認）`; every change is logged. |
+| 5 | Photos | [`frame_matching.py`](frame_matching.py) | Cuts each step's photo straight from the video, 1–3 seconds after the step starts, choosing the steadiest, sharpest frame and avoiding dark or blurred ones. No model calls. |
+| 6 | Word document | [`generate_sop_docx.py`](generate_sop_docx.py) | Builds the `.docx` with `python-docx`: tools, safety points, then each step in bold above its photo. |
+| 7 | Review and translate | [`app.py`](app.py) | Streamlit app: run the stages, correct steps/tools/safety, choose each photo, translate into the other language, and build the final documents. |
 
-A complete, working example of the full pipeline's output is in [`reference/English/SOPs/eng_02_SOP.docx`](reference/English/SOPs/eng_02_SOP.docx) (a 32-step sewing-machine tutorial SOP).
+Supporting files: [`app_core.py`](app_core.py) (app logic), [`translate_text.py`](translate_text.py) and [`reference/glossary.txt`](reference/glossary.txt) (translation with a domain glossary), [`japanese_text.py`](japanese_text.py) (repairs and detects Chinese characters the model leaks into Japanese), [`video_config.py`](video_config.py) (video name from the command line).
 
-## Tech stack
+Accuracy and test tooling from Phase 1 is unchanged: [`wer_check.py`](wer_check.py), [`cer_check.py`](cer_check.py), [`mix_noise_snr.py`](mix_noise_snr.py).
 
-- **faster-whisper** + **Silero VAD** — speech-to-text (CPU, int8)
-- **jiwer** — WER/CER scoring against ground truth
-- **PySceneDetect** + **OpenCV** — scene-change detection for candidate photo extraction
-- **Ollama** (local, `localhost:11434`) running **Qwen2.5-VL-7B** (vision) and **Qwen2.5-7B-Instruct** (text)
-- **python-docx** — Word SOP assembly
-- **ffmpeg** — audio extraction/mixing, called only as a subprocess (never linked), to keep its LGPL/GPL licensing isolated from the rest of the MIT/Apache-licensed stack
-- **soundfile / numpy** — RMS-based noise mixing
+## Setup
 
-All dependencies are open-source by design (see the license table in the spec doc). There's no `requirements.txt` committed yet — each script's docstring notes its own `pip install` needs.
+1. Python 3.14 on Windows, then:
+   ```
+   python -m venv venv
+   venv\Scripts\python.exe -m pip install -r requirements.txt
+   ```
+2. Put `ffmpeg.exe` in `tools\ffmpeg\bin\`.
+3. Install [Ollama](https://ollama.com), start it, and pull the text model:
+   ```
+   ollama pull qwen2.5:7b-instruct
+   ```
+4. Paths in the scripts are absolute (`D:\genba-sop\...`). The project is expected at `D:\genba-sop`.
+
+Videos go in `videos\japanese\` or `videos\english\`. The language is taken from the file name: `jap_...mp4` is Japanese, `eng_...mp4` is English.
+
+## Using the review app
+
+```
+venv\Scripts\python.exe -m streamlit run app.py
+```
+
+1. **Process** – pick a video (or add one in the sidebar) and run the stages. A 95-second Japanese clip takes about 4 minutes on a laptop CPU with a 4 GB GPU; a full 8-minute video takes much longer, mostly in transcription and step splitting.
+2. **Steps** – correct the wording and times, untick steps to leave out, add rows, mark steps 要確認.
+3. **Tools & safety** – one item per line. Points marked `（要確認）` need checking.
+4. **Photos** – each step starts with the frame the pipeline picked; move it with the time box or ±1 s, or choose "No photo".
+5. **Translate** – translates the reviewed text into the other language. Every translation is shown for correction. Extend `reference/glossary.txt` when a term comes out wrong.
+6. **Build** – builds the source-language document, the other-language document, or both. Untranslated lines are translated first.
+
+Your edits are saved as `<video>_review.json` when you press Save or Build, and load again next time. Reviewed documents are written as `<video>_SOP_reviewed.docx` and `<video>_SOP_reviewed_en.docx` / `_ja.docx` under `reference\<Language>\SOPs\`.
+
+## Running the stages by hand
+
+Each script takes the video name:
+
+```
+python transcribe_video.py jap_04
+python step_split.py jap_04
+python merge_steps.py jap_04            # or: python merge_steps.py jap_04 --no-merge
+python extract_tools_safety.py jap_04
+python generate_sop_docx.py jap_04      # unreviewed document, straight from the pipeline
+```
+
+`transcribe_video.py` refuses to overwrite an existing transcript unless you add `--force`. `step_split.py` gives a different step list on every run, so do not re-run it on a video whose steps have already been reviewed.
 
 ## Repo layout
 
 ```
-videos/       source .mp4s + extracted/noisy .wav audio (English & Japanese) — gitignored
-photos/       PySceneDetect candidate frames per video, photos/English/eng_0X/ and photos/Japanese/jap_0X/
-reference/    transcripts, ground truth, WER/CER results, noise-test results, vision descriptions,
-              generated sample SOPs — organized under English/ and Japanese/
-noise_samples/  factory noise clips used for synthetic SNR mixing
-ollama_models/  local Ollama model blobs — gitignored (~10 GB, never commit)
-tools/ffmpeg/   bundled ffmpeg/ffprobe/ffplay binaries — gitignored
-venv/, hf_cache/  local virtualenv and HuggingFace cache — gitignored
+videos/         source .mp4s and extracted audio (gitignored)
+photos/         scene-detection frames from Phase 1, and step_frames/ cut by the current pipeline
+reference/      transcripts, ground truth, WER/CER results, generated SOPs, glossary
+                (English/ and Japanese/ subfolders)
+noise_samples/  factory noise clips for the synthetic noise test set
+ollama_models/, hf_cache/, venv/, tools/ffmpeg/   local models and tools (gitignored)
 ```
 
-## How to run
+## Current status (17 Nov 2026)
 
-1. Activate the local venv; install faster-whisper, jiwer, opencv-python, scenedetect, python-docx, soundfile, numpy, requests.
-2. Install ffmpeg (or use the bundled copy in `tools/ffmpeg/`) and [Ollama](https://ollama.com), then pull `qwen2.5vl:7b` and `qwen2.5:7b-instruct`; leave the Ollama server running.
-3. Edit the hardcoded video-name/path constants at the top of each script for the video you're processing, then run in order:
-   ```
-   python transcribe_audio_direct.py
-   python wer_check.py            # or cer_check.py for Japanese
-   python mix_noise_snr.py        # noise-robustness test set
-   scenedetect -i <video> detect-adaptive --threshold 8 --min-scene-len 10s save-images -o <photo_folder>
-   python vision_test_batch.py
-   python step_split.py
-   python extract_tools_safety.py
-   python generate_sop_docx.py
-   ```
+**Built and working:** the full pipeline for Japanese and English, the review app, and dual-language output. The app was tested end to end on a new Japanese clip and on all eight project videos.
 
-## Current status
+**Generated SOPs** (pipeline output in `reference\<Language>\SOPs\`):
 
-**Phase 0 and Phase 1** (environment setup, ASR/VAD in English + Japanese, ground-truth transcripts and WER/CER measurement, synthetic noise test set, scene-detection candidate photos) are complete and were the initial commit.
+| Video | State |
+|-------|-------|
+| eng_02 (sewing machine, 32 steps) | Photos and steps good. |
+| eng_03 (workbench, 18 steps) | Photos good. Tools list includes a sponsor product; protective equipment seen in the video is not in the safety list because it is never spoken. |
+| eng_04 (work stand, 19 steps) | Photos good; steps 1–2 share a photo; tools list mixes in parts. |
+| eng_05 (bottling plant, 20 steps) | A process description from stock footage, not a worker-instruction video. |
+| eng_01 (ultrasound, 1 step) | Too little spoken content for a useful SOP. |
+| jap_01, jap_02, jap_03 | Generated; photos fit their steps. The text still contains speech-recognition errors and needs review by a Japanese reader before use. |
 
-**Phase 2** (vision descriptions, step splitting, tools/safety extraction, Word SOP assembly) has now been added and proven end-to-end on `eng_02`. It is currently **English-only and single-video-hardcoded** — nothing loops over multiple videos or languages automatically yet.
+## Known limits
 
-### Known gaps
-- No Streamlit (or any) upload/download UI — every stage is run from the command line
-- No automated test suite (pytest)
-- No Japanese step-splitting / tools-safety / SOP-assembly path yet (Japanese ASR + ground truth exist, but Phase 2 scripts are English-only)
-- No automated candidate → final photo selection; photo curation is manual review of PySceneDetect's output
-- No denoising step implemented (DeepFilterNet / noisereduce are in the planned stack but unused — `mix_noise_snr.py` only *adds* synthetic noise for testing, it doesn't remove it)
-- No unified CLI — each script requires manually editing hardcoded constants per video
+- **Japanese speech recognition** is the weakest stage. Misheard words (for example ジャッキレース for ジャッキベース) go into the steps, the lists and the translation. The review step is where these are corrected.
+- **Translation** is draft quality from a 7B model. Japanese → English is usable; English → Japanese more often needs correcting, and lines the model cannot translate cleanly are left blank for the reviewer.
+- **Photos by timing** are right for most steps, but where the picture changes several seconds after the narration (numbered captions in jap_02) the photo can show the previous step.
+- **Merging** suits demonstration videos only; on rule-list videos it pairs unrelated rules, so it is off by default in the app.
+- The tools/safety grounding filter covers Japanese only.
+- Japanese CER figures for jap_02 and jap_03 are estimates until a spoken-only ground truth is available.
+- Not implemented: denoising, an automated test suite, a single command that runs every stage.
+- The step-splitting model's output varies from run to run.
 
-## Roadmap
+## PoC targets (from the spec)
 
-- **Phase 2 — Steps and Word output** *(this commit)*: vision descriptions, step splitting, tools/safety extraction, Word file with embedded photos, 要確認 flagging. Done when ≥3 videos produce a complete Word SOP (currently 1 of 3).
-- **Phase 3 — Japanese output and full noise testing**: extend step-splitting/tools-safety/SOP-assembly to Japanese; run the full 20/10/5 dB noise test matrix across all videos and plot the noise-vs-accuracy curve; measure human edit time on generated SOPs against the 70%-time-saved target.
-- **Phase 4 — Demo and handover**: Streamlit upload/download UI, final project report, video-recording guide, demo video, live demo, code handover.
-
-Target PoC KPIs (from the spec doc): English WER ≤12%, Japanese CER ≤15%, ≥80% of true steps found, ≥80% correct photo selection, ≤30 min human edit time (≥70% time saved vs. manual), ≤2% hallucinated content, generation time ≤30 min (Colab) / ≤60 min (laptop CPU).
+English WER ≤12%, Japanese CER ≤15%, ≥80% of true steps found, ≥80% correct photo selection, ≤30 min human edit time (≥70% time saved vs. manual), ≤2% hallucinated content, generation time ≤30 min (Colab) / ≤60 min (laptop CPU). Edit time and step-recall have not been measured yet.

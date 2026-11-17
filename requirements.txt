@@ -1,0 +1,30 @@
+# Genba Video -> SOP Generator. Tested on Python 3.14 (Windows 11).
+# Install:  python -m venv venv  &&  venv\Scripts\python.exe -m pip install -r requirements.txt
+#
+# Not installed by pip - set these up separately:
+#   - ffmpeg: put ffmpeg.exe in tools\ffmpeg\bin\ (used for audio extraction)
+#   - Ollama (https://ollama.com), running locally, with the model:  ollama pull qwen2.5:7b-instruct
+#     (qwen2.5vl:7b is only needed for the optional MATCHING = "content" photo mode)
+
+# speech to text
+faster-whisper==1.2.1
+
+# accuracy checks (WER / CER)
+jiwer==4.0.0
+
+# video frames and scene detection
+opencv-python==5.0.0.93
+scenedetect==0.7.1
+pillow==12.3.0
+numpy==2.5.2
+
+# noise test set
+soundfile==0.14.0
+
+# local LLM calls and Word output
+requests==2.34.2
+python-docx==1.2.0
+
+# review app
+streamlit==1.66.1
+pandas==3.1.1
