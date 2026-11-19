@@ -13,6 +13,7 @@ sherpa-onnx==2.0.1
 
 # accuracy checks (WER / CER)
 jiwer==4.0.0
+rapidfuzz==3.14.5
 
 # video frames and scene detection
 opencv-python==5.0.0.93

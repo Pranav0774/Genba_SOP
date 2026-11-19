@@ -3,95 +3,134 @@ Frame match report (exact-time frames)
 Step 1 [35.2s]: Plug the power cord into the machine
   -> frame at 36.20s (motion 15.1, sharpness 69)
 
-Step 2 [49.3s]: Turn the machine on
-  -> frame at 50.30s (motion 7.0, sharpness 56)
+Step 2 [37.3s]: Press the foot into the side of the machine
+  -> frame at 39.80s (motion 9.4, sharpness 40)
 
-Step 3 [104.7s]: Reach hand behind to press lever to release foot
+Step 3 [43.3s]: Turn the machine on
+  -> frame at 44.30s (motion 4.0, sharpness 31)
+
+Step 4 [82.0s]: Slide the needle in so that the flat side is facing the back
+  -> frame at 83.00s (motion 7.9, sharpness 49)
+
+Step 5 [86.9s]: Push it up to the top and screw it in place
+  -> frame at 89.90s (motion 8.1, sharpness 36)
+
+Step 6 [104.7s]: Reach your hand behind and press the lever to release the foot
   -> frame at 107.20s (motion 3.3, sharpness 46)
 
-Step 4 [109.6s]: Slide presser foot underneath and push middle bar until it clicks in place
+Step 7 [109.6s]: Slide the foot underneath and push the little bar in the middle up until it clicks in place
   -> frame at 111.10s (motion 3.2, sharpness 26)
 
-Step 5 [124.1s]: Raise and lower presser foot by reaching to back and pulling down or pushing up lever
+Step 8 [124.1s]: Raise and lower your presser foot by reaching to the back and pulling down or pushing up the lever
   -> frame at 125.60s (motion 3.2, sharpness 35)
 
-Step 6 [164.6s]: Grab your empty bobbin
+Step 9 [164.6s]: Grab your empty bobbin
   -> frame at 167.60s (motion 5.1, sharpness 17)  CHECK: SOFT FRAME (blurred, possibly a dissolve)
 
-Step 7 [183.7s]: Place bobbin on stub
+Step 10 [178.9s]: Ensure bobbins are compatible with your machine
+  -> frame at 181.90s (motion 11.8, sharpness 25)
+
+Step 11 [183.7s]: Fill up your bobbin
   -> frame at 185.20s (motion 3.3, sharpness 30)
 
-Step 8 [195.3s]: Turn the handwheel to enable bobbin threading
+Step 12 [195.3s]: Turn the handwheel on the side to enable bobbin threading
   -> frame at 196.80s (motion 8.2, sharpness 32)
 
-Step 9 [204.7s]: Follow the arrow to bring the thread around the bobbin
+Step 13 [204.7s]: Follow the arrow and bring the spool of thread around to the bobbin
   -> frame at 207.70s (motion 21.0, sharpness 79)  CHECK: POSSIBLE TRANSITION
 
-Step 10 [210.9s]: Wrap the thread around the bobbin a few times
+Step 14 [210.9s]: Wrap the thread around the bobbin a few times to hold it in place
   -> frame at 213.90s (motion 6.2, sharpness 116)
 
-Step 11 [226.5s]: Use the thread cutter after wrapping
+Step 15 [226.5s]: Use the thread cutter to cut the thread after wrapping
   -> frame at 227.50s (motion 10.1, sharpness 5)  CHECK: SOFT FRAME (blurred, possibly a dissolve)
 
-Step 12 [231.1s]: Place the thread in one of the bobbin holes
+Step 16 [231.1s]: Place the thread into one of the bobbin holes to keep it out of the way
   -> frame at 232.10s (motion 12.5, sharpness 7)  CHECK: SOFT FRAME (blurred, possibly a dissolve)
 
-Step 13 [241.2s]: Step on the foot pedal to start winding the bobbin
+Step 17 [241.2s]: Step on the foot pedal to start winding the bobbin
   -> frame at 242.20s (motion 6.3, sharpness 56)
 
-Step 14 [253.7s]: Switch the stub to the other side when the bobbin is full
-  -> frame at 258.70s (motion 16.2, sharpness 46)  CHECK: WINDOW EXTENDED (blurred or dark frames at first)
+Step 18 [253.7s]: Switch the stub to the other side to stop bobbin winding
+  -> frame at 258.20s (motion 17.2, sharpness 47)  CHECK: WINDOW EXTENDED (blurred or dark frames at first)
 
-Step 15 [264.9s]: Pull out thread from the bobbin
-  -> frame at 265.90s (motion 5.3, sharpness 42)
+Step 19 [258.9s]: Separate the bobbin thread
+  -> frame at 261.90s (motion 17.5, sharpness 38)
 
-Step 16 [294.0s]: Turn hand wheel to move the metal hook up
-  -> frame at 297.00s (motion 11.5, sharpness 44)
+Step 20 [290.2s]: Turn hand wheel until metal hook is visible
+  -> frame at 292.20s (motion 13.9, sharpness 28)
 
-Step 17 [298.4s]: Bring thread down to the needle and secure behind the hook
-  -> frame at 300.90s (motion 2.7, sharpness 45)
+Step 21 [298.4s]: Bring thread down to needle
+  -> frame at 299.40s (motion 4.8, sharpness 38)
 
-Step 18 [308.1s]: Hold thread with left hand
+Step 22 [298.4s]: Secure thread behind hook
+  -> frame at 300.57s (motion 2.3, sharpness 46)
+
+Step 23 [298.4s]: Thread needle
+  -> frame at 300.73s (motion 2.1, sharpness 47)  CHECK: SAME MOMENT AS PREVIOUS STEP
+
+Step 24 [308.1s]: Hold thread with left hand
   -> frame at 311.10s (motion 2.9, sharpness 47)
 
-Step 19 [313.6s]: Turn hand wheel with right hand
+Step 25 [313.6s]: Turn hand wheel with right hand
   -> frame at 316.60s (motion 10.9, sharpness 26)
 
-Step 20 [318.1s]: Tug top thread while turning wheel
+Step 26 [318.1s]: Tug top thread while turning wheel
   -> frame at 319.10s (motion 4.0, sharpness 50)
 
-Step 21 [323.1s]: Pull bobbin thread up with left hand
+Step 27 [323.1s]: Pull bobbin thread up with left hand
   -> frame at 325.10s (motion 1.7, sharpness 56)
 
-Step 22 [436.5s]: Lower presser foot after sewing to the corner
+Step 28 [353.1s]: Get a clear straight ruler
+  -> frame at 354.10s (motion 2.7, sharpness 54)
+
+Step 29 [365.6s]: Get a seam ripper
+  -> frame at 366.60s (motion 20.6, sharpness 49)  CHECK: POSSIBLE TRANSITION
+
+Step 30 [391.7s]: Face the two layers right sides together
+  -> frame at 393.70s (motion 1.5, sharpness 211)
+
+Step 31 [412.7s]: Add a half inch seam allowance to all projects
+  -> frame at 414.70s (motion 6.5, sharpness 30)
+
+Step 32 [436.5s]: Sew down to the corner and then raise your presser foot
   -> frame at 437.50s (motion 5.4, sharpness 51)
 
-Step 23 [440.0s]: Turn fabric and continue sewing
-  -> frame at 443.00s (motion 9.7, sharpness 57)
+Step 33 [448.9s]: Turn the fabric and continue sewing the other side
+  -> frame at 450.40s (motion 8.4, sharpness 73)
 
-Step 24 [464.5s]: Slide fabric under presser foot
+Step 34 [457.1s]: Have sewing pins or clips
+  -> frame at 458.10s (motion 10.6, sharpness 65)
+
+Step 35 [460.4s]: Use your pins to hold everything in place
+  -> frame at 462.90s (motion 6.6, sharpness 44)
+
+Step 36 [464.5s]: Slide your fabric underneath with presser foot up
   -> frame at 466.50s (motion 4.1, sharpness 52)
 
-Step 25 [468.9s]: Align fabric with seam allowance
+Step 37 [468.9s]: Line it up with your seam allowance
   -> frame at 469.90s (motion 6.3, sharpness 38)
 
-Step 26 [476.5s]: Mark seam lines with chalk or disappearing ink pen
+Step 38 [476.5s]: Mark seam lines with chalk or disappearing ink pen
   -> frame at 478.00s (motion 9.4, sharpness 71)
 
-Step 27 [514.2s]: Measure from the needle to the seam allowance
+Step 39 [498.1s]: Place tape or rubber band for seam allowance marker
+  -> frame at 501.10s (motion 5.8, sharpness 59)
+
+Step 40 [514.2s]: Measure from the needle to your seam allowance
   -> frame at 516.70s (motion 6.0, sharpness 53)
 
-Step 28 [545.8s]: Back stitch whenever you start sewing
+Step 41 [535.1s]: Increase stitch length to the highest number for basting
+  -> frame at 536.60s (motion 10.4, sharpness 124)
+
+Step 42 [545.8s]: Back stitch whenever you start sewing and at the end
   -> frame at 547.30s (motion 8.6, sharpness 38)
 
-Step 29 [553.6s]: Back stitch at the end when you finish sewing
-  -> frame at 556.60s (motion 0.3, sharpness 46)
-
-Step 30 [565.4s]: Sew a couple stitches forward by stepping on your foot pedal
+Step 43 [565.4s]: Sew a couple stitches forward
   -> frame at 566.90s (motion 4.9, sharpness 33)
 
-Step 31 [570.7s]: Sew a few stitches back by holding the back stitch button
+Step 44 [570.7s]: Hold on to back stitch button to sew a few stitches back
   -> frame at 573.20s (motion 6.7, sharpness 29)
 
-Step 32 [574.5s]: Continue sewing the rest of your seam forward
+Step 45 [574.5s]: Continue sewing the rest of your seam forward
   -> frame at 576.50s (motion 9.4, sharpness 44)

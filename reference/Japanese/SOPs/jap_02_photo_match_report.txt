@@ -16,7 +16,7 @@ Step 5 [146.2s]: タフ化防止装置のスイッチを解除しての作業を
   -> frame at 149.20s (motion 0.4, sharpness 427)
 
 Step 6 [150.9s]: 災害を起こせば免許取り消しになる場合もあります
-  -> frame at 153.90s (motion 1.2, sharpness 78)
+  -> frame at 152.40s (motion 5.2, sharpness 422)
 
 Step 7 [167.2s]: 合図者は常にオペレーターから見える位置で行ってください
   -> frame at 169.70s (motion 6.8, sharpness 557)
@@ -37,7 +37,7 @@ Step 12 [253.5s]: 安全装置が作動した場合は、作業は休止して�
   -> frame at 256.50s (motion 0.0, sharpness 553)
 
 Step 13 [259.2s]: 原因を解決した後に、作業を再開しましょう
-  -> frame at 260.70s (motion 0.0, sharpness 145)
+  -> frame at 260.70s (motion 0.0, sharpness 145)  CHECK: SOFT FRAME (blurred, possibly a dissolve)
 
 Step 14 [279.4s]: アウトリガーを確実にセットする
   -> frame at 280.90s (motion 0.1, sharpness 1011)
