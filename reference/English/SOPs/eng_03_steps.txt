@@ -1,18 +1,24 @@
-1. [89.3s] Fire up the drills
-2. [91.9s] Get started by making the two side sub-assemblies
-3. [100.5s] Jam screws in from the outside
-4. [106.0s] Mark screw locations
-5. [111.9s] Drill pilot holes from the outside
-6. [125.5s] Use larger bit to counterbore about an inch down
-7. [136.5s] Apply glue to each joint
-8. [188.8s] Carefully locate the screw holes
-9. [201.3s] Start one side at a time
-10. [216.9s] Keep things from shifting
-11. [398.3s] Cut one-by-fours into slats
-12. [400.8s] Notch outer slats for legs
-13. [401.8s] Draw lines for notching
-14. [412.2s] Use a jigsaw to cut out the notches
-15. [423.9s] Attach the slat to the frame with a single screw
-16. [426.1s] Place a single screw in the middle
-17. [439.4s] Add a little overhang on each side of the top
-18. [453.1s] Bring in the planer to test the finished stand
+1. [51.1s] Get started on the project
+2. [66.3s] Cut all the parts for the primary frame
+3. [91.9s] Fire up the drills
+4. [95.4s] Make the two side sub-assemblies
+5. [100.5s] Jam some screws in from the outside
+6. [111.9s] Drill pilot holes from the outside
+7. [113.7s] Screw travels easily through the first piece
+8. [116.2s] Bites into the adjoining piece
+9. [123.2s] Sink screw pretty deep
+10. [125.5s] Use larger bit to counterbore about an inch down
+11. [136.5s] Each joint will get some glue
+12. [146.6s] Prevent screws from slipping.
+13. [186.4s] Connect these two with the other rails.
+14. [188.8s] Carefully locate the screw holes
+15. [201.3s] Start one side at a time
+16. [204.2s] Use clamps to keep things from shifting
+17. [398.3s] Cut one-by-fours into slats
+18. [400.8s] Notch two outer slats for the legs
+19. [401.8s] Draw lines for notching
+20. [412.2s] Use a jigsaw to cut out the notches
+21. [422.8s] Attach each slat to the frame with a single screw
+22. [426.1s] Insert a single screw in the middle of each board
+23. [439.4s] Add a little overhang on each side of the top
+24. [453.1s] Bring in the planer

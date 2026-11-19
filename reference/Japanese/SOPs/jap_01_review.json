@@ -1,0 +1,138 @@
+{
+  "steps": [
+    {
+      "id": 0,
+      "keep": true,
+      "ts": 68.6,
+      "text": "タイヤは必ず浮かして使う",
+      "details": "",
+      "unclear": false,
+      "photo": 69.6
+    },
+    {
+      "id": 1,
+      "keep": true,
+      "ts": 80.8,
+      "text": "設置する地盤が軟弱では話にならない",
+      "details": "",
+      "unclear": false,
+      "photo": 82.8
+    },
+    {
+      "id": 2,
+      "keep": true,
+      "ts": 112.9,
+      "text": "ジャッキレースがあっても潜り込んでしまう",
+      "details": "",
+      "unclear": false,
+      "photo": 115.9
+    },
+    {
+      "id": 3,
+      "keep": true,
+      "ts": 119.9,
+      "text": "コンクリート蓋の方は一瞬で割れてしまった",
+      "details": "",
+      "unclear": false,
+      "photo": 122.9
+    },
+    {
+      "id": 4,
+      "keep": true,
+      "ts": 139.3,
+      "text": "厚い鉄板を敷いて抜かれないようにしたい",
+      "details": "",
+      "unclear": false,
+      "photo": 140.55
+    },
+    {
+      "id": 5,
+      "keep": true,
+      "ts": 141.1,
+      "text": "木材を使い確実な養生を施す",
+      "details": "",
+      "unclear": false,
+      "photo": 142.1
+    },
+    {
+      "id": 6,
+      "keep": true,
+      "ts": 197.2,
+      "text": "電線に注意する",
+      "details": "",
+      "unclear": false,
+      "photo": 198.2
+    },
+    {
+      "id": 7,
+      "keep": true,
+      "ts": 209.2,
+      "text": "絶縁対策の施されていないレンタル機やリーチ車の使用を避ける",
+      "details": "",
+      "unclear": false,
+      "photo": 210.7
+    },
+    {
+      "id": 8,
+      "keep": true,
+      "ts": 209.2,
+      "text": "慎重な操作をする",
+      "details": "",
+      "unclear": false,
+      "photo": 211.7
+    },
+    {
+      "id": 9,
+      "keep": true,
+      "ts": 259.6,
+      "text": "働く仲間を守り、自分の命を守る",
+      "details": "",
+      "unclear": false,
+      "photo": 261.1
+    }
+  ],
+  "tools": [
+    "アウトリガー",
+    "タイヤ",
+    "ジャッキ",
+    "ジャッキレース",
+    "コンクリート蓋",
+    "厚い鉄板"
+  ],
+  "safety": [
+    "アウトリガーが揺れることに注意を払うよう警告（要確認）",
+    "軟弱地盤では安定性に問題がある（要確認）",
+    "厚い鉄板を敷いて養生する必要がある",
+    "地盤の状況に応じた対策が必要",
+    "電子的な危険性に注意（要確認）",
+    "慎重な操作を要求",
+    "動作中の機械の高さと威力を常に意識（要確認）"
+  ],
+  "translations": {
+    "タイヤは必ず浮かして使う": "Always use the tire inflated.",
+    "設置する地盤が軟弱では話にならない": "Do not use soft ground for setting up.",
+    "ジャッキレースがあっても潜り込んでしまう": "Do not get stuck even if there is a jack race.",
+    "コンクリート蓋の方は一瞬で割れてしまった": "The concrete cover shattered instantly.",
+    "厚い鉄板を敷いて抜かれないようにしたい": "Lay down a thick steel plate to prevent it from sinking.",
+    "木材を使い確実な養生を施す": "Apply ground protection using lumber.",
+    "電線に注意する": "Be careful with the wires.",
+    "絶縁対策の施されていないレンタル機やリーチ車の使用を避ける": "Avoid using rental equipment or reach trucks without insulation measures.",
+    "慎重な操作をする": "Perform careful operations",
+    "働く仲間を守り、自分の命を守る": "Protect your coworkers and your own life.",
+    "アウトリガー": "outrigger",
+    "タイヤ": "tire",
+    "ジャッキ": "jack",
+    "ジャッキレース": "jack race",
+    "コンクリート蓋": "concrete cover",
+    "厚い鉄板": "thick steel plate",
+    "アウトリガーが揺れることに注意を払うよう警告（要確認）": "Be warned to pay attention to the sway of the outrigger. (please verify)",
+    "軟弱地盤では安定性に問題がある（要確認）": "Identify stability issues in soft ground. (please verify)",
+    "厚い鉄板を敷いて養生する必要がある": "Lay down a thick steel plate for ground protection.",
+    "地盤の状況に応じた対策が必要": "Take appropriate measures based on the ground conditions.",
+    "電子的な危険性に注意（要確認）": "Pay attention to electronic dangers. (please verify)",
+    "慎重な操作を要求": "Perform careful operations.",
+    "動作中の機械の高さと威力を常に意識（要確認）": "Always be aware of the height and power of operating machinery. (please verify)"
+  },
+  "title": "jap_01",
+  "title_other": ""
+}

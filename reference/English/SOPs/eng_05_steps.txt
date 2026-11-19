@@ -1,20 +1,24 @@
 1. [74.8s] Blend and pump syrup, water, and sweetener through pipes
-2. [80.4s] Transfer mixture to batch tanks
-3. [86.1s] Carbonate mix with CO2 in votator
-4. [107.8s] Label bottles
-5. [142.0s] Scan bottles for defects
-6. [183.8s] Air removed from bottles
-7. [189.1s] Apply aluminum crown to bottles
-8. [220.6s] Pump mixture into filling lines
-9. [224.9s] Fill cans with mixture
-10. [230.1s] Supervise can seaming process
-11. [269.2s] Cut cardboard to correct length
-12. [274.0s] Shape cardboard to fit bottles
-13. [278.5s] Secure packaging with pre-folded clips
-14. [283.1s] Wrap bottles in shrink film
-15. [296.4s] Pack cans into boxes
-16. [312.2s] Wrap plastic film around boxes
-17. [315.6s] Heat the shrink wrap film
-18. [318.9s] Shrink wrap cans
-19. [355.3s] Wrap sorted cases to keep them stable during transport
-20. [389.2s] Load pallets onto trucks
+2. [86.1s] Infuse mix with carbon dioxide in votator
+3. [93.0s] Rinse bottles thoroughly
+4. [98.1s] Flip bottles upside down
+5. [103.1s] Flip bottles upside down, flush with filtered water, return upright
+6. [174.6s] Fill each bottle with a specific amount of Coca-Cola
+7. [183.2s] Apply caps to bottles using compressed air
+8. [188.5s] Seal caps tightly on bottles
+9. [194.0s] Crimp aluminum crowns onto glass bottles
+10. [210.7s] Cans are prepared and cleaned
+11. [224.2s] Fill cans with mixture
+12. [265.6s] Unwind cardboard from reel
+13. [269.2s] Cut cardboard to correct length
+14. [269.2s] Shape cardboard to fit around bottles
+15. [274.0s] Secure packaging with pre-folded clips
+16. [278.5s] Secure cardboard with pre-folded clips
+17. [287.7s] Apply shrink wrap tightly
+18. [293.5s] Carefully pack cans into sturdy boxes
+19. [312.2s] Wrap plastic film around boxes to secure them for shipping
+20. [318.9s] Heat film to shrink tightly around cans
+21. [322.6s] Sort and stack the bottle cases by automated systems
+22. [359.2s] Wrap sorted cases to keep them stable during transport
+23. [375.1s] Use robots to organize pallets
+24. [389.2s] Load pallets onto trucks

@@ -1,19 +1,40 @@
-1. [49.3s] Get measurements
-2. [49.3s] Start cutting the material on paper
-3. [89.7s] Position a piece of scrap to support the upright while aligning it with a square
-4. [109.2s] Secure legs with screws at each joint
-5. [131.0s] Measure out locations for screws
-6. [134.8s] Pre-drill for screws
-7. [161.5s] Clamp the stretchers in place
-8. [175.8s] Start cutting the 1x4s for the adjustable work support
-9. [186.7s] Make four of these
-10. [357.6s] Cut support piece to length using measurement from work stand
-11. [375.7s] Mark location for screws
-12. [379.9s] Apply glue and drive screws
-13. [395.6s] Pre-drill holes
-14. [397.6s] The top hole goes all way through both pieces
-15. [443.0s] Do that on the other side
-16. [461.6s] Cut two lengths of 3 eighths inch dowel stock
-17. [467.5s] Drill two holes up
-18. [534.2s] Hold the shop vac
-19. [551.3s] Make it a little less messy
+1. [17.2s] Provide support on the other side when feeding material into the planer
+2. [27.9s] Build an adjustable height work stand
+3. [51.7s] Grab the measurements and start cutting the material
+4. [76.2s] Assemble the legs of the stand first
+5. [109.2s] Secure legs with screws at each joint
+6. [127.6s] Install a couple of screws at each joint
+7. [131.0s] Install a couple of stretchers to connect the legs
+8. [131.0s] Measure out the locations for screws
+9. [131.0s] Pre-drill for screws
+10. [161.5s] Clamp the stretchers in place
+11. [166.5s] Drive the screws
+12. [175.8s] Start cutting the 1x4s for the adjustable work support
+13. [186.7s] Cut the 1x4s for the adjustable work support
+14. [186.7s] Make four of these pieces
+15. [197.9s] Glue and screw two pieces to each leg flush with the top
+16. [199.9s] Provide a channel for the upright to travel in
+17. [361.1s] Cut the support piece to length using the measurement from the work stand
+18. [368.7s] Mark the location of the movable vertical pieces
+19. [375.7s] Place the piece with glue and drive screws
+20. [395.6s] Pre-drill before drilling holes
+21. [397.6s] The top hole goes all way through both pieces
+22. [414.4s] Drill a top hole through both pieces
+23. [417.6s] Drill holes on the movable piece, space them as desired
+24. [426.1s] Add seven holes
+25. [430.4s] Add eight holes on the other side
+26. [443.0s] Let's do that on the other side real quick
+27. [461.6s] Cut lengths of 3 eighths inch dowel stock
+28. [462.6s] Drill two holes up
+29. [490.1s] Make the outer holes a little bit bigger
+30. [494.3s] Make the outer holes a little bigger if you have trouble seating the dowel
+31. [497.5s] Give yourself a little bit of room and slack
+32. [500.1s] Find the interior hole
+33. [504.3s] Adjust the spacing and size of the dowel
+34. [508.1s] Change the size of the dowel
+35. [509.9s] Try a different dowel if this is always a little bit off
+36. [513.5s] Try a different hole pattern
+37. [533.2s] Neato potato.
+38. [534.2s] Here like that. [UNCLEAR]
+39. [534.2s] Hold the shop vac
+40. [548.7s] Jason holds the shop vac

@@ -1,0 +1,10 @@
+# Known speech-recognition errors, fixed in the transcript before tools and safety points are
+# extracted. One "wrong -> right" pair per line. Only multi-character phrases, so ordinary words are
+# not changed. Found in the jap_01 to jap_03 outputs.
+タフ化防止装置 -> 過負荷防止装置
+ギフトレバー -> リフトレバー
+ジャッキレース -> ジャッキベース
+共釣り -> 共吊り
+斜め釣り -> 斜め吊り
+釣りに走行 -> 吊り荷走行
+レンタル機やリーチ車 -> レンタル機やリース車

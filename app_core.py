@@ -142,8 +142,30 @@ def load_review(video):
 
 
 def save_review(video, data):
-    with open(paths(video)["review"], "w", encoding="utf-8") as f:
+    """Write through a temporary file so an interrupted save never leaves a half-written review."""
+    path = paths(video)["review"]
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, path)
+
+
+LAST_VIDEO_PATH = os.path.join(ROOT, ".streamlit", "last_video.txt")
+
+
+def last_video():
+    try:
+        with open(LAST_VIDEO_PATH, "r", encoding="utf-8") as f:
+            return f.read().strip() or None
+    except OSError:
+        return None
+
+
+def remember_video(video):
+    if video and video != last_video():
+        os.makedirs(os.path.dirname(LAST_VIDEO_PATH), exist_ok=True)
+        with open(LAST_VIDEO_PATH, "w", encoding="utf-8") as f:
+            f.write(video)
 
 
 def initial_review(video, use_full_steps=False):
@@ -157,7 +179,39 @@ def initial_review(video, use_full_steps=False):
     for i, step in enumerate(steps):
         step["id"] = i
         step["photo"] = picked[i] if picked and picked[i] is not None else round(step["ts"] + 2.0, 2)
+    # steps where the second recogniser disagrees start marked 要確認 (asr_compare.py output, Japanese only)
+    for segment in asr_check(video):
+        owner = step_at(steps, segment["start"])
+        if owner is not None:
+            owner["unclear"] = True
     return {"steps": steps, "tools": tools, "safety": safety}
+
+
+def asr_check(video):
+    """Segments asr_compare.py flagged (large-v3 and ReazonSpeech disagree), or [] if it has not been run."""
+    path = os.path.join(ROOT, "reference", "Japanese", "ASR_compare", f"{video}_asr_compare.json")
+    if language_of(video) != "Japanese" or not os.path.exists(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return [s for s in data["segments"] if s.get("flagged") and s["disagreement"] >= data["flag_threshold"]]
+
+
+def reversed_meaning(video, items):
+    """English only: [(item, transcript sentence)] for items that say the opposite of the speech
+    (polarity_check.py). Works on the current, edited text, so it clears once the item is fixed."""
+    p = paths(video)
+    if p["language"] != "English" or not os.path.exists(p["transcript"]):
+        return []
+    from polarity_check import conflicts
+    with open(p["transcript"], "r", encoding="utf-8") as f:
+        return conflicts([i for i in items if i], f.read())
+
+
+def step_at(steps, t):
+    """The step whose speech covers time t: the last step starting at or before it (steps in any order)."""
+    earlier = [s for s in steps if s.get("ts") is not None and s["ts"] <= t + 0.5]
+    return max(earlier, key=lambda s: s["ts"]) if earlier else None
 
 
 _captures = {}
@@ -293,7 +347,8 @@ def run_stage(script, video, args=()):
     env.setdefault("HF_HOME", os.path.join(ROOT, "hf_cache"))
     env["PYTHONIOENCODING"] = "utf-8"
     process = subprocess.Popen(
-        [sys.executable, "-u", script, video, *args], cwd=ROOT,  # -u: show the script's output as it runs stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        [sys.executable, "-u", script, video, *args], cwd=ROOT,  # -u: show the script's output as it runs
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, encoding="utf-8", errors="replace", env=env,
     )
     for line in process.stdout:

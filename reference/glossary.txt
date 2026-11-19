@@ -69,3 +69,23 @@
 ダボ | dowel
 1×4材 | one-by-four
 2×4材 | 2x4 lumber
+丸のこ | circular saw
+携帯用丸のこ | portable circular saw
+携帯用丸のこ | portable electric circular saw
+丸のこ盤 | circular saw bench
+型枠 | formwork
+釘打ち機 | nail-driving machine
+釘打ち機 | nail gun
+タッカー | tacker
+押し棒 | push rod
+作業開始前点検 | startup inspection
+電工ドラム | electric drum
+高速切断機 | high-speed cutting machine
+研削といし | grindstone
+安全カバー | safety cover
+保護メガネ | protective glasses
+定格電流 | rated current
+プラグを抜く | unplug
+電動ドリル | electric drill
+綿の軍手 | cotton work gloves
+エアホース | air hose

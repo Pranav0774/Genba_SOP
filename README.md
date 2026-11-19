@@ -22,6 +22,13 @@ Supporting files: [`app_core.py`](app_core.py) (app logic), [`translate_text.py`
 
 Accuracy and test tooling from Phase 1 is unchanged: [`wer_check.py`](wer_check.py), [`cer_check.py`](cer_check.py), [`mix_noise_snr.py`](mix_noise_snr.py).
 
+## Japanese accuracy checks without a Japanese reviewer
+
+No Japanese reviewer is available yet, so the video CER figures in `reference\Japanese\Results\` are **provisional**. Two checks stand in until a reviewer is found:
+
+- [`asr_compare.py`](asr_compare.py) `jap_02` transcribes every segment again with ReazonSpeech ([`reazonspeech_asr.py`](reazonspeech_asr.py)), an independent Japanese model, and lists the segments where it disagrees with large-v3 together with the SOP step each one feeds. Output: `reference\Japanese\ASR_compare\` and `reference\Japanese\Transcript_reazonspeech\`. A disagreement means "listen to this", not "this is wrong". Places where ReazonSpeech returned almost nothing are listed separately as "not judged". The review app lists the flagged places on the Steps tab, and steps containing them start marked 要確認.
+- [`fleurs_check.py`](fleurs_check.py) measures CER on the [Google FLEURS](https://huggingface.co/datasets/google/fleurs) Japanese test split using its supplied transcripts (200 sentences by default, `--limit 0` for all). It measures the recogniser on read general Japanese, not factory audio. Output: `reference\Japanese\Results\fleurs_ja_res.txt`.
+
 ## Setup
 
 1. Python 3.14 on Windows, then:
@@ -51,7 +58,7 @@ venv\Scripts\python.exe -m streamlit run app.py
 5. **Translate** – translates the reviewed text into the other language. Every translation is shown for correction. Extend `reference/glossary.txt` when a term comes out wrong.
 6. **Build** – builds the source-language document, the other-language document, or both. Untranslated lines are translated first.
 
-Your edits are saved as `<video>_review.json` when you press Save or Build, and load again next time. Reviewed documents are written as `<video>_SOP_reviewed.docx` and `<video>_SOP_reviewed_en.docx` / `_ja.docx` under `reference\<Language>\SOPs\`.
+Your edits are saved automatically as `<video>_review.json` as soon as you change something (opening a video without editing writes nothing), and load again next time. The app reopens the video you used last. Reviewed documents are written as `<video>_SOP_reviewed.docx` and `<video>_SOP_reviewed_en.docx` / `_ja.docx` under `reference\<Language>\SOPs\`.
 
 ## Running the stages by hand
 
@@ -78,7 +85,7 @@ noise_samples/  factory noise clips for the synthetic noise test set
 ollama_models/, hf_cache/, venv/, tools/ffmpeg/   local models and tools (gitignored)
 ```
 
-## Current status (17 Nov 2026)
+## Current status
 
 **Built and working:** the full pipeline for Japanese and English, the review app, and dual-language output. The app was tested end to end on a new Japanese clip and on all eight project videos.
 
@@ -99,8 +106,8 @@ ollama_models/, hf_cache/, venv/, tools/ffmpeg/   local models and tools (gitign
 - **Translation** is draft quality from a 7B model. Japanese → English is usable; English → Japanese more often needs correcting, and lines the model cannot translate cleanly are left blank for the reviewer.
 - **Photos by timing** are right for most steps, but where the picture changes several seconds after the narration (numbered captions in jap_02) the photo can show the previous step.
 - **Merging** suits demonstration videos only; on rule-list videos it pairs unrelated rules, so it is off by default in the app.
-- The tools/safety grounding filter covers Japanese only.
-- Japanese CER figures for jap_02 and jap_03 are estimates until a spoken-only ground truth is available.
+- The tools/safety grounding filter covers Japanese only. For English, [`polarity_check.py`](polarity_check.py) flags safety points and steps that say the opposite of the speech ("Do not attend training" when the video says "be sure to attend training"); the app shows these in red on the Steps and Tools & safety tabs. It finds reversed instructions only, not other invented content.
+- Japanese CER figures for the videos are provisional until a Japanese reviewer checks the ground truth (jap_02 and jap_03 still contain reviewer notes). FLEURS gives an independent CER for the recogniser itself.
 - Not implemented: denoising, an automated test suite, a single command that runs every stage.
 - The step-splitting model's output varies from run to run.
 

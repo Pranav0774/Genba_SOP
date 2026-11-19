@@ -1,0 +1,160 @@
+ASR second opinion for jap_03: large-v3 (pipeline transcript) vs ReazonSpeech k2-v2
+Segments: 125   flagged: 35   (disagreement >= 35%, or the segment feeds a step marked [UNCLEAR])   not judged (ReazonSpeech lost the speech): 17
+Average disagreement: 36%   ReazonSpeech time: 20 s
+
+A disagreement means 'listen to this', not 'this is wrong': the models often spell the same word
+differently (kanji / kana), and both can mishear the same word.
+
+PROVISIONAL CER against the current ground truth (punctuation ignored). The ground truth still
+contains reviewer notes for jap_02/jap_03, so both figures are too high; compare them with
+each other, not with the 15% target.
+  large-v3 (pipeline)  CER  42.5%   S 223  D 643  I 29
+  ReazonSpeech         CER  51.6%   S 300  D 759  I 29
+
+SOP steps fed by flagged segments (check these during review):
+  Step 1 [33.4s]: サイドブレーキをニュートラルにします
+  Step 2 [71.5s]: マストが台に当たらないくらいまで差します
+  Step 4 [113.3s]: 10センチの高さまで上げます
+  Step 8 [161.3s]: 爪の先端が離れましたら前押し
+  Step 10 [173.7s]: サイドブレーキニュートラルにします
+  Step 11 [196.3s]: バックします
+  Step 14 [237.3s]: 目いっぱい起こします
+  Step 17 [300.7s]: 前押し前押しで前進します
+  Step 19 [323.4s]: サイドブレーキに戻らない
+  Step 20 [331.5s]: 2の水平を確認する
+  Step 21 [355.5s]: 前押し、後押し、前押し、後押し
+  Step 22 [362.5s]: 白線が出ない程度にバックする
+  Step 23 [377.6s]: 火の水でチェックする
+  Step 25 [401.1s]: 平行になりましたら
+  Step 27 [419.2s]: 荷物水平を確認します
+  Step 29 [438.4s]: 爪の先端、鼻の端の方を確認しましたら
+  Step 31 [452.9s]: サイドブレーキ、ミュートラブル
+  Step 32 [458.5s]: 走行姿勢を進めまして
+  Step 33 [482.6s]: 爪の先端を確実につけて
+  Step 35 [491.4s]: シートベルトを外して
+
+FLAGGED SEGMENTS
+[0.8s -> 30.7s]  before the first step  disagreement 93%
+    large-v3:     この辺から説明するといいですか?
+    ReazonSpeech: よしどこら辺から出てきました
+[45.7s -> 48.1s]  step 1  disagreement 59%
+    large-v3:     そうすると、おすすめの水平になります。
+    ReazonSpeech: この数トンはこちらが水平になります
+[58.1s -> 64.5s]  step 1  disagreement 40%
+    large-v3:     2目を差しに行きます
+    ReazonSpeech: 爪を刺しにいきます
+[64.5s -> 65.5s]  step 1  disagreement 83%
+    large-v3:     前押し
+    ReazonSpeech: 前置き前より
+[65.5s -> 66.5s]  step 1  disagreement 100%
+    large-v3:     前押し
+    ReazonSpeech: 大丈夫
+[69.5s -> 71.5s]  step 1  disagreement 57%
+    large-v3:     1目を足します
+    ReazonSpeech: 失礼いたします
+[71.5s -> 79.0s]  step 2  disagreement 47%
+    large-v3:     マストが台に当たらないくらいまで
+    ReazonSpeech: マストに当たらないくらいまでマストが台に当たらないくらいまで
+[79.0s -> 81.0s]  step 2  disagreement 46%
+    large-v3:     接近しまして
+    ReazonSpeech: 暗闇に接近しまして白い
+[87.8s -> 89.6s]  step 2  disagreement 54%
+    large-v3:     サイドブレーキに移られます
+    ReazonSpeech: でサイドブレーキ
+[129.6s -> 132.6s]  step 4  disagreement 62%
+    large-v3:     台の面を向くように下がります
+    ReazonSpeech: 一応タイのつばを目標に下がります
+[165.3s -> 170.3s]  step 8  disagreement 43%
+    large-v3:     今度は広さしめ、深く刺します。
+    ReazonSpeech: 今度は二度刺しめ二つ足します
+[173.7s -> 181.9s]  step 10  disagreement 35%
+    large-v3:     サイドブレーキニュートラルにします
+    ReazonSpeech: それでサイドブレーキニュートします
+[189.9s -> 190.4s]  step 10  disagreement 100%
+    large-v3:     よし
+    ReazonSpeech: 次いきます
+[191.8s -> 195.8s]  step 10  disagreement 47%
+    large-v3:     はい10センチくらいまで上げまして
+    ReazonSpeech: よしはい十cmぐらいまで上げまして
+[198.3s -> 198.8s]  step 11  disagreement 100%
+    large-v3:     前
+    ReazonSpeech: マッ
+[211.0s -> 220.4s]  step 11  disagreement 43%
+    large-v3:     だいたいこれが50台から50センチくらいのところで止まります
+    ReazonSpeech: 大体これが五十歳から五十cmぐらいのところで止まります
+[247.5s -> 249.5s]  step 14  disagreement 80%
+    large-v3:     これが走行姿勢です。
+    ReazonSpeech: はいこれが証拠指定年
+[253.5s -> 255.5s]  step 14  disagreement 62%
+    large-v3:     下ろしていきます。
+    ReazonSpeech: 戻しに来ます
+[264.1s -> 268.1s]  step 14  disagreement 53%
+    large-v3:     大体自分の体を真ん中あたりに当てて
+    ReazonSpeech: 自分の体を真ん中与えんやろね
+[300.7s -> 309.3s]  step 17  disagreement 62%
+    large-v3:     前押し前押しで前進します
+    ReazonSpeech: はいマイオシマイオシで前進します
+[323.4s -> 327.1s]  step 19  disagreement 40%
+    large-v3:     はいまたサイドブレーキに戻らず
+    ReazonSpeech: またサイドブレーキ
+[327.1s -> 328.5s]  step 19  disagreement 50%
+    large-v3:     3の半分
+    ReazonSpeech: 缶の半分これ
+[344.8s -> 346.6s]  step 20  disagreement 75%
+    large-v3:     よしってやります
+    ReazonSpeech: よしピアニマン
+[359.5s -> 362.5s]  step 21  disagreement 75%
+    large-v3:     少しバックします
+    ReazonSpeech: 少し待って
+[362.5s -> 370.1s]  step 22  disagreement 44%
+    large-v3:     白線が出ない程度、ほんの少しですね
+    ReazonSpeech: 拍手には出ないけどほんの少しです
+[390.4s -> 391.6s]  step 23  disagreement 50%
+    large-v3:     前進します
+    ReazonSpeech: 今加勢します
+[411.9s -> 413.2s]  step 25  disagreement 40%
+    large-v3:     この辺でよろしいです
+    ReazonSpeech: のでこの辺でよろしい
+[413.2s -> 415.7s]  step 25  disagreement 67%
+    large-v3:     はいサイドブレーキにエントラル
+    ReazonSpeech: はい最後胸筋ニュートラル
+[422.9s -> 424.7s]  step 27  disagreement 50%
+    large-v3:     よし、よし
+    ReazonSpeech: よし
+[443.8s -> 446.4s]  step 29  disagreement 38%
+    large-v3:     よし、爪を抜きます
+    ReazonSpeech: 船を抜きます
+[452.9s -> 456.1s]  step 31  disagreement 44%
+    large-v3:     またサイドブレーキ、ミュートラブル
+    ReazonSpeech: またサイドブレーキ見劣らず返し
+[463.8s -> 467.0s]  step 32  disagreement 42%
+    large-v3:     踏切を進めまして戻ります
+    ReazonSpeech: よし前を進めて戻ります
+[482.6s -> 486.7s]  step 33  disagreement 47%
+    large-v3:     爪の先端を確実につけて
+    ReazonSpeech: 空の上をセンサーを確実につけて
+[495.0s -> 496.6s]  step 35  disagreement 78%
+    large-v3:     前を後ろに押して
+    ReazonSpeech: ああいうお尻をして
+[497.5s -> 501.3s]  step 35  disagreement 67%
+    large-v3:     以上です
+    ReazonSpeech: 後ろ向きで降りる以上です
+
+NOT JUDGED: ReazonSpeech returned much less text than large-v3, so it gives no second opinion here
+[48.1s] step 1  large-v3: 右側で持ち上げて  |  ReazonSpeech: あ
+[81.0s] step 2  large-v3: 白い点まで差します  |  ReazonSpeech: で最後
+[117.5s] step 4  large-v3: いきますよ  |  ReazonSpeech: はい
+[143.2s] step 4  large-v3: ターンもあかんじゃないです。  |  ReazonSpeech: 三文書管理
+[148.2s] step 6  large-v3: はい、後ろシリアルをチェックして、よし、よし、  |  ReazonSpeech: はい
+[187.8s] step 10  large-v3: はい色水平確認  |  ReazonSpeech: はい
+[196.3s] step 11  large-v3: バックします  |  ReazonSpeech: はい
+[208.7s] step 11  large-v3: はい、止まります  |  ReazonSpeech: はい
+[226.3s] step 12  large-v3: はい、ずっと下ろして  |  ReazonSpeech: はい
+[249.5s] step 14  large-v3: 前押し、後押し、前押し、後押し。  |  ReazonSpeech: はい
+[328.5s] step 19  large-v3: 5センチくらいまで下げます  |  ReazonSpeech: 積
+[355.5s] step 21  large-v3: はい、前押し、後押し、前押し、後押し  |  ReazonSpeech: よし
+[377.6s] step 23  large-v3: 火の水でチェック  |  ReazonSpeech: よし
+[442.0s] step 29  large-v3: はい、よし、前押し  |  ReazonSpeech: か
+[458.5s] step 32  large-v3: はい、走行姿勢を進めまして  |  ReazonSpeech: はい
+[462.2s] step 32  large-v3: はい、踏切を進めます  |  ReazonSpeech: 失礼
+[496.6s] step 35  large-v3: 後ろ向きで降ります  |  ReazonSpeech: そして

@@ -1,0 +1,35 @@
+ASR second opinion for jap_02: large-v3 (pipeline transcript) vs ReazonSpeech k2-v2
+Segments: 49   flagged: 5   (disagreement >= 35%, or the segment feeds a step marked [UNCLEAR])   not judged (ReazonSpeech lost the speech): 0
+Average disagreement: 14%   ReazonSpeech time: 11 s
+
+A disagreement means 'listen to this', not 'this is wrong': the models often spell the same word
+differently (kanji / kana), and both can mishear the same word.
+
+PROVISIONAL CER against the current ground truth (punctuation ignored). The ground truth still
+contains reviewer notes for jap_02/jap_03, so both figures are too high; compare them with
+each other, not with the 15% target.
+  large-v3 (pipeline)  CER  20.1%   S 102  D 129  I 5
+  ReazonSpeech         CER  22.6%   S 110  D 138  I 17
+
+SOP steps fed by flagged segments (check these during review):
+  Step 2 [32.4s]: 点検を確実に実施し、異常があったら補修してください
+  Step 5 [146.2s] [UNCLEAR]: タフ化防止装置のスイッチを解除しての作業をしてはいけません
+  Step 15 [295.4s]: 旋回は低速で
+  Step 17 [310.3s]: 釣りに走行は減速として禁止
+
+FLAGGED SEGMENTS
+[110.2s -> 112.3s]  step 2  disagreement 38%
+    large-v3:     正確相過重症です
+    ReazonSpeech: 生活総過重症です
+[112.3s -> 115.6s]  step 2  disagreement 50%
+    large-v3:     その機体形状の負荷をかけると
+    ReazonSpeech: その額をかけると
+[146.2s -> 150.9s]  step 5  disagreement 16%  step marked [UNCLEAR]
+    large-v3:     そしてタフ化防止装置のスイッチを解除しての作業をしてはいけません
+    ReazonSpeech: そして落下防止装置のスイッチを配備しての作業をしてはいけません
+[295.4s -> 302.2s]  step 15  disagreement 71%
+    large-v3:     4.旋回は低速で
+    ReazonSpeech: 四天海は定則で
+[310.3s -> 318.1s]  step 17  disagreement 43%
+    large-v3:     6.釣りに走行は減速として禁止
+    ReazonSpeech: ルス六輪走行は原則として禁止

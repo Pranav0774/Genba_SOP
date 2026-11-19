@@ -1,0 +1,307 @@
+{
+  "steps": [
+    {
+      "id": 0,
+      "keep": true,
+      "ts": 35.2,
+      "text": "Plug the power cord into the machine",
+      "details": "",
+      "unclear": false,
+      "photo": 37.2
+    },
+    {
+      "id": 1,
+      "keep": true,
+      "ts": 49.3,
+      "text": "Turn the machine on",
+      "details": "",
+      "unclear": false,
+      "photo": 51.3
+    },
+    {
+      "id": 2,
+      "keep": true,
+      "ts": 104.7,
+      "text": "Reach hand behind to press lever to release foot",
+      "details": "",
+      "unclear": false,
+      "photo": 106.7
+    },
+    {
+      "id": 3,
+      "keep": true,
+      "ts": 109.6,
+      "text": "Slide presser foot underneath and push middle bar until it clicks in place",
+      "details": "",
+      "unclear": false,
+      "photo": 111.6
+    },
+    {
+      "id": 4,
+      "keep": true,
+      "ts": 124.1,
+      "text": "Raise and lower presser foot by reaching to back and pulling down or pushing up lever",
+      "details": "",
+      "unclear": false,
+      "photo": 126.1
+    },
+    {
+      "id": 5,
+      "keep": true,
+      "ts": 164.6,
+      "text": "Grab your empty bobbin",
+      "details": "",
+      "unclear": false,
+      "photo": 166.6
+    },
+    {
+      "id": 6,
+      "keep": true,
+      "ts": 183.7,
+      "text": "Place bobbin on stub",
+      "details": "",
+      "unclear": false,
+      "photo": 185.7
+    },
+    {
+      "id": 7,
+      "keep": true,
+      "ts": 195.3,
+      "text": "Turn the handwheel to enable bobbin threading",
+      "details": "",
+      "unclear": false,
+      "photo": 197.3
+    },
+    {
+      "id": 8,
+      "keep": true,
+      "ts": 204.7,
+      "text": "Follow the arrow to bring the thread around the bobbin",
+      "details": "",
+      "unclear": false,
+      "photo": 206.7
+    },
+    {
+      "id": 9,
+      "keep": true,
+      "ts": 210.9,
+      "text": "Wrap the thread around the bobbin a few times",
+      "details": "",
+      "unclear": false,
+      "photo": 212.9
+    },
+    {
+      "id": 10,
+      "keep": true,
+      "ts": 226.5,
+      "text": "Use the thread cutter after wrapping",
+      "details": "",
+      "unclear": false,
+      "photo": 228.5
+    },
+    {
+      "id": 11,
+      "keep": true,
+      "ts": 231.1,
+      "text": "Place the thread in one of the bobbin holes",
+      "details": "",
+      "unclear": false,
+      "photo": 233.1
+    },
+    {
+      "id": 12,
+      "keep": true,
+      "ts": 241.2,
+      "text": "Step on the foot pedal to start winding the bobbin",
+      "details": "",
+      "unclear": false,
+      "photo": 243.2
+    },
+    {
+      "id": 13,
+      "keep": true,
+      "ts": 253.7,
+      "text": "Switch the stub to the other side when the bobbin is full",
+      "details": "",
+      "unclear": false,
+      "photo": 255.7
+    },
+    {
+      "id": 14,
+      "keep": true,
+      "ts": 264.9,
+      "text": "Pull out thread from the bobbin",
+      "details": "",
+      "unclear": false,
+      "photo": 266.9
+    },
+    {
+      "id": 15,
+      "keep": true,
+      "ts": 294.0,
+      "text": "Turn hand wheel to move the metal hook up",
+      "details": "",
+      "unclear": false,
+      "photo": 296.0
+    },
+    {
+      "id": 16,
+      "keep": true,
+      "ts": 298.4,
+      "text": "Bring thread down to the needle and secure behind the hook",
+      "details": "",
+      "unclear": false,
+      "photo": 300.4
+    },
+    {
+      "id": 17,
+      "keep": true,
+      "ts": 308.1,
+      "text": "Hold thread with left hand",
+      "details": "",
+      "unclear": false,
+      "photo": 310.1
+    },
+    {
+      "id": 18,
+      "keep": true,
+      "ts": 313.6,
+      "text": "Turn hand wheel with right hand",
+      "details": "",
+      "unclear": false,
+      "photo": 315.6
+    },
+    {
+      "id": 19,
+      "keep": true,
+      "ts": 318.1,
+      "text": "Tug top thread while turning wheel",
+      "details": "",
+      "unclear": false,
+      "photo": 320.1
+    },
+    {
+      "id": 20,
+      "keep": true,
+      "ts": 323.1,
+      "text": "Pull bobbin thread up with left hand",
+      "details": "",
+      "unclear": false,
+      "photo": 325.1
+    },
+    {
+      "id": 21,
+      "keep": true,
+      "ts": 436.5,
+      "text": "Lower presser foot after sewing to the corner",
+      "details": "",
+      "unclear": false,
+      "photo": 438.5
+    },
+    {
+      "id": 22,
+      "keep": true,
+      "ts": 440.0,
+      "text": "Turn fabric and continue sewing",
+      "details": "",
+      "unclear": false,
+      "photo": 442.0
+    },
+    {
+      "id": 23,
+      "keep": true,
+      "ts": 464.5,
+      "text": "Slide fabric under presser foot",
+      "details": "",
+      "unclear": false,
+      "photo": 466.5
+    },
+    {
+      "id": 24,
+      "keep": true,
+      "ts": 468.9,
+      "text": "Align fabric with seam allowance",
+      "details": "",
+      "unclear": false,
+      "photo": 470.9
+    },
+    {
+      "id": 25,
+      "keep": true,
+      "ts": 476.5,
+      "text": "Mark seam lines with chalk or disappearing ink pen",
+      "details": "",
+      "unclear": false,
+      "photo": 478.5
+    },
+    {
+      "id": 26,
+      "keep": true,
+      "ts": 514.2,
+      "text": "Measure from the needle to the seam allowance",
+      "details": "",
+      "unclear": false,
+      "photo": 516.2
+    },
+    {
+      "id": 27,
+      "keep": true,
+      "ts": 545.8,
+      "text": "Back stitch whenever you start sewing",
+      "details": "",
+      "unclear": false,
+      "photo": 547.8
+    },
+    {
+      "id": 28,
+      "keep": true,
+      "ts": 553.6,
+      "text": "Back stitch at the end when you finish sewing",
+      "details": "",
+      "unclear": false,
+      "photo": 555.6
+    },
+    {
+      "id": 29,
+      "keep": true,
+      "ts": 565.4,
+      "text": "Sew a couple stitches forward by stepping on your foot pedal",
+      "details": "",
+      "unclear": false,
+      "photo": 567.4
+    },
+    {
+      "id": 30,
+      "keep": true,
+      "ts": 570.7,
+      "text": "Sew a few stitches back by holding the back stitch button",
+      "details": "",
+      "unclear": false,
+      "photo": 572.7
+    },
+    {
+      "id": 31,
+      "keep": true,
+      "ts": 574.5,
+      "text": "Continue sewing the rest of your seam forward",
+      "details": "",
+      "unclear": false,
+      "photo": 576.5
+    }
+  ],
+  "tools": [
+    "Sewing machine",
+    "Sewing thread",
+    "Schmetz Universal needles",
+    "Bobbin",
+    "Fabric scissors",
+    "Straight ruler",
+    "Tape measure",
+    "Seam ripper",
+    "Gutermann 100% polyester thread"
+  ],
+  "safety": [
+    "None mentioned in transcript"
+  ],
+  "translations": {}
+}

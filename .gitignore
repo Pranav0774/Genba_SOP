@@ -6,3 +6,5 @@ hf_cache/
 __pycache__/
 tools/
 ollama_models/
+/fleurs/
+.streamlit/last_video.txt

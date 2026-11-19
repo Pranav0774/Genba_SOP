@@ -1,1 +1,10 @@
-No changes: every tool and safety point is supported.
+CORRECTED 3x: タフ化防止装置 -> 過負荷防止装置
+CORRECTED 1x: 共釣り -> 共吊り
+CORRECTED 1x: 斜め釣り -> 斜め吊り
+CORRECTED 1x: 釣りに走行 -> 吊り荷走行
+TOOL removed, not in the transcript: 无線
+TOOL added from the vocabulary list: ラフテレーンクレーン (said as ラフテレーンクレーン)
+TOOL added from the vocabulary list: 過負荷防止装置 (said as 過負荷防止装置)
+TOOL added from the vocabulary list: 敷鉄板 (said as 敷鉄板)
+TOOL added from the vocabulary list: 防護管 (said as 防護管)
+TOOL added from the vocabulary list: 無線 (said as 無線)

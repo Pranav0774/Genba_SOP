@@ -51,6 +51,8 @@ _CJK = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
 _KANA = re.compile(r"[\u3040-\u30ff]")
 _DIMENSIONS = re.compile(r"\d+\s*[x×]\s*\d+")
 _LOWERCASE_LATIN = re.compile(r"[a-z]")
+_UPPERCASE_WORD = re.compile(r"[A-Z]{2,}")
+_SPACED_CJK = re.compile(r"[぀-ヿ㐀-鿿] (?=[぀-ヿ㐀-鿿])")
 
 _glossary = None
 
@@ -86,7 +88,7 @@ def glossary_hints(text, source):
     return "Use these terms where they apply:\n" + "\n".join(found[:8]) + "\n"
 
 
-def _valid(translation, target, kind):
+def _valid(translation, target, kind, source_text=""):
     if not translation:
         return False
     if target == "English":
@@ -97,7 +99,18 @@ def _valid(translation, target, kind):
         return False
     if _LOWERCASE_LATIN.search(_DIMENSIONS.sub("", translation)):
         return False  # English words left inside the Japanese
+    if any(word not in source_text for word in _UPPERCASE_WORD.findall(translation)):
+        return False  # "PEOPLE 方向に..." - a capitalised English word the source does not contain
+    if len(_SPACED_CJK.findall(translation)) >= 2:
+        return False  # "方 向 に 插 電 源" - characters spaced out one by one, a broken answer
     return kind == "term" or bool(_KANA.search(translation))
+
+
+def is_acceptable(translation, source_text, target, kind="sentence"):
+    """Whether a saved translation would pass today's checks (the review mark is ignored)."""
+    plain = (translation or "").replace(VERIFY_MARK_JA, "").replace(VERIFY_MARK_EN, "").strip()
+    source = source_text.replace(VERIFY_MARK_JA, "").replace("要確認", "").strip()
+    return _valid(plain, target, kind, source)
 
 
 def _ask(prompt, seed):
@@ -136,7 +149,7 @@ def translate_line(text, source, target, kind="sentence"):
             from japanese_text import to_japanese_kanji
 
             translation = to_japanese_kanji(translation)
-        if _valid(translation, target, kind):
+        if _valid(translation, target, kind, plain):
             if verify:
                 translation += VERIFY_MARK_JA if target == "Japanese" else VERIFY_MARK_EN
             return translation, True

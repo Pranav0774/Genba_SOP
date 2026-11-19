@@ -1,0 +1,40 @@
+# Japanese Genba equipment names, used to find tools and materials in the transcript.
+# One item per line. "Name: variant, variant" means any variant found is listed under Name.
+# Built from genba_vocabulary.txt (physical items only) plus common equipment names for forklifts,
+# cranes and aerial work platforms. Note: written after seeing the jap_01 to jap_03 results, so
+# Japanese A5 scores with this list are development scores, not an independent test.
+高所作業車
+ブーム
+アウトリガー
+ジャッキベース
+ジャッキ
+敷鉄板: 敷鉄板, 鉄板, 敷板
+木材
+フォークリフト
+リーチ車
+クレーン
+ラフテレーンクレーン
+ホイールクレーン
+爪（フォーク）: 爪, ツメ, フォーク
+マスト
+パレット
+リフトレバー
+チルトレバー
+サイドブレーキ
+駐車ブレーキ
+チェーン
+シートベルト
+エンジン
+過負荷防止装置
+安全装置
+定格総荷重表
+無線
+防護管
+運転資格証
+ヘルメット: ヘルメット, 保護帽
+安全帯
+保護具
+保護メガネ
+手袋: 手袋, 軍手
+ワイヤーロープ
+玉掛け用具

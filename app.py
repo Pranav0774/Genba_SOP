@@ -1,5 +1,7 @@
 import hashlib
+import json
 import os
+import time
 
 import cv2
 import pandas as pd
@@ -64,6 +66,13 @@ def duration_of(video_path):
     return core.video_duration(video_path)
 
 
+def show_reversed(found):
+    """Warn about lines that say the opposite of the video (English, polarity_check.py)."""
+    for item, sentence in found:
+        st.error(f"**This line may say the opposite of the video:** {item}  \n"
+                 f"The video says: *{sentence}*  \nFix the line; this warning disappears when it matches.")
+
+
 def load_video_state(video, use_saved=True):
     review = (core.load_review(video) if use_saved else None) or core.initial_review(video)
     st.session_state.review = review
@@ -87,7 +96,8 @@ videos = core.list_videos()
 if "pending_video" in st.session_state:  # set by the upload button, before the selector is drawn
     st.session_state.video = st.session_state.pop("pending_video")
 if "video" not in st.session_state and videos:
-    st.session_state.video = videos[0]
+    previous = core.last_video()
+    st.session_state.video = previous if previous in videos else videos[0]
 
 with st.sidebar:
     st.header("Video")
@@ -110,6 +120,7 @@ if not video:
 
 if st.session_state.get("loaded_video") != video:
     load_video_state(video)
+    core.remember_video(video)
 
 review = st.session_state.review
 paths = core.paths(video)
@@ -197,6 +208,19 @@ with tab_steps:
     steps = rows_from_df(edited)
     kept = [s for s in steps if s["keep"]]
     st.write(f"{len(kept)} steps will appear in the document ({len(steps) - len(kept)} left out).")
+    show_reversed(core.reversed_meaning(video, [s["text"] for s in kept]))
+
+    asr_flags = core.asr_check(video)
+    if asr_flags:
+        with st.expander(f"Second speech-recognition check: {len(asr_flags)} place(s) to listen to"):
+            st.caption("ReazonSpeech, a second Japanese recogniser, heard these places differently from the "
+                       "transcript the steps came from. Either can be right; play the video at that time. "
+                       "Steps that contain them start marked 要確認.")
+            for seg in asr_flags:
+                owner = core.step_at(steps, seg["start"])
+                where = f"step at {owner['ts']:.1f} s: {owner['text']}" if owner else "before the first step"
+                st.markdown(f"**{seg['start']:.1f} s** · {where}  \n"
+                            f"transcript: {seg['whisper']}  \nReazonSpeech: {seg['reazonspeech']}")
 
 # ---------------------------------------------------------------- 3 tools and safety
 with tab_tools:
@@ -208,6 +232,7 @@ with tab_tools:
     safety_text = st.text_area("One point per line", "\n".join(review["safety"]), height=300,
                                key=f"safety_{video}_{st.session_state.version}")
     tools, safety = lines_of(tools_text), lines_of(safety_text)
+    show_reversed(core.reversed_meaning(video, safety))
 
 # ---------------------------------------------------------------- 4 photos
 with tab_photos:
@@ -282,7 +307,23 @@ with tab_translate:
     missing = [item for item in items if item[0] not in translations]
     st.write(f"{len(items)} lines to translate · {len(items) - len(missing)} already translated")
 
-    if st.button(f"Translate {len(missing)} line(s) into {target_language}", disabled=not missing, type="primary"):
+    # empty lines, and saved translations that fail the current checks (English left in, spaced-out characters)
+    empty = [text for text, kind in items if text in translations
+             and not translate_text.is_acceptable(translations[text], text, target_language, kind)]
+    redo_left, redo_right, _ = st.columns([1, 1, 2])
+    if redo_left.button(f"Try the {len(empty)} empty or broken line(s) again", disabled=not empty):
+        for text in empty:
+            translations.pop(text, None)
+        missing = [item for item in items if item[0] not in translations]
+        st.session_state.translate_now = True
+    if redo_right.button("Translate everything again", help="Replaces all translations, including your corrections"):
+        for text, _ in items:
+            translations.pop(text, None)
+        missing = list(items)
+        st.session_state.translate_now = True
+
+    clicked = st.button(f"Translate {len(missing)} line(s) into {target_language}", disabled=not missing, type="primary")
+    if clicked or st.session_state.pop("translate_now", False):
         if not core.ollama_running():
             st.error("Ollama is not running. Start it, then try again.")
         else:
@@ -349,9 +390,23 @@ with tab_build:
                    "Building will translate them first (a few seconds per line). "
                    "Check the result on the Translate tab afterwards.")
 
+    # Autosave: the first payload after loading is the baseline; any later change is written straight away,
+    # so nothing is lost if the browser tab is closed. Opening a video without editing writes nothing.
+    snapshot = json.dumps(payload, ensure_ascii=False, sort_keys=True, default=str)
+    base_key = f"autosave_base_{video}_{st.session_state.version}"
+    if base_key not in st.session_state:
+        st.session_state[base_key] = snapshot
+    elif snapshot != st.session_state[base_key]:
+        core.save_review(video, payload)
+        st.session_state[base_key] = snapshot
+        st.session_state.autosaved_at = time.strftime("%H:%M:%S")
+    if st.session_state.get("autosaved_at"):
+        st.caption(f"Changes saved automatically at {st.session_state.autosaved_at}.")
+
     c1, c2 = st.columns(2)
     if c1.button("Save my review"):
         core.save_review(video, payload)
+        st.session_state[base_key] = snapshot
         st.success("Saved. It will be loaded again next time you open this video.")
     if c2.button("Build the Word document(s)", type="primary"):
         can_build = True

@@ -8,6 +8,8 @@
 
 # speech to text
 faster-whisper==1.2.1
+# second Japanese recogniser (ReazonSpeech) for asr_compare.py / fleurs_check.py
+sherpa-onnx==2.0.1
 
 # accuracy checks (WER / CER)
 jiwer==4.0.0

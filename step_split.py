@@ -39,12 +39,13 @@ STRICT RULES - follow these exactly:
    - Video/channel meta-commentary ("thanks for watching", "subscribe", "we'll provide plans", "link in description")
    - Restating or previewing what will happen without describing how to do it right now
    - Single-word or filler exclamations ("Mm.", "Flat.", "Okay.")
-3. If in doubt whether something is a real actionable step, DISCARD it. A shorter, cleaner list is much better than an overly long one.
+3. Instructions are often phrased indirectly. KEEP them as steps, for example: "you have to ...", "you also need to ...", "use your ... to ...", "make sure ...", "first ...", "I'll ...", "let's add ...", "next I ...". A choice or setting the worker must make (which size, which setting) is a step too.
+   Product recommendations, shopping advice and tips about what to buy are NOT steps.
 4. Every step you DO keep must start with its timestamp in square brackets, e.g. "[12.3s] Step text". Do NOT number the steps yourself.
 5. Write each kept step as a short imperative instruction, removing filler words.
 6. If a kept step is ambiguous or unclear, mark it with "[UNCLEAR]" at the end.
 
-A typical chunk of 8 transcript segments usually yields somewhere between 0 and 4 real steps - many chunks may yield ZERO steps if nothing actionable was said in that window. That is expected and correct.
+A chunk of 8 transcript segments usually yields between 0 and 4 real steps. Chunks of only talk, sponsor reads or shopping advice yield ZERO steps. But do not skip an instruction just because it is short or phrased as advice: go through every segment and include each distinct action that is said.
 
 Example of correct output format:
 [0.2s] Introduce the ultrasound machine being demonstrated
@@ -110,9 +111,28 @@ def parse_segments(raw_text):
     return segments
 
 
-def chunk_segments(segments, chunk_size):
-    for i in range(0, len(segments), chunk_size):
+def chunk_segments(segments, chunk_size, stride=None):
+    """Windows of chunk_size segments. With a stride smaller than chunk_size the windows overlap, so an
+    instruction at the edge of a window that is mostly talk (for example right after a sponsor read)
+    is also seen in a window that is mostly instructions."""
+    stride = stride or chunk_size
+    for i in range(0, len(segments), stride):
         yield segments[i:i + chunk_size]
+        if i + chunk_size >= len(segments):
+            break
+
+
+def drop_overlap_duplicates(steps, max_gap=3.0, min_ratio=0.6):
+    """Overlapping windows return the same step twice. Keep the first of two steps that are close in
+    time and worded alike."""
+    kept = []
+    for ts, text in sorted(steps, key=lambda x: x[0]):
+        words = text.lower()
+        if any(abs(ts - k_ts) <= max_gap and difflib.SequenceMatcher(None, words, k_text.lower()).ratio() >= min_ratio
+               for k_ts, k_text in kept):
+            continue
+        kept.append((ts, text))
+    return kept
 
 
 def segments_to_transcript_text(segments):
@@ -151,6 +171,8 @@ CONSOLIDATE_PROMPT_TEMPLATE = """Below is a draft list of SOP steps extracted fr
 Some of these may NOT be genuine physical actions - they could be leftover jokes, sponsor/product mentions, meta-commentary ("thanks for watching"), or vague statements that don't describe a real action.
 
 Review the list and output ONLY the entries that describe a genuine, actionable physical step someone would follow to perform the task. Remove everything else. Keep the original timestamp and wording for the ones you keep - do not rewrite them.
+
+Also remove: entries that only explain a reason or a result and contain no action; filler that announces work without saying what to do (e.g. "Let's begin"); shopping or buying advice (e.g. "Buy a good pair of gloves"); and an entry that repeats the one just before it.
 
 IMPORTANT: testing, trying out, or verifying the finished build (e.g. "try it out with the planer", "test run with the planer", "assign someone to hold the shop vac for dust collection") is a genuine, valuable final step, NOT commentary - keep entries like this. Only remove entries that are actual jokes, sponsor reads, or meta-commentary about the video itself, not steps about validating the finished product.
 
@@ -253,7 +275,9 @@ if __name__ == "__main__":
     print(f"Parsed {len(segments)} transcript segments")
 
     all_steps = []
-    chunks = list(chunk_segments(segments, SEGMENTS_PER_CHUNK))
+    # English: windows overlap by half (stride 4 of 8). Japanese keeps its large non-overlapping chunks.
+    stride = SEGMENTS_PER_CHUNK // 2 if LANGUAGE == "English" else SEGMENTS_PER_CHUNK
+    chunks = list(chunk_segments(segments, SEGMENTS_PER_CHUNK, stride))
     print(f"Processing in {len(chunks)} chunk(s) of up to {SEGMENTS_PER_CHUNK} segments each...")
 
     for i, chunk in enumerate(chunks, 1):
@@ -276,6 +300,10 @@ if __name__ == "__main__":
             f.write("\n".join(f"[{ts:.1f}s] {text}" for ts, text in sorted(all_steps)))
 
     all_steps.sort(key=lambda x: x[0])
+    if LANGUAGE == "English":
+        before = len(all_steps)
+        all_steps = drop_overlap_duplicates(all_steps)
+        print(f"\nRemoved {before - len(all_steps)} duplicate(s) from overlapping windows")
     print(f"\nDraft steps before consolidation: {len(all_steps)}")
     for ts, text in all_steps:
         print(f"  [{ts:.1f}s] {text}")

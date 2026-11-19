@@ -1,4 +1,5 @@
-SAFETY marked 要確認, weak support in the transcript (41%): アウトリガーが揺れることに注意を払うよう警告
-SAFETY marked 要確認, weak support in the transcript (47%): 軟弱地盤では安定性に問題がある
-SAFETY marked 要確認, weak support in the transcript (20%): 電子的な危険性に注意
-SAFETY marked 要確認, weak support in the transcript (35%): 動作中の機械の高さと威力を常に意識
+CORRECTED 1x: ジャッキレース -> ジャッキベース
+CORRECTED 1x: レンタル機やリーチ車 -> レンタル機やリース車
+SAFETY marked 要確認, weak support in the transcript (33%): 悲劇は無造作な操作から生まれる可能性がある。
+TOOL added from the vocabulary list: ブーム (said as ブーム)
+TOOL added from the vocabulary list: 木材 (said as 木材)

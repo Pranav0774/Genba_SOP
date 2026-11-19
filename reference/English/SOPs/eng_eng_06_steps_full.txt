@@ -1,0 +1,18 @@
+1. [39.1s] Identify an unsafe practice: worker wearing cotton work gloves
+2. [59.6s] Work on a stable platform.
+3. [66.2s] If abnormal noise occurs, stop working.
+4. [75.1s] Check the cable position before start cutting.
+5. [80.0s] Turn off the power when moving the portable electric circular saw.
+6. [85.7s] Release immediately when the blade becomes not sharp.
+7. [124.8s] Keep hands away from safety cover
+8. [142.9s] Release immediately when blade becomes dull
+9. [152.9s] Use push rods when cutting slender objects
+10. [161.9s] Use a hand saw for the rework of formwork in narrow spaces
+11. [191.4s] Inspect and maintain the safety cover
+12. [203.4s] Cut with an electric circular saw on a stable work bench
+13. [271.2s] Stop using when there is abnormal sound or abnormal vibration in use
+14. [319.9s] Carry out the startup inspection before starting the work
+15. [340.4s] Do not move a tacker or nail-driving machine with a finger on the trigger
+16. [354.4s] Remove the air hose when work is interrupted
+17. [370.6s] Stop using if something abnormal is felt
+18. [396.8s] Do not put your hand in the direction of the nail.

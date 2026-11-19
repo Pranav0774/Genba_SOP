@@ -86,6 +86,7 @@ elif LANGUAGE == "japanese":
     result_lines = [
         f"Character Error Rate: {error * 100:.2f}%" + (" (punctuation ignored)" if STRIP_JAPANESE_PUNCTUATION else ""),
         f"(Target for Japanese videos: <= 15%)",
+        "PROVISIONAL until the ground truth is checked by a Japanese reviewer.",
         "",
         f"Substitutions: {output.substitutions}",
         f"Deletions: {output.deletions}",

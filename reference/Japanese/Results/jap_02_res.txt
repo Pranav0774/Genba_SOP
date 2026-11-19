@@ -1,3 +1,5 @@
+PROVISIONAL: the ground truth has not been checked by a Japanese reviewer (jap_02/jap_03 still contain reviewer notes). See reference/Japanese/ASR_compare/ for the second-recogniser check and Results/fleurs_ja_res.txt for the FLEURS check.
+
 Character Error Rate: 27.24%
 (Target for Japanese videos: <= 15%)
 
