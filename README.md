@@ -31,6 +31,8 @@ No Japanese reviewer is available yet, so the video CER figures in `reference\Ja
 
 ## Setup
 
+Step-by-step guide for a new machine: [SETUP_GUIDE.md](SETUP_GUIDE.md). Short version:
+
 1. Python 3.14 on Windows, then:
    ```
    python -m venv venv
